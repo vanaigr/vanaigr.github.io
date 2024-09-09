@@ -1,0 +1,57 @@
+html {
+    --link-color: #0092ff;
+    --bg-color-light: white;
+    --text-color-light: #202020;
+    --bg-color-dark: #202020;
+    --text-color-dark: #f8f8f8;
+    --bg-color: var(--bg-color-light);
+    --text-color: var(--text-color-light);
+}
+
+@media (prefers-color-scheme: dark) {
+    html {
+        --bg-color: var(--bg-color-dark);
+        --text-color: var(--text-color-dark);
+    }
+}
+
+html {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    background-color: var(--bg-color);
+    font-family: "Open Sans", sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.cont {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+}
+.top {
+    flex: 1 1 0px;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+}
+.bottom {
+    flex: 1 0 2em;
+    display: flex;
+    flex-direction: column;
+}
+span { font-size: 5em; color: var(--text-color); }
+a { font-size: 2.5em; }
+
+.link {
+    color: var(--link-color);
+    text-decoration: none;
+}
+.link:hover { text-decoration: underline; filter: brightness(110%); }
