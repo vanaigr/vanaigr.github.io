@@ -1,7 +1,7 @@
 import R from 'react'
 import RDD from 'react-dom'
 import RD from 'react-dom/client'
-import * as RR from 'react-router'
+import * as Z from 'zustand'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -14,49 +14,153 @@ import * as D from './data'
 
 library.add({ faGithub })
 
-const router = RR.createBrowserRouter([
-    {
-        Component: Wrapper,
-        children: [
-            {
-                path: '/',
-                Component: App,
-                //Component: () => <Dialog it={D.projects.minceraft} close={() => {}}/>,
-            },
-            {
-                path: '/contact',
-                Component: Contact,
-            },
-        ]
-    },
-])
-
 const root = RD.createRoot(document.getElementById('root')!)
-root.render(<RR.RouterProvider router={router}/>)
+root.render(<Router/>)
 
-function Wrapper() {
+const order = ['index', 'contact'] as const
+type Page = (typeof order)[number]
+
+type Location = {
+    prev: Page
+    cur: Page
+    transition: 'left' | 'right' | undefined
+}
+
+function getPage(pathname: string): Page {
+    const p = pathname
+    if(p === '/contact') {
+        return 'contact'
+    }
+    else {
+        return 'index'
+    }
+}
+function getPathname(page: Page) {
+    if(page === 'index') return '/'
+    else return '/contact'
+}
+
+type LocationStore = Z.UseBoundStore<Z.StoreApi<Location>>
+const locationContext = R.createContext<LocationStore>(undefined as never)
+function useLocation() {
+    return R.useContext(locationContext)
+}
+
+function Router() {
+    const store = R.useState(() => {
+        const loc = getPage(window.location.pathname)
+        return Z.create<Location>(() => {
+            return { prev: loc, cur: loc, transition: undefined }
+        })
+    })[0]
+    R.useEffect(() => {
+        const listener = () => {
+            const loc = getPage(window.location.pathname)
+            updDirection(loc, store)
+        }
+        window.addEventListener('popstate', listener)
+        return () => window.removeEventListener('popstate', listener)
+    }, [])
+
+    return <locationContext.Provider value={store}>
+        <RouterInner/>
+    </locationContext.Provider>
+}
+
+function RouterInner() {
+    const location = useLocation()
+    const loc = location(it => it.cur)
+    if(loc === 'index') {
+        return <Wrapper><App/></Wrapper>
+    }
+    else {
+        return <Wrapper><Contact/></Wrapper>
+    }
+}
+
+function updDirection(newP: Page, location: LocationStore) {
+    const p = location.getState().cur
+
+    const newI = order.indexOf(newP)
+    const curI = order.indexOf(p)
+    if(curI !== newI) {
+        const res = animate(() => {
+            const transition = newI < curI ? 'left' : 'right'
+            RDD.flushSync(() => {
+                location.setState({ transition })
+            })
+            RDD.flushSync(() => {
+                location.setState({ prev: p, cur: newP, transition }, true)
+            })
+        })
+
+        if(res) {
+            res.finished.then(() => {
+                location.setState({ transition: undefined })
+            })
+        }
+        return
+    }
+
+    location.setState({
+        prev: p,
+        cur: newP,
+        transition: undefined,
+    }, true)
+}
+
+function Wrapper({ children }: { children: R.ReactNode }) {
+    const location = useLocation()
+
     return <div className={s.app}>
         <div className={s.header}>
-            <RR.Link
+            <a
                 className={s.headerLink}
-                to='/'
+                href='/'
                 style={{ textDecoration: 'underline' }}
+                onClick={it => {
+                    it.preventDefault()
+                    updDirection('index', location)
+                    history.pushState({}, '', getPathname('index'))
+                }}
             >
                 <div>Programming</div>
-            </RR.Link>
-            <RR.Link
+            </a>
+            <a
                 className={s.headerLink}
-                to='/contact'
+                onClick={it => {
+                    it.preventDefault()
+                    updDirection('contact', location)
+                    history.pushState({}, '', getPathname('contact'))
+                }}
+                href='/contact'
             >
                 <div>Contact</div>
-            </RR.Link>
+            </a>
         </div>
-        <RR.Outlet/>
+        {children}
     </div>
 }
 
+function useTransitionDirection(name: Page, location: LocationStore) {
+    const cur = location(it => it.cur)
+    const dir = location(it => it.transition)
+    if(dir) {
+        return {
+            viewTransitionName: 'screen-' + dir + '-' + (cur === name ? 'to' : 'from'),
+        }
+    }
+    else {
+        return {}
+    }
+}
+
 function App() {
-    return <div className={s.body}>
+    const location = useLocation()
+    const dir = useTransitionDirection('index', location)
+    console.log('index direction', dir)
+
+    return <div className={s.body} style={dir}>
         <div className={s.appSpacer}/>
         <div className={s.categories}>
             {D.categories.map((it, i) => {
@@ -98,8 +202,8 @@ function Category({ category }: { category: D.Category }) {
 
 function animate(func: () => void) {
     if(document.startViewTransition) {
-        document.startViewTransition(() => {
-            RDD.flushSync(func)
+        return document.startViewTransition(() => {
+            return func()
         })
     }
     else {
@@ -120,7 +224,7 @@ function Card({ projectId }: { projectId: D.ProjectId }) {
         if(!d) return
         animate(() => {
             d.showModal()
-            setIsOpen(true)
+            RDD.flushSync(() => setIsOpen(true))
         })
     }
     const close = () => {
@@ -128,7 +232,7 @@ function Card({ projectId }: { projectId: D.ProjectId }) {
         if(!d) return
         animate(() => {
             d.close()
-            setIsOpen(false)
+            RDD.flushSync(() => setIsOpen(false))
         })
     }
 
@@ -207,7 +311,11 @@ function Dialog({ close, isOpen, it, backgroundId }: DialogProps) {
 }
 
 function Contact() {
-    return <div className={s.contactBody}>
+    const location = useLocation()
+    const dir = useTransitionDirection('contact', location)
+    console.log('contact direction', dir)
+
+    return <div className={s.contactBody} style={dir}>
         <div>
             <div className={s.title}>
                 Artem Andrievskii
