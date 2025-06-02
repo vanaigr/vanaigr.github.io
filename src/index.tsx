@@ -1,4 +1,5 @@
 import R from 'react'
+import RDD from 'react-dom'
 import RD from 'react-dom/client'
 import * as RR from 'react-router'
 
@@ -95,23 +96,54 @@ function Category({ category }: { category: D.Category }) {
     </div>
 }
 
+function animate(func: () => void) {
+    if(document.startViewTransition) {
+        document.startViewTransition(() => {
+            RDD.flushSync(func)
+        })
+    }
+    else {
+        func()
+    }
+}
+
 function Card({ projectId }: { projectId: D.ProjectId }) {
     const dialogRef = R.useRef<HTMLDialogElement>(null)
     const it = D.projects[projectId]
-    R.useEffect(() => {
-        if(projectId === 'minceraft') dialogRef?.current?.showModal()
-    }, [])
+
+    const backgroundId = R.useId()
+    const fullBackgroundId = 'item-' + backgroundId
+
+    const [isOpen, setIsOpen] = R.useState(false)
+    const open = () => {
+        const d = dialogRef.current
+        if(!d) return
+        animate(() => {
+            d.showModal()
+            setIsOpen(true)
+        })
+    }
+    const close = () => {
+        const d = dialogRef.current
+        if(!d) return
+        animate(() => {
+            d.close()
+            setIsOpen(false)
+        })
+    }
 
     return <>
         <div
             className={s.card}
-            onClick={() => {
-                const d = dialogRef.current
-                if(!d) return
-                d.showModal()
-            }}
+            onClick={open}
         >
-            <div>
+            {!isOpen &&
+                <div
+                    className={s.cardTransitionBackground}
+                    style={{ viewTransitionName: fullBackgroundId }}
+                />
+            }
+            <div className={s.content}>
                 <img className={s.preview} src={it.preview}/>
                 <div className={s.title}>{it.title}</div>
                 <div className={s.desc}>{it.desc}</div>
@@ -124,17 +156,21 @@ function Card({ projectId }: { projectId: D.ProjectId }) {
         <dialog className={s.dialog} ref={dialogRef}>
             <Dialog
                 it={it}
-                close={() => {
-                    const d = dialogRef.current
-                    if(!d) return
-                    d.close()
-                }}
+                backgroundId={fullBackgroundId}
+                isOpen={isOpen}
+                close={close}
             />
         </dialog>
     </>
 }
 
-function Dialog({ close, it }: { it: D.Project, close: () => void }) {
+type DialogProps = {
+    it: D.Project
+    close: () => void
+    isOpen: boolean
+    backgroundId: string
+}
+function Dialog({ close, isOpen, it, backgroundId }: DialogProps) {
     return <div
         className={s.dialogContainer}
     >
@@ -149,18 +185,23 @@ function Dialog({ close, it }: { it: D.Project, close: () => void }) {
                 </svg>
             </div>
         </div>
-        <div className={s.content}>
-            <iframe
-                className={s.video}
-                src={it.videoUrl}
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
-            />
-            <div className={s.longDesc}>{it.longDesc && <it.longDesc/>}</div>
-        </div>
+        {isOpen &&
+            <div
+                className={s.content}
+                style={{ viewTransitionName: backgroundId }}
+            >
+                <iframe
+                    className={s.video}
+                    src={it.videoUrl}
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                />
+                <div className={s.longDesc}>{it.longDesc && <it.longDesc/>}</div>
+            </div>
+        }
     </div>
 
 }

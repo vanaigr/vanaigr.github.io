@@ -1,3 +1,7 @@
+:root {
+    overflow-y: scroll;
+}
+
 .app {
     --bg:#fafafa;
 
@@ -140,12 +144,20 @@
     }
 }
 
+.cardTransitionBackground {
+    view-transition-class: item;
+    position: absolute;
+    inset: 0;
+    border-radius: 1rem;
+}
+
 .card {
     display: flex;
     flex-direction: column;
     cursor: pointer;
+    position: relative;
 
-    & > * {
+    & > .content {
         display: flex;
         flex-direction: column;
         border-radius: 1rem;
@@ -189,12 +201,18 @@
     }
 
     &:hover {
-        & > * {
+        & > .content {
             border: 0.3rem solid var(--primary-a80);
             transform: translateY(-0.2rem);
             background: var(--primary-a10);
         }
     }
+}
+
+::view-transition-old(.item),
+::view-transition-new(.item) {
+    animation: none;
+    mix-blend-mode: normal;
 }
 
 .dialog[open] {
@@ -219,6 +237,7 @@
     flex-direction: column;
     align-items: center;
     & > .content {
+        view-transition-class: item;
         position: relative;
         width: 60rem;
         max-width: calc(100% - 2rem);
