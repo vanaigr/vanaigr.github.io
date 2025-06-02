@@ -4,19 +4,123 @@
     flex: 1 1 0;
     display: flex;
     flex-direction: column;
-    overflow: scroll;
     background: var(--bg);
     color: black;
+    --side-width: 12rem;
+    --muted: #707070;
+
+    /* I hope CSS will learn how to concatenate strings until 2035 */
+    --primary: #3cb553;
+    --primary-a80: #3cb55380;
+    --primary-a05:#3cb55310;
+    --primary-darker: #0d641e;
+
+    /*
+        100% chrome bug. Nothing overflows, but we will make a scrollbar
+        that scrolls and shows absolutely nothing. And then ADDING padding
+        removes the scrollbar...
+    */
+    padding-right: 1rem;
+}
+
+.header {
+    font-family: 'Noto Sans';
+    line-height: 1;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: center;
+    padding: 1rem 1rem;
+    --gap: 2rem;
+    gap: var(--gap);
+    margin-bottom: 2rem;
+    & > * {
+        margin: -1rem calc(var(--gap) * -0.5);
+        padding: 1rem calc(var(--gap) * 0.5);
+        cursor: pointer;
+        & > * {
+            transform: translateY(0px);
+            color: black;
+            transition: transform 0.1s, color 0.1s;
+        }
+        &:hover > * {
+            transform: translateY(-0.2rem);
+            color: var(--primary-darker);
+        }
+    }
+}
+
+.body {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.appSpacer {
+    flex-shrink: 1;
+    flex-basis: var(--side-width);
 }
 
 .categories {
+    box-sizing: border-box;
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     min-width: max-content;
-    gap: 5rem;
+    gap: 4rem;
     align-items: center;
-    margin-top: 5rem;
-    padding: 0px 2rem;
+    padding: 0px 1rem;
+}
+
+.order {
+    min-width: var(--side-width);
+    width: var(--side-width);
+    box-sizing: border-box;
+    font-family: 'Roboto Condensed';
+    padding: 0rem 0.5rem 2rem 0.5rem;
+
+    & > * {
+        position: sticky;
+        top: 2rem;
+        display: flex;
+        gap: 1.3rem;
+        flex-direction: column;
+
+        & > .title {
+            font-size: 1.1rem;
+        }
+        & > .orderList {
+            display: flex;
+            flex-direction: column;
+            & > .title {
+                color: var(--muted);
+                font-size: 0.9rem;
+                text-align: right;
+                line-height: 1;
+            }
+            & > .list {
+                display: flex;
+                flex-direction: column;
+                cursor: pointer;
+                font-size: 0.9rem;
+                line-height: 1.25rem;
+                --gap: 0.4rem;
+                gap: var(--gap);
+                & > * {
+                    margin: 0rem -2rem calc(var(--gap) * -0.5) -2rem;
+                    padding: 0rem 2rem calc(var(--gap) * 0.5) 2rem;
+                    & > * {
+                        transform: translateX(0px);
+                        color: black;
+                        transition: transform 0.1s, color 0.1s;
+                    }
+                    &:hover > * {
+                        transform: translateX(0.2rem);
+                        color: var(--primary-darker);
+                    }
+                }
+            }
+        }
+    }
 }
 
 .category {
@@ -33,8 +137,7 @@
     & > .content {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        /*gap: 2rem 4rem;*/
-        gap: 1rem 1rem;
+        gap: 1rem 0.5rem;
     }
 }
 
@@ -50,7 +153,7 @@
 
         padding: 2rem 1rem 1rem 1rem;
         border: 0.3rem solid transparent;
-        transform: translateY(0rem);
+        transform: translateY(0px);
         background: transparent;
         --dur: 0.3s;
         transition: transform var(--dur),
@@ -58,7 +161,7 @@
             background var(--dur);
 
         & > * {
-            width: 17rem;
+            width: 16rem;
         }
 
         & > .preview {
@@ -72,7 +175,7 @@
             font-size: 1rem;
             font-weight: 700;
             line-height: 2;
-            color: #353535;
+            color: #121505;
         }
 
         & > .desc {
@@ -80,7 +183,7 @@
             font-size: 0.9rem;
             font-weight: 600;
             line-height: 1.5;
-            color: #707070;
+            color: var(--muted);
             height: calc(0.9rem * 1.5 * 2);
             overflow: hidden;
         }
@@ -88,9 +191,9 @@
 
     &:hover {
         & > * {
-            border: 0.3rem solid #3cb55380;
+            border: 0.3rem solid var(--primary-a80);
             transform: translateY(-0.2rem);
-            background: #3cb55305;
+            background: var(--primary-a10);
         }
     }
 }

@@ -12,66 +12,103 @@ import easywordPreview from '@/previews/easyword.png'
 
 export const projects = {
     timeline: {
+        date: '2025-03',
         preview: timelinePreview,
         title: 'Job Scheduling',
         desc: 'Web application for optimizing and managing production line schedules',
     },
     dripApp: {
+        date: '2025-01',
         preview: dripPreview,
         title: 'DripIQ',
         desc: 'Smart hydration tracking app built with React Native',
     },
     groupTimetable: {
+        date: '2023-08',
         preview: groupTimetablePreview,
         title: 'Group Timetable',
         desc: 'Scheduling website for students in cohort-based programs',
     },
     rainwatcher: {
+        date: '2023-04',
         preview: rainwatcherPreview,
         title: 'Rain World, The Watcher DLC Map',
         desc: 'First interactive map website for the Watcher DLC',
     },
     minishoot: {
+        date: '2024-08',
         preview: minishootPreview,
         title: 'Minishoot\` Adventures Map',
         desc: 'The most complete interactive map for Minishoot\' Adventures',
     },
     lumaflyKnight: {
+        date: '2025-01',
         preview: lumaflyKnightPreview,
         title: 'Lumafly Knight',
         desc: 'Hollow Knight mod that tracks rescued lumaflies with in-game integration',
     },
     minceraft: {
+        date: '2022-01',
         preview: minceraftPreview,
         title: 'Minceraft Clone',
         desc: 'Minecraft clone with real-time ray tracing rendering',
     },
     gol: {
+        date: '2021-11',
         preview: golPreview,
         title: 'Game of Life',
         desc: 'High-performance simulation of Conway\'s Game of Life',
     },
     airlineTicketing: {
+        date: '2022-09',
         preview: airlineTicketingPreview,
         title: 'Flight Reservation System',
         desc: 'C# client-server desktop application for booking and managing airline tickets',
     },
     easyword: {
+        date: '2023-11',
         preview: easywordPreview,
         title: 'Easyword',
         desc: 'Neovim plugin for navigating to any visible word with minimal keystrokes',
     },
     uniboard: {
+        date: '2020-11',
         preview: uniboardPreview,
         title: 'Uniboard',
         desc: 'Feature-rich, fully customizable Android keyboard',
     },
 } as const satisfies Record<string, Project>
 
+const projectIds = Object.keys(projects) as ProjectId[]
+
+const order = projectIds.sort((a, b) => {
+    const ad = projects[a].date
+    const bd = projects[b].date
+    return -(ad < bd ? -1 : ad === bd ? 0 : 1)
+})
+
+export const projectsByYear: { year: string, projects: ProjectId[] }[] = []
+for(const pid of order) {
+    const lastGroup = projectsByYear.at(-1)
+    const p = projects[pid]
+    const year = p.date.substring(0, 4)
+
+    if(!lastGroup || lastGroup.year !== year) {
+        projectsByYear.push({
+            year,
+            projects: [pid],
+        })
+    }
+    else {
+        lastGroup.projects.push(pid)
+    }
+}
+
 export type Project = {
     preview: string
     title: string
     desc: string
+    date: string
 }
 
 export type ProjectId = keyof typeof projects
