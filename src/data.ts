@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react'
+
 import timelinePreview from '@/previews/timeline.png'
 import dripPreview from '@/previews/drip.png'
 import minishootPreview from '@/previews/minishoot.png'
@@ -9,6 +11,8 @@ import golPreview from '@/previews/gol.png'
 import airlineTicketingPreview from '@/previews/airline.png'
 import uniboardPreview from '@/previews/uniboard.png'
 import easywordPreview from '@/previews/easyword.png'
+
+import * as longDescs from './longDescs.tsx'
 
 export const projects = {
     timeline: {
@@ -52,6 +56,8 @@ export const projects = {
         preview: minceraftPreview,
         title: 'Minceraft Clone',
         desc: 'Minecraft clone with real-time ray tracing rendering',
+        videoUrl: 'https://www.youtube.com/embed/xjYQW5gW2bc?si=A2kjD1j0v9IThC4C',
+        longDesc: longDescs.Minceraft,
     },
     gol: {
         date: '2021-11',
@@ -109,6 +115,8 @@ export type Project = {
     title: string
     desc: string
     date: string
+    videoUrl?: string
+    longDesc?: () => ReactNode
 }
 
 export type ProjectId = keyof typeof projects

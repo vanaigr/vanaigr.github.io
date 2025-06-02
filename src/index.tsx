@@ -20,6 +20,7 @@ const router = RR.createBrowserRouter([
             {
                 path: '/',
                 Component: App,
+                //Component: () => <Dialog it={D.projects.minceraft} close={() => {}}/>,
             },
             {
                 path: '/contact',
@@ -97,6 +98,9 @@ function Category({ category }: { category: D.Category }) {
 function Card({ projectId }: { projectId: D.ProjectId }) {
     const dialogRef = R.useRef<HTMLDialogElement>(null)
     const it = D.projects[projectId]
+    R.useEffect(() => {
+        if(projectId === 'minceraft') dialogRef?.current?.showModal()
+    }, [])
 
     return <>
         <div
@@ -118,15 +122,47 @@ function Card({ projectId }: { projectId: D.ProjectId }) {
             But onClick bubbles and the dialog reopens itself 🤡
         */}
         <dialog className={s.dialog} ref={dialogRef}>
-            <div onClick={() => {
-                const d = dialogRef.current
-                if(!d) return
-                d.close()
-            }}>
-                <div>test</div>
-            </div>
+            <Dialog
+                it={it}
+                close={() => {
+                    const d = dialogRef.current
+                    if(!d) return
+                    d.close()
+                }}
+            />
         </dialog>
     </>
+}
+
+function Dialog({ close, it }: { it: D.Project, close: () => void }) {
+    return <div
+        className={s.dialogContainer}
+    >
+        <div
+            onClick={close}
+            className={s.backdrop}
+        />
+        <div className={s.closeButton}>
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                </svg>
+            </div>
+        </div>
+        <div className={s.content}>
+            <iframe
+                className={s.video}
+                src={it.videoUrl}
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+            />
+            <div className={s.longDesc}>{it.longDesc && <it.longDesc/>}</div>
+        </div>
+    </div>
+
 }
 
 function Contact() {
