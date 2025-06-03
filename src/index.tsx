@@ -3,20 +3,21 @@ import RDD from 'react-dom'
 import RD from 'react-dom/client'
 import * as Z from 'zustand'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faEnvelope, faCopy } from '@fortawesome/free-regular-svg-icons'
 import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 
 import '@/index.css'
 import s from './index.module.css'
 import * as D from './data'
+import LinkList from './linkList'
 
 function animStyle(name: string): ({}) {
     return { '--viewTransitionName': name }
 }
 
+// NOTE: other files also use these but all adds are here
 library.add({ faGithub })
+library.add({ faLinkedinIn })
 
 const root = RD.createRoot(document.getElementById('root')!)
 root.render(<Router/>)
@@ -317,49 +318,25 @@ function Contact() {
                 Artem Andrievskii
             </div>
 
-            <div className={s.linkList}>
-                <Item
-                    to='https://github.com/vanaigr'
-                    icon={faGithub}
-                    text='github.com/vanaigr'
-                />
-                <Item
-                    to='https://www.linkedin.com/in/arandrievskii'
-                    icon={faLinkedinIn}
-                    text='linkedin.com/in/arandrievskii'
-                />
-                <Item
-                    to='mailto:aandrievskii@outlook.com'
-                    icon={faEnvelope}
-                    text='aandrievskii@outlook.com'
-                />
-            </div>
-        </div>
-    </div>
-}
-
-function Item({ to, icon, text }: { to: string, icon: typeof faGithub, text: string }) {
-    return <div className={s.externalItem}>
-        <External to={to}>
-            <FontAwesomeIcon
-                className={s.icon}
-                icon={icon}
+            <LinkList
+                links={[
+                    {
+                        to: 'https://github.com/vanaigr',
+                        brand: faGithub,
+                        text: 'github.com/vanaigr',
+                    },
+                    {
+                        to: 'https://www.linkedin.com/in/arandrievskii',
+                        brand: faLinkedinIn,
+                        text: 'linkedin.com/in/arandrievskii',
+                    },
+                    {
+                        to: 'mailto:aandrievskii@outlook.com',
+                        icon: 'mail',
+                        text: 'aandrievskii@outlook.com',
+                    },
+                ]}
             />
-            <div>{text}</div>
-        </External>
-        <div className={s.copy}>
-            <div>
-                <FontAwesomeIcon
-                    className={s.icon}
-                    icon={faCopy}
-                />
-            </div>
         </div>
     </div>
-}
-
-function External({ to, children }: { to: string, children: R.ReactNode }) {
-    return <a className={s.external} href={to} target='_blank'>
-        {children}
-    </a>
 }
