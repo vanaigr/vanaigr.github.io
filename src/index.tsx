@@ -289,7 +289,11 @@ function Dialog({ close, isOpen, it, backgroundId }: DialogProps) {
         </div>
         {isOpen &&
             <div
-                className={s.content + ' ' + s.itemAnimation}
+                className={
+                    s.content
+                        + ' ' + (it.videoVertical ? s.vertical : '')
+                        + ' ' + s.itemAnimation
+                }
                 style={animStyle(backgroundId)}
             >
                 <iframe

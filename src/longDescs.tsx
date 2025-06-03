@@ -1,16 +1,18 @@
 import R from 'react'
 import s from './longDescs.module.css'
+import LinkList from './linkList'
+import { faGithub, faApple } from '@fortawesome/free-brands-svg-icons'
 
 export function Minceraft() {
-    return <div>
+    return <div className={s.desc}>
         <P>
             MinceraftClone is a Minecraft-inspired C++ & OpenGL game that uses ray tracing
             {' for'} rendering.
         </P>
 
         <P>
-            What I worked on:
-            <ul className={s.ul}>
+            Key Contributions:
+            <Ul>
                 <Li>
                     GPU-accelerated ray-tracing that uses software recursion
                     (hardware doesn't support recursion) for rendering complex meterials.
@@ -27,8 +29,116 @@ export function Minceraft() {
                 <Li>
                     Hot-reloading for shaders, textures, and configurations during runtime.
                 </Li>
-            </ul>
+            </Ul>
         </P>
+
+        <div className={s.links}>
+            <LinkList
+                links={[
+                    {
+                        to: 'https://www.github.com/vanaigr/MinceraftClone',
+                        brand: faGithub,
+                        text: 'github.com/vanaigr/MinceraftClone',
+                    },
+                ]}
+            />
+        </div>
+    </div>
+}
+
+export function Timeline() {
+    return <div className={s.desc}>
+        <P>
+            A job scheduling system with a React frontend and C# backend that enables
+            users to manage and optimize job assignments across multiple production devices.
+            Features a timeline view for drag-and-drop scheduling, with automatic gap removal
+            and device compatibility checks. The system includes a custom high-performance
+            probabilistic algorithm capable of optimizing hundreds of tasks across production
+            lines in under a second.
+        </P>
+
+        <P>
+            Key Contributions:
+            <Ul>
+                <Li>
+                    Interactive timeline visualization and drag-and-drop job scheduling
+                </Li>
+                <Li>
+                    Automatic scheduling algorithm
+                </Li>
+                <Li>
+                    Non-working period and Daylight saving time handling
+                </Li>
+                <Li>
+                    Backend server logic and support for optimistic updates
+                </Li>
+            </Ul>
+        </P>
+        <div className={s.links}>
+            <LinkList
+                links={[
+                    {
+                        to: 'https://www.oeeintellisuite.com',
+                        icon: 'globe',
+                        text: 'Company website',
+                    },
+                ]}
+            />
+        </div>
+    </div>
+}
+
+export function DripApp() {
+    return <div className={s.desc}>
+        <P>
+            A mobile app for tracking hydration levels and receiving personalized
+            insights. Enables users to log drinks and view their forecasted hydration state.
+            Users can customize customize drink options, including prefilled amounts.
+            Food and activity logging are coming soon.
+        </P>
+
+        <P>
+            Key Contributions:
+            <Ul>
+                <Li>
+                    Designed and implemented a hydration simulation engine, tracking and predicting over 20 physiological parameters through in-depth research and development.
+                </Li>
+
+                <Li>
+                    Developed core features including drink logging, log filtering, settings, and profile management on both frontend and backend.
+                </Li>
+
+                <Li>
+                    Integrated Google Sign-In and implemented push notifications for reminders and updates.
+                </Li>
+            </Ul>
+        </P>
+
+        <P>
+            The app is built with with Expo and React Native, and has a Node.js backend.
+        </P>
+
+        <div className={s.links}>
+            <LinkList
+                links={[
+                    {
+                        to: 'https://dripco.us',
+                        icon: 'globe',
+                        text: 'Our website',
+                    },
+                    {
+                        to: 'https://apps.apple.com/us/app/drip-tech-hydration/id6742165567?ref=producthunt&at=1000l6eA',
+                        brand: faApple,
+                        text: 'See on App Store',
+                    },
+                ]}
+            />
+        </div>
+    </div>
+}
+
+export function DripIQ() {
+    return <div>
     </div>
 }
 
@@ -40,4 +150,8 @@ function P({ children }: A) {
 
 function Li({ children }: A) {
     return <li className={s.li}>{children}</li>
+}
+
+function Ul({ children }: A) {
+    return <ul className={s.ul}>{children}</ul>
 }

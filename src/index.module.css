@@ -318,9 +318,22 @@ from {
         display: flex;
         flex-direction: column;
 
+
         & > .longDesc {
             margin: 2rem 2rem;
             font-family: 'Noto Sans';
+            display: flex;
+            flex-direction: column;
+        }
+        & > .video {
+            aspect-ratio: 16 / 9;
+        }
+
+        &.vertical {
+            flex-direction: row;
+        }
+        &.vertical > .video {
+            width: unset;
         }
     }
 
@@ -345,10 +358,6 @@ from {
             }
         }
     }
-}
-.video {
-    width: 100%;
-    aspect-ratio: 16 / 9;
 }
 
 .contactBody {

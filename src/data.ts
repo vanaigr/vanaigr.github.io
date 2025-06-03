@@ -20,12 +20,17 @@ export const projects = {
         preview: timelinePreview,
         title: 'Job Scheduling',
         desc: 'Web application for optimizing and managing production line schedules',
+        videoUrl: 'https://www.youtube.com/embed/VtPjKyAMf8U?si=ECXoQreR2DpN0P5q',
+        longDesc: longDescs.Timeline,
     },
     dripApp: {
         date: '2025-01',
         preview: dripPreview,
         title: 'DripIQ',
         desc: 'Smart hydration tracking app built with React Native',
+        videoUrl: 'https://www.youtube.com/embed/uTM_SZ5AVNY?si=ayQ1GzAQ_Qsa_bUQ',
+        longDesc: longDescs.DripApp,
+        videoVertical: true,
     },
     groupTimetable: {
         date: '2023-08',
@@ -117,6 +122,7 @@ export type Project = {
     date: string
     videoUrl?: string
     longDesc?: () => ReactNode
+    videoVertical?: boolean
 }
 
 export type ProjectId = keyof typeof projects
