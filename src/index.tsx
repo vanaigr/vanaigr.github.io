@@ -12,6 +12,10 @@ import '@/index.css'
 import s from './index.module.css'
 import * as D from './data'
 
+function animStyle(name: string): ({}) {
+    return { '--viewTransitionName': name }
+}
+
 library.add({ faGithub })
 
 const root = RD.createRoot(document.getElementById('root')!)
@@ -23,7 +27,6 @@ type Page = (typeof order)[number]
 type Location = {
     prev: Page
     cur: Page
-    transition: 'left' | 'right' | undefined
 }
 
 function getPage(pathname: string): Page {
@@ -84,40 +87,35 @@ function updDirection(newP: Page, location: LocationStore) {
     const newI = order.indexOf(newP)
     const curI = order.indexOf(p)
     if(curI !== newI) {
-        const res = animate(() => {
-            const transition = newI < curI ? 'left' : 'right'
-            RDD.flushSync(() => {
-                location.setState({ transition })
-            })
-            RDD.flushSync(() => {
-                location.setState({ prev: p, cur: newP, transition }, true)
-            })
-        })
+        const transition = newI < curI ? 'left' : 'right'
 
-        if(res) {
-            res.finished.then(() => {
-                location.setState({ transition: undefined })
-            })
-        }
+        animate({
+            update: () => {
+                RDD.flushSync(() => {
+                    location.setState({ prev: p, cur: newP }, true)
+                })
+            },
+            types: ['screen', transition],
+        })
         return
     }
 
     location.setState({
         prev: p,
         cur: newP,
-        transition: undefined,
     }, true)
 }
 
 function Wrapper({ children }: { children: R.ReactNode }) {
     const location = useLocation()
+    const loc = location(it => it.cur)
 
     return <div className={s.app}>
         <div className={s.header}>
             <a
                 className={s.headerLink}
                 href='/'
-                style={{ textDecoration: 'underline' }}
+                style={loc === 'index' ? { textDecoration: 'underline' } : {}}
                 onClick={it => {
                     it.preventDefault()
                     updDirection('index', location)
@@ -128,6 +126,7 @@ function Wrapper({ children }: { children: R.ReactNode }) {
             </a>
             <a
                 className={s.headerLink}
+                style={loc === 'contact' ? { textDecoration: 'underline' } : {}}
                 onClick={it => {
                     it.preventDefault()
                     updDirection('contact', location)
@@ -142,25 +141,11 @@ function Wrapper({ children }: { children: R.ReactNode }) {
     </div>
 }
 
-function useTransitionDirection(name: Page, location: LocationStore) {
-    const cur = location(it => it.cur)
-    const dir = location(it => it.transition)
-    if(dir) {
-        return {
-            viewTransitionName: 'screen-' + dir + '-' + (cur === name ? 'to' : 'from'),
-        }
-    }
-    else {
-        return {}
-    }
-}
-
 function App() {
-    const location = useLocation()
-    const dir = useTransitionDirection('index', location)
-    console.log('index direction', dir)
-
-    return <div className={s.body} style={dir}>
+    return <div
+        className={s.body + ' ' + s.screenAnimation}
+        style={animStyle('screen-index')}
+    >
         <div className={s.appSpacer}/>
         <div className={s.categories}>
             {D.categories.map((it, i) => {
@@ -200,15 +185,21 @@ function Category({ category }: { category: D.Category }) {
     </div>
 }
 
-function animate(func: () => void) {
-    if(document.startViewTransition) {
-        return document.startViewTransition(() => {
-            return func()
-        })
+function animate(arg: any) {
+    if(!document.startViewTransition) {
+        const updateCallbackDone = Promise.resolve(
+            typeof arg === 'function' ? arg() : arg.update()
+        ).then(() => undefined);
+
+        return {
+            ready: Promise.reject(Error('View transitions unsupported')),
+            domUpdated: updateCallbackDone,
+            updateCallbackDone,
+            finished: updateCallbackDone,
+        };
     }
-    else {
-        func()
-    }
+
+    return document.startViewTransition(arg);
 }
 
 function Card({ projectId }: { projectId: D.ProjectId }) {
@@ -222,17 +213,23 @@ function Card({ projectId }: { projectId: D.ProjectId }) {
     const open = () => {
         const d = dialogRef.current
         if(!d) return
-        animate(() => {
-            d.showModal()
-            RDD.flushSync(() => setIsOpen(true))
+        animate({
+            update: () => {
+                d.showModal()
+                RDD.flushSync(() => setIsOpen(true))
+            },
+            types: ['item'],
         })
     }
     const close = () => {
         const d = dialogRef.current
         if(!d) return
-        animate(() => {
-            d.close()
-            RDD.flushSync(() => setIsOpen(false))
+        animate({
+            update: () => {
+                d.close()
+                RDD.flushSync(() => setIsOpen(false))
+            },
+            types: ['item'],
         })
     }
 
@@ -243,8 +240,8 @@ function Card({ projectId }: { projectId: D.ProjectId }) {
         >
             {!isOpen &&
                 <div
-                    className={s.cardTransitionBackground}
-                    style={{ viewTransitionName: fullBackgroundId }}
+                    className={s.cardTransitionBackground + ' ' + s.itemAnimation}
+                    style={animStyle(fullBackgroundId)}
                 />
             }
             <div className={s.content}>
@@ -291,8 +288,8 @@ function Dialog({ close, isOpen, it, backgroundId }: DialogProps) {
         </div>
         {isOpen &&
             <div
-                className={s.content}
-                style={{ viewTransitionName: backgroundId }}
+                className={s.content + ' ' + s.itemAnimation}
+                style={animStyle(backgroundId)}
             >
                 <iframe
                     className={s.video}
@@ -311,11 +308,10 @@ function Dialog({ close, isOpen, it, backgroundId }: DialogProps) {
 }
 
 function Contact() {
-    const location = useLocation()
-    const dir = useTransitionDirection('contact', location)
-    console.log('contact direction', dir)
-
-    return <div className={s.contactBody} style={dir}>
+    return <div
+        className={s.contactBody + ' ' + s.screenAnimation}
+        style={animStyle('screen-contact')}
+    >
         <div>
             <div className={s.title}>
                 Artem Andrievskii

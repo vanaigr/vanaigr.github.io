@@ -146,7 +146,6 @@
 }
 
 .cardTransitionBackground {
-    view-transition-class: item;
     position: absolute;
     inset: 0;
     border-radius: 1rem;
@@ -210,57 +209,79 @@
     }
 }
 
-::view-transition-old(.item),
-::view-transition-new(.item) {
-    animation: none;
-    mix-blend-mode: normal;
-}
-
 @keyframes slide-to-right {
 to {
-    transform: translateX(30px);
+    transform: translateX(1rem);
     opacity: 0;
 }
 }
 @keyframes slide-to-left {
 to {
-    transform: translateX(-30px);
+    transform: translateX(-1rem);
     opacity: 0;
 }
 }
 
 @keyframes slide-from-right {
 from {
-    transform: translateX(30px);
+    transform: translateX(1rem);
     opacity: 0;
 }
 }
 
 @keyframes slide-from-left {
 from {
-    transform: translateX(-30px);
+    transform: translateX(-1rem);
     opacity: 0;
 }
 }
 
-::view-transition-old(screen-left-from) {
-    animation: 90ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
-        300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-right;
+:active-view-transition-type(item) {
+    :root {
+        view-transition-name: none;
+    }
+    .itemAnimation {
+        view-transition-class: item;
+        view-transition-name: var(--viewTransitionName);
+    }
 }
 
-::view-transition-old(screen-right-from) {
-    animation: 90ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
-        300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
-}
+:active-view-transition-type(screen) {
+    :root {
+        view-transition-name: none;
+    }
+    .screenAnimation {
+        view-transition-class: screen;
+        view-transition-name: var(--viewTransitionName);
+    }
 
-::view-transition-new(screen-left-to) {
-    animation: 90ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
-        300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-left;
-}
+    /* .screen doesn't work for some reason */
 
-::view-transition-new(screen-right-to) {
-    animation: 90ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
-        300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
+    &:active-view-transition-type(left) {
+        &::view-transition-old(screen-index),
+        &::view-transition-old(screen-contact)
+        {
+            animation: 450ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-right;
+        }
+        &::view-transition-new(screen-index),
+        &::view-transition-new(screen-contact)
+        {
+            animation: 450ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-left;
+        }
+    }
+
+    &:active-view-transition-type(right) {
+        &::view-transition-old(screen-index),
+        &::view-transition-old(screen-contact)
+        {
+            animation: 450ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
+        }
+        &::view-transition-new(screen-index),
+        &::view-transition-new(screen-contact)
+        {
+            animation: 450ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
+        }
+    }
 }
 
 .dialog[open] {
@@ -285,7 +306,6 @@ from {
     flex-direction: column;
     align-items: center;
     & > .content {
-        view-transition-class: item;
         position: relative;
         width: 60rem;
         max-width: calc(100% - 2rem);
@@ -332,6 +352,7 @@ from {
 }
 
 .contactBody {
+    flex-grow: 1;
     background: white;
     display: flex;
     justify-content: center;
