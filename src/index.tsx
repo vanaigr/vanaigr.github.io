@@ -296,15 +296,16 @@ function Dialog({ close, isOpen, it, backgroundId }: DialogProps) {
                 }
                 style={animStyle(backgroundId)}
             >
-                <iframe
-                    className={s.video}
-                    src={it.videoUrl}
-                    title="YouTube video player"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerPolicy="strict-origin-when-cross-origin"
-                    allowFullScreen
-                />
+                <div className={s.video}>
+                    <iframe
+                        src={it.videoUrl}
+                        title="YouTube video player"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerPolicy="strict-origin-when-cross-origin"
+                        allowFullScreen
+                    />
+                </div>
                 <div className={s.longDesc}>{it.longDesc && <it.longDesc/>}</div>
             </div>
         }

@@ -49,12 +49,11 @@ export function Minceraft() {
 export function Timeline() {
     return <div className={s.desc}>
         <P>
-            A job scheduling system with a React frontend and C# backend that enables
-            users to manage and optimize job assignments across multiple production devices.
-            Features a timeline view for drag-and-drop scheduling, with automatic gap removal
-            and device compatibility checks. The system includes a custom high-performance
-            probabilistic algorithm capable of optimizing hundreds of tasks across production
-            lines in under a second.
+            A job scheduling system with a React frontend and C# backend.
+            Enables users to manage and optimize job assignments across multiple
+            production devices. The system includes a custom high-performance
+            probabilistic algorithm capable of optimizing hundreds of tasks across
+            production lines in under a second.
         </P>
 
         <P>
@@ -92,9 +91,8 @@ export function DripApp() {
     return <div className={s.desc}>
         <P>
             A mobile app for tracking hydration levels and receiving personalized
-            insights. Enables users to log drinks and view their forecasted hydration state.
-            Users can customize customize drink options, including prefilled amounts.
-            Food and activity logging are coming soon.
+            insights. Enables users to log drinks and view their forecasted hydration
+            state. Food and activity logging are coming soon.
         </P>
 
         <P>
