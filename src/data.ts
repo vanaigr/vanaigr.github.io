@@ -49,6 +49,8 @@ export const projects = {
         preview: minishootPreview,
         title: 'Minishoot\` Adventures Map',
         desc: 'The most complete interactive map for Minishoot\' Adventures',
+        videoUrl: 'https://www.youtube.com/embed/5vnKPzF1OnE?si=KOTEeWJ5kOj81ApU',
+        longDesc: longDescs.Minishoot,
     },
     lumaflyKnight: {
         date: '2025-01',

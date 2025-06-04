@@ -135,8 +135,46 @@ export function DripApp() {
     </div>
 }
 
-export function DripIQ() {
-    return <div>
+export function Minishoot() {
+    return <div className={s.desc}>
+        <P>
+            The most comprehensive map of Minishoot' Adventures.
+            Features every in-game object, including their properties and relationships.
+            Displays full collision data and includes background visuals for all locations.
+
+            All data and backgrounds were extracted from the game using a custom C# script.
+        </P>
+
+        <P>
+            Key contributions:
+            <Ul>
+                <Li>
+                    Used Web Worker API to decode and filter large datasets without blocking user interactions.
+                </Li>
+                <Li>
+                    Used WebGL2 to optimize rendering performance and allowing over 300,000 markers to be displayed with minimal stutter.
+                </Li>
+                <Li>
+                    Designed a custom sub-pixel texture rendering algorithm to prevent aliasing when zooming in.
+                </Li>
+            </Ul>
+        </P>
+        <div className={s.links}>
+            <LinkList
+                links={[
+                    {
+                        to: 'https://minishoot-map.github.io',
+                        icon: 'globe',
+                        text: 'minishoot-map.github.io',
+                    },
+                    {
+                        to: 'https://github.com/minishoot-map/minishoot-map.github.io',
+                        brand: faGithub,
+                        text: 'github.com/minishoot-map/minishoot-map.github.io',
+                    },
+                ]}
+            />
+        </div>
     </div>
 }
 
