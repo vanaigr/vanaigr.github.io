@@ -220,6 +220,45 @@ export function Rainwatcher() {
     </div>
 }
 
+export function GroupTimetable() {
+    return <div className={s.desc}>
+        <P>
+            A scheduling website for students at my former university.
+            Allows users to upload the university’s shared schedule PDF,
+            extract their cohort’s timetable, and view it in a clean format.
+            Also supports exporting schedules to calendar apps.
+        </P>
+        <P>
+            Key contributions:
+            <Ul>
+                <Li>
+                    Developed a heuristic algorithm to accurately extract structured table data from complex PDF files.
+                </Li>
+
+                <Li>
+                    Optimized PDF decoding and rendering pipeline to achieve sub-millisecond processing time.
+                </Li>
+            </Ul>
+        </P>
+        <div className={s.links}>
+            <LinkList
+                links={[
+                    {
+                        to: 'https://grouptimetable.github.io',
+                        icon: 'globe',
+                        text: 'grouptimetable.github.io',
+                    },
+                    {
+                        to: 'https://github.com/GroupTimetable/GroupTimetable.github.io',
+                        brand: faGithub,
+                        text: 'github.com/GroupTimetable/GroupTimetable.github.io',
+                    },
+                ]}
+            />
+        </div>
+    </div>
+}
+
 type A = { children: R.ReactNode }
 
 function P({ children }: A) {

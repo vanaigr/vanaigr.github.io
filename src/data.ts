@@ -37,6 +37,8 @@ export const projects = {
         preview: groupTimetablePreview,
         title: 'Group Timetable',
         desc: 'Scheduling website for students in cohort-based programs',
+        videoUrl: 'https://www.youtube.com/embed/sGKQyrWy2o8?si=40E2Dz-cCWdlFs9P',
+        longDesc: longDescs.GroupTimetable,
     },
     rainwatcher: {
         date: '2023-04',
