@@ -138,7 +138,10 @@ export function DripApp() {
 export function Minishoot() {
     return <div className={s.desc}>
         <P>
-            The most comprehensive map of Minishoot' Adventures.
+            The most comprehensive map of{' '}
+            <a href='https://store.steampowered.com/app/1634860/Minishoot_Adventures/'>
+                Minishoot' Adventures
+            </a>.
             Features every in-game object, including their properties and relationships.
             Displays full collision data and includes background visuals for all locations.
 
@@ -171,6 +174,45 @@ export function Minishoot() {
                         to: 'https://github.com/minishoot-map/minishoot-map.github.io',
                         brand: faGithub,
                         text: 'github.com/minishoot-map/minishoot-map.github.io',
+                    },
+                ]}
+            />
+        </div>
+    </div>
+}
+
+export function Rainwatcher() {
+    return <div className={s.desc}>
+        <P>
+            First interactive map of{' '}
+            <a href='https://store.steampowered.com/app/2857120/Rain_World_The_Watcher/'>
+                Rain World: the Watcher DLC
+            </a>.
+            Includes all accessible regions, echo locations, warp points,
+            and karma flowers.
+
+            All data and backgrounds were extracted from the game using a custom C# script.
+        </P>
+        <P>
+            Key contributions:
+            <Ul>
+                <Li>
+                    Applied knowledge from the Minishoot' Adventures map to build and release the first public version within one week of the DLC's launch.
+                </Li>
+            </Ul>
+        </P>
+        <div className={s.links}>
+            <LinkList
+                links={[
+                    {
+                        to: 'https://rainwatchermap.github.io',
+                        icon: 'globe',
+                        text: 'rainwatchermap.github.io',
+                    },
+                    {
+                        to: 'https://github.com/RainWatcherMap/rainwatchermap.github.io',
+                        brand: faGithub,
+                        text: 'github.com/RainWatcherMap/rainwatchermap.github.io',
                     },
                 ]}
             />

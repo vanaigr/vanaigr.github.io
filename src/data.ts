@@ -41,8 +41,10 @@ export const projects = {
     rainwatcher: {
         date: '2023-04',
         preview: rainwatcherPreview,
-        title: 'Rain World, The Watcher DLC Map',
+        title: 'Rain World: The Watcher DLC Map',
         desc: 'First interactive map website for the Watcher DLC',
+        videoUrl: 'https://www.youtube.com/embed/oCP7F5N5Ulk?si=taSMgMY9fXRZWjQH',
+        longDesc: longDescs.Rainwatcher,
     },
     minishoot: {
         date: '2024-08',
