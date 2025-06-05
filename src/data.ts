@@ -85,6 +85,8 @@ export const projects = {
         preview: airlineTicketingPreview,
         title: 'Flight Reservation System',
         desc: 'C# client-server desktop application for booking and managing airline tickets',
+        videoUrl: 'https://www.youtube.com/embed/RYEu70H6YNQ?si=WnokGyXGu2BCYHYs',
+        longDesc: longDescs.Airline,
     },
     easyword: {
         date: '2023-11',

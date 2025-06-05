@@ -319,6 +319,29 @@ export function Life() {
     </div>
 }
 
+export function Airline() {
+    return <div className={s.desc}>
+        <P>
+            Client-server flight reservation application.
+            Users can search flights, pick seats, choose extras, book tickets, view
+            booked tickets and cancel bookings.
+            Operators can view flights, search passangers and track attendance.
+            The app is built with C# and Windows Forms, uses Windows Communication Foundation (WCF) for communication and SQL Server.
+        </P>
+        <div className={s.links}>
+            <LinkList
+                links={[
+                    {
+                        to: 'https://github.com/vanaigr/FlightReservation',
+                        brand: faGithub,
+                        text: 'github.com/vanaigr/FlightReservation',
+                    },
+                ]}
+            />
+        </div>
+    </div>
+}
+
 type A = { children: R.ReactNode }
 
 function P({ children }: A) {
