@@ -39,23 +39,31 @@
     line-height: 1;
     font-size: 1.1rem;
     display: flex;
-    justify-content: center;
     padding: 1rem 1rem;
     --gap: 2rem;
     gap: var(--gap);
     margin-bottom: 2rem;
-    & > * {
-        margin: -1rem calc(var(--gap) * -0.5);
-        padding: 1rem calc(var(--gap) * 0.5);
-        cursor: pointer;
+
+    & > .headerBord {
+        flex: 1 0 0;
+    }
+    & > .headerCent {
+        display: flex;
+        gap: var(--gap);
+
         & > * {
-            transform: translateY(0px);
-            color: black;
-            transition: transform 0.1s, color 0.1s;
-        }
-        &:hover > * {
-            transform: translateY(-0.2rem);
-            color: var(--primary-darker);
+            margin: -1rem calc(var(--gap) * -0.5);
+            padding: 1rem calc(var(--gap) * 0.5);
+                cursor: pointer;
+            & > * {
+                transform: translateY(0px);
+                color: black;
+                transition: transform 0.1s, color 0.1s;
+            }
+            &:hover > * {
+                transform: translateY(-0.2rem);
+                color: var(--primary-darker);
+            }
         }
     }
 }

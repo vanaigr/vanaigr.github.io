@@ -113,30 +113,34 @@ function Wrapper({ children }: { children: R.ReactNode }) {
 
     return <div className={s.app}>
         <div className={s.header}>
-            <a
-                className={s.headerLink}
-                href='/'
-                style={loc === 'index' ? { textDecoration: 'underline' } : {}}
-                onClick={it => {
-                    it.preventDefault()
-                    updDirection('index', location)
-                    history.pushState({}, '', getPathname('index'))
-                }}
-            >
-                <div>Programming</div>
-            </a>
-            <a
-                className={s.headerLink}
-                style={loc === 'contact' ? { textDecoration: 'underline' } : {}}
-                onClick={it => {
-                    it.preventDefault()
-                    updDirection('contact', location)
-                    history.pushState({}, '', getPathname('contact'))
-                }}
-                href='/contact'
-            >
-                <div>Contact</div>
-            </a>
+            <div className={s.headerBord}>Artem Andrievskii</div>
+            <div className={s.headerCent}>
+                <a
+                    className={s.headerLink}
+                    href='/'
+                    style={loc === 'index' ? { textDecoration: 'underline' } : {}}
+                    onClick={it => {
+                        it.preventDefault()
+                        updDirection('index', location)
+                        history.pushState({}, '', getPathname('index'))
+                    }}
+                >
+                    <div>Programming</div>
+                </a>
+                <a
+                    className={s.headerLink}
+                    style={loc === 'contact' ? { textDecoration: 'underline' } : {}}
+                    onClick={it => {
+                        it.preventDefault()
+                        updDirection('contact', location)
+                        history.pushState({}, '', getPathname('contact'))
+                    }}
+                    href='/contact'
+                >
+                    <div>Contact</div>
+                </a>
+            </div>
+            <div className={s.headerBord}/>
         </div>
         {children}
     </div>
@@ -319,10 +323,6 @@ function Contact() {
         style={animStyle('screen-contact')}
     >
         <div>
-            <div className={s.title}>
-                Artem Andrievskii
-            </div>
-
             <LinkList
                 links={[
                     {
