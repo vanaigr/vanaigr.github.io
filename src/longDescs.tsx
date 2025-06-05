@@ -259,6 +259,35 @@ export function GroupTimetable() {
     </div>
 }
 
+export function Lumafly() {
+    return <div className={s.desc}>
+        <P>
+            <a href='https://store.steampowered.com/app/367520/Hollow_Knight/'>
+                Hollow Knight
+            </a> mod for tracking freed Lumaflies.
+            Originally developed for <a href='https://www.youtube.com/@Surry'>Skurry</a>.
+            The mod comes with a simple map website that helps players locate
+            remaining Lumaflies.
+        </P>
+        <div className={s.links}>
+            <LinkList
+                links={[
+                    {
+                        to: 'https://github.com/vanaigr/LumaflyKnight',
+                        brand: faGithub,
+                        text: 'Mod GitHub',
+                    },
+                    {
+                        to: 'https://github.com/vanaigr/LumaflyMap',
+                        brand: faGithub,
+                        text: 'Map GitHub',
+                    },
+                ]}
+            />
+        </div>
+    </div>
+}
+
 type A = { children: R.ReactNode }
 
 function P({ children }: A) {

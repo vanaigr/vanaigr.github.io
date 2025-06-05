@@ -61,6 +61,8 @@ export const projects = {
         preview: lumaflyKnightPreview,
         title: 'Lumafly Knight',
         desc: 'Hollow Knight mod that tracks rescued lumaflies with in-game integration',
+        videoUrl: 'https://www.youtube.com/embed/FxI1s5dZCs0?si=xVfPnDLYmrUc06yC',
+        longDesc: longDescs.Lumafly,
     },
     minceraft: {
         date: '2022-01',
