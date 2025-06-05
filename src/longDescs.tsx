@@ -11,7 +11,7 @@ export function Minceraft() {
         </P>
 
         <P>
-            Key Contributions:
+            Highlights:
             <Ul>
                 <Li>
                     GPU-accelerated ray-tracing that uses software recursion
@@ -149,7 +149,7 @@ export function Minishoot() {
         </P>
 
         <P>
-            Key contributions:
+            Highlights:
             <Ul>
                 <Li>
                     Used Web Worker API to decode and filter large datasets without blocking user interactions.
@@ -194,7 +194,7 @@ export function Rainwatcher() {
             All data and backgrounds were extracted from the game using a custom C# script.
         </P>
         <P>
-            Key contributions:
+            Highlights:
             <Ul>
                 <Li>
                     Applied knowledge from the Minishoot' Adventures map to build and release the first public version within one week of the DLC's launch.
@@ -229,7 +229,7 @@ export function GroupTimetable() {
             Also supports exporting schedules to calendar apps.
         </P>
         <P>
-            Key contributions:
+            Highlights:
             <Ul>
                 <Li>
                     Developed a heuristic algorithm to accurately extract structured table data from complex PDF files.
