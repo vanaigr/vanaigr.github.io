@@ -77,6 +77,8 @@ export const projects = {
         preview: golPreview,
         title: 'Game of Life',
         desc: 'High-performance simulation of Conway\'s Game of Life',
+        videoUrl: 'https://www.youtube.com/embed/GBlErSSwmYw?si=Ss5RDDtZiP_wNz-C',
+        longDesc: longDescs.Life,
     },
     airlineTicketing: {
         date: '2022-09',

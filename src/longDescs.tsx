@@ -6,7 +6,7 @@ import { faGithub, faApple } from '@fortawesome/free-brands-svg-icons'
 export function Minceraft() {
     return <div className={s.desc}>
         <P>
-            MinceraftClone is a Minecraft-inspired C++ & OpenGL game that uses ray tracing
+            MinceraftClone is a Minecraft-inspired C++, OpenGL & CMake game that uses ray tracing
             {' for'} rendering.
         </P>
 
@@ -264,7 +264,7 @@ export function Lumafly() {
         <P>
             <a href='https://store.steampowered.com/app/367520/Hollow_Knight/'>
                 Hollow Knight
-            </a> mod for tracking freed Lumaflies.
+            </a> mod for tracking freed Lumaflies, written in C#.
             Originally developed for <a href='https://www.youtube.com/@Surry'>Skurry</a>.
             The mod comes with a simple map website that helps players locate
             remaining Lumaflies.
@@ -281,6 +281,37 @@ export function Lumafly() {
                         to: 'https://github.com/vanaigr/LumaflyMap',
                         brand: faGithub,
                         text: 'Map GitHub',
+                    },
+                ]}
+            />
+        </div>
+    </div>
+}
+
+export function Life() {
+    return <div className={s.desc}>
+        <P>
+            High-performance implementation of Conway's Game of Life, built with C++, OpenGL, and CMake. Can simulate ~2.5 billion cells per second on a single core.
+        </P>
+
+        <P>
+            Highlights:
+            <Ul>
+                <Li>
+                    Designed and implemented a custom SIMD-optimized algorithm to process 32 cells at once using 16-byte wide registers, significantly accelerating computation.
+                </Li>
+                <Li>
+                    Introduced multithreading to compute different regions of the field in parallel, improving performance and maintaining responsive user interaction.
+                </Li>
+            </Ul>
+        </P>
+        <div className={s.links}>
+            <LinkList
+                links={[
+                    {
+                        to: 'https://github.com/vanaigr/gameOfLife',
+                        brand: faGithub,
+                        text: 'github.com/vanaigr/gameOfLife',
                     },
                 ]}
             />
