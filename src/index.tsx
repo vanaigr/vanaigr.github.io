@@ -296,6 +296,7 @@ function animate(arg: any) {
 function Card({ projectId }: { projectId: D.ProjectId }) {
     const dialogRef = R.useRef<HTMLDialogElement>(null)
     const it = D.projects[projectId]
+    const [hover, setHover] = R.useState(false)
 
     const backgroundId = btoa2(R.useId())
     const fullBackgroundId = 'item-' + backgroundId
@@ -329,6 +330,8 @@ function Card({ projectId }: { projectId: D.ProjectId }) {
             type='button'
             className={s.unbutton + ' ' + s.card}
             onClick={open}
+            onMouseOver={() => setHover(true)}
+            onMouseOut={() => setHover(false)}
         >
             <div>
                 <div className={s.content}>
@@ -339,7 +342,18 @@ function Card({ projectId }: { projectId: D.ProjectId }) {
                         />
                     }
                     <div className={s.content}>
-                        <img className={s.preview} src={it.preview}/>
+                        <img
+                            key={'' + hover}
+                            className={s.preview + (hover ? ' ' + s.previewHover : '')}
+                            style={{
+                                ...(
+                                    hover && it.gifFit != null
+                                        ? { objectFit: it.gifFit }
+                                        : {}
+                                )
+                            }}
+                            src={hover ? it.gifUrl ?? it.preview : it.preview}
+                        />
                         <div className={s.title}>{it.title}</div>
                         <div className={s.desc}>{it.desc}</div>
                     </div>

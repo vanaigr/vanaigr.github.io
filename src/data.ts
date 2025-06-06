@@ -13,6 +13,19 @@ import uniboardPreview from '@/previews/uniboard.png'
 import easywordPreview from '@/previews/easyword.png'
 import reactChallengePreview from '@/previews/reactChallenge.png'
 
+import timelineGif from '@/previews-gif/timeline.gif'
+import dripAppGif from '@/previews-gif/dripApp.gif'
+import minishootGif from '@/previews-gif/minishoot.gif'
+import rainwatcherGif from '@/previews-gif/rainwatcher.gif'
+import groupTimetableGif from '@/previews-gif/groupTimetable.gif'
+import lumaflyKnightGif from '@/previews-gif/lumaflyKnight.gif'
+import minceraftGif from '@/previews-gif/minceraft.gif'
+import golGif from '@/previews-gif/gol.gif'
+import airlineTicketingGif from '@/previews-gif/airlineTicketing.gif'
+import uniboardGif from '@/previews-gif/uniboard.gif'
+import easywordGif from '@/previews-gif/easyword.gif'
+import reactChallengeGif from '@/previews-gif/reactChallenge.gif'
+
 import * as longDescs from './longDescs.tsx'
 
 export const projects = {
@@ -21,6 +34,7 @@ export const projects = {
         preview: timelinePreview,
         title: 'Job Scheduling',
         desc: 'Web app for optimizing and managing production line schedules',
+        gifUrl: timelineGif,
         videoUrl: 'https://www.youtube.com/embed/VtPjKyAMf8U?si=ECXoQreR2DpN0P5q',
         longDesc: longDescs.Timeline,
     },
@@ -29,6 +43,7 @@ export const projects = {
         preview: reactChallengePreview,
         title: 'Production Order Scheduler',
         desc: 'web app to manage and schedule Production Orders',
+        gifUrl: reactChallengeGif,
         videoUrl: 'https://www.youtube.com/embed/qSDv3FNq_8g?si=GjsMjs8e1FvTBOSD',
         longDesc: longDescs.ReactChallenge,
     },
@@ -37,6 +52,8 @@ export const projects = {
         preview: dripPreview,
         title: 'DripIQ',
         desc: 'Smart hydration tracking app built with React Native',
+        gifUrl: dripAppGif,
+        gifFit: 'contain',
         videoUrl: 'https://www.youtube.com/embed/uTM_SZ5AVNY?si=ayQ1GzAQ_Qsa_bUQ',
         longDesc: longDescs.DripApp,
         videoVertical: true,
@@ -46,6 +63,7 @@ export const projects = {
         preview: groupTimetablePreview,
         title: 'Group Timetable',
         desc: 'Scheduling website for students in cohort-based programs',
+        gifUrl: groupTimetableGif,
         videoUrl: 'https://www.youtube.com/embed/sGKQyrWy2o8?si=40E2Dz-cCWdlFs9P',
         longDesc: longDescs.GroupTimetable,
     },
@@ -53,6 +71,7 @@ export const projects = {
         date: '2023-04',
         preview: rainwatcherPreview,
         title: 'Rain World: The Watcher DLC Map',
+        gifUrl: rainwatcherGif,
         desc: 'First interactive map website for the Watcher DLC',
         videoUrl: 'https://www.youtube.com/embed/oCP7F5N5Ulk?si=taSMgMY9fXRZWjQH',
         longDesc: longDescs.Rainwatcher,
@@ -62,6 +81,7 @@ export const projects = {
         preview: minishootPreview,
         title: 'Minishoot\` Adventures Map',
         desc: 'The most complete interactive map for Minishoot\' Adventures',
+        gifUrl: minishootGif,
         videoUrl: 'https://www.youtube.com/embed/5vnKPzF1OnE?si=KOTEeWJ5kOj81ApU',
         longDesc: longDescs.Minishoot,
     },
@@ -70,6 +90,7 @@ export const projects = {
         preview: lumaflyKnightPreview,
         title: 'Lumafly Knight',
         desc: 'Hollow Knight mod that tracks rescued lumaflies with in-game integration',
+        gifUrl: lumaflyKnightGif,
         videoUrl: 'https://www.youtube.com/embed/FxI1s5dZCs0?si=xVfPnDLYmrUc06yC',
         longDesc: longDescs.Lumafly,
     },
@@ -78,6 +99,7 @@ export const projects = {
         preview: minceraftPreview,
         title: 'Minceraft Clone',
         desc: 'Minecraft clone with real-time ray tracing rendering',
+        gifUrl: minceraftGif,
         videoUrl: 'https://www.youtube.com/embed/xjYQW5gW2bc?si=A2kjD1j0v9IThC4C',
         longDesc: longDescs.Minceraft,
     },
@@ -86,6 +108,7 @@ export const projects = {
         preview: golPreview,
         title: 'Game of Life',
         desc: 'High-performance simulation of Conway\'s Game of Life',
+        gifUrl: golGif,
         videoUrl: 'https://www.youtube.com/embed/GBlErSSwmYw?si=Ss5RDDtZiP_wNz-C',
         longDesc: longDescs.Life,
     },
@@ -94,6 +117,7 @@ export const projects = {
         preview: airlineTicketingPreview,
         title: 'Flight Reservation System',
         desc: 'C# client-server desktop application for booking and managing airline tickets',
+        gifUrl: airlineTicketingGif,
         videoUrl: 'https://www.youtube.com/embed/RYEu70H6YNQ?si=WnokGyXGu2BCYHYs',
         longDesc: longDescs.Airline,
     },
@@ -101,6 +125,7 @@ export const projects = {
         date: '2023-11',
         preview: easywordPreview,
         title: 'Easyword',
+        gifUrl: easywordGif,
         desc: 'Neovim plugin for navigating to any visible word with minimal keystrokes',
         videoUrl: 'https://www.youtube.com/embed/qB3O8z20qlk?si=n9hhGYStLuPvmmrw',
         longDesc: longDescs.Easyword,
@@ -110,6 +135,8 @@ export const projects = {
         preview: uniboardPreview,
         title: 'Uniboard',
         desc: 'Feature-rich, fully customizable Android keyboard',
+        gifUrl: uniboardGif,
+        gifFit: 'contain',
         videoUrl: 'https://www.youtube.com/embed/8VFX-hQFilQ?si=RU9fC6GbnlbMtnLM',
         videoVertical: true,
         videoAspectRatio: '9 / 16',
@@ -147,8 +174,10 @@ export type Project = {
     title: string
     desc: string
     date: string
-    videoUrl?: string
-    longDesc?: () => ReactNode
+    gifUrl?: string
+    gifFit?: string
+    videoUrl: string
+    longDesc: () => ReactNode
     videoVertical?: boolean
     videoAspectRatio?: string
 }

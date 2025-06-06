@@ -8,4 +8,9 @@ namespace global {
         const v: string
         export default v
     }
+
+    declare module '*.gif' {
+        const v: string
+        export default v
+    }
 }
