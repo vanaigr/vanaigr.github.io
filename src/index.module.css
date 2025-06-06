@@ -125,7 +125,7 @@
                 line-height: 1.25rem;
                 --gap: 0.4rem;
                 gap: var(--gap);
-                & > * {
+                & > .orderItem {
                     margin: 0rem -2rem calc(var(--gap) * -1) -2rem;
                     padding: 0rem 2rem var(--gap) 2rem;
                     & > * {

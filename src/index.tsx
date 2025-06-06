@@ -158,26 +158,79 @@ function App() {
             })}
         </div>
         <div className={s.order}>
-            <div>
-                <div className={s.title}>In chronological order</div>
-                {D.projectsByYear.map((it, i) => {
-                    return <div key={i} className={s.orderList}>
-                        {/*<div className={s.title}>
-                            {it.year}
-                        </div>*/}
-                        <div className={s.list}>
-                            {it.projects.map((it, i) => {
-                                return <div key={i}>
-                                    <div>{D.projects[it].title}</div>
-                                </div>
-                            })}
-                        </div>
-                    </div>
-                })}
-            </div>
+            <OrderMenu/>
         </div>
     </div>
 }
+
+function OrderMenu() {
+    return <div>
+        <div className={s.title}>In chronological order</div>
+        {D.projectsByYear.map((it, i) => {
+            return <div key={i} className={s.orderList}>
+                {/*<div className={s.title}>
+                    {it.year}
+                </div>*/}
+                <div className={s.list}>
+                    {it.projects.map((it, i) => {
+                        return <OrderItem key={i} projectId={it}/>
+                    })}
+                </div>
+            </div>
+        })}
+    </div>
+}
+
+function OrderItem({ projectId }: { projectId: D.ProjectId }) {
+    const dialogRef = R.useRef<HTMLDialogElement>(null)
+    const it = D.projects[projectId]
+
+    const backgroundId = btoa2(R.useId())
+    const fullBackgroundId = 'item-' + backgroundId
+
+    const [isOpen, setIsOpen] = R.useState(false)
+    const open = () => {
+        const d = dialogRef.current
+        if(!d) return
+        animate({
+            update: () => {
+                d.showModal()
+                RDD.flushSync(() => setIsOpen(true))
+            },
+            types: ['item'],
+        })
+    }
+    const close = () => {
+        const d = dialogRef.current
+        if(!d) return
+        animate({
+            update: () => {
+                d.close()
+                RDD.flushSync(() => setIsOpen(false))
+            },
+            types: ['item'],
+        })
+    }
+
+    return <>
+        <div className={s.orderItem} onClick={open}>
+            <div>{D.projects[projectId].title}</div>
+        </div>
+        <dialog className={s.dialog} ref={dialogRef}>
+            <Dialog
+                it={it}
+                backgroundId={fullBackgroundId}
+                isOpen={isOpen}
+                close={close}
+            />
+        </dialog>
+    </>
+}
+
+function btoa2(str: string) {
+    return btoa(str).replace('+', '-').replace('\/', '_').replace('=', '');
+}
+
 
 function Category({ category }: { category: D.Category }) {
     return <div className={s.category}>
@@ -211,7 +264,7 @@ function Card({ projectId }: { projectId: D.ProjectId }) {
     const dialogRef = R.useRef<HTMLDialogElement>(null)
     const it = D.projects[projectId]
 
-    const backgroundId = R.useId()
+    const backgroundId = btoa2(R.useId())
     const fullBackgroundId = 'item-' + backgroundId
 
     const [isOpen, setIsOpen] = R.useState(false)
