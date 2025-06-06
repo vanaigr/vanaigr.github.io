@@ -84,6 +84,10 @@
     display: flex;
     padding: 2rem 1rem 1rem 1rem;
     justify-content: center;
+    gap: 1rem;
+    & > * > a {
+        color: var(--muted);
+    }
 }
 
 .body {

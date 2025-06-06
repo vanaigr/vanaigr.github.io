@@ -156,6 +156,11 @@ function Wrapper({ children }: { children: R.ReactNode }) {
         {children}
         <div className={s.footer}>
             <div>Generated {gen}</div>
+            <div>
+                Source: <a href='https://github.com/vanaigr/vanaigr.github.io'>
+                    github.com/vanaigr/vanaigr.github.io
+                </a>
+            </div>
         </div>
     </div>
 }
