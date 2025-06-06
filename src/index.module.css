@@ -126,8 +126,8 @@
                 --gap: 0.4rem;
                 gap: var(--gap);
                 & > * {
-                    margin: 0rem -2rem calc(var(--gap) * -0.5) -2rem;
-                    padding: 0rem 2rem calc(var(--gap) * 0.5) 2rem;
+                    margin: 0rem -2rem calc(var(--gap) * -1) -2rem;
+                    padding: 0rem 2rem var(--gap) 2rem;
                     & > * {
                         transform: translateX(0px);
                         color: black;
