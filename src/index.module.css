@@ -1,15 +1,15 @@
-@font-face {
-  font-family: 'DejaVu Sans';
-  src: url('./DejaVuSans.ttf') format('ttf');
-  font-weight: normal;
-  font-style: normal;
-}
-
 .unbutton {
     background: none;
     border: none;
     text-align: left;
     font-size: unset;
+}
+
+@font-face {
+  font-family: 'DejaVu Sans';
+  src: url('./DejaVuSans.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
 }
 
 :root {
@@ -144,11 +144,14 @@
                 display: flex;
                 flex-direction: column;
                 cursor: pointer;
-                font-size: 0.9rem;
-                line-height: 1.25rem;
                 --gap: 0.7rem;
                 gap: var(--gap);
+
                 & > .orderItem {
+                    font-size: 0.9rem;
+                    line-height: 1.25rem;
+                    font-family: 'Roboto Condensed';
+
                     margin: 0rem -2rem calc(var(--gap) * -1) -2rem;
                     padding: 0rem 2rem var(--gap) 2rem;
                     & > * {
@@ -546,7 +549,9 @@ from {
             & > .orderList {
                 & > .list {
                     --gap: 1rem !important;
-                    font-size: 1rem;
+                    & > .orderItem {
+                        font-size: 1rem;
+                    }
                 }
             }
         }
