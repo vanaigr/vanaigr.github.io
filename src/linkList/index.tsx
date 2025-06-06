@@ -17,8 +17,8 @@ export type Link = {
 
 export default function C({ links }: { links: Link[] }) {
     return <div className={s.linkList}>
-        {links.map(it => {
-            return <Item it={it}/>
+        {links.map((it, i) => {
+            return <Item key={i} it={it}/>
         })}
     </div>
 }
