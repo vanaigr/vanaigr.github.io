@@ -49,27 +49,34 @@ export function Minceraft() {
 export function Timeline() {
     return <div className={s.desc}>
         <P>
-            A job scheduling system with a React frontend and C# backend.
-            Enables users to manage and optimize job assignments across multiple
-            production devices. The system includes a custom high-performance
+            A job scheduling system that enables users to manage and optimize
+            job assignments across multiple production devices.
+            The system includes a custom high-performance
             probabilistic algorithm capable of optimizing hundreds of tasks across
             production lines in under a second.
         </P>
 
         <P>
-            Key Contributions:
+            Highlights:
             <Ul>
                 <Li>
-                    Interactive timeline visualization and drag-and-drop job scheduling
+                    Implemented interactive timeline visualization and drag-and-drop
+                    job scheduling using React.js, TypeScript, Zustand and Vite.
                 </Li>
                 <Li>
-                    Automatic scheduling algorithm
+                    Designed automatic scheduling algorithm using a combination of
+                    brute-force, simulated-anneal and gradient descent techniques.
                 </Li>
                 <Li>
-                    Non-working period and Daylight saving time handling
+                    Implemented logic to handle non-working periods and
+                    Daylight saving time.
                 </Li>
                 <Li>
-                    Backend server logic and support for optimistic updates
+                    Wrote unit tests using Vitest, component tests using React Testing
+                    Library, and integration tests using Playwright.
+                </Li>
+                <Li>
+                    Implemented backend in C# that supports concurrent optimistic updates.
                 </Li>
             </Ul>
         </P>
@@ -99,15 +106,19 @@ export function DripApp() {
             Key Contributions:
             <Ul>
                 <Li>
-                    Designed and implemented a hydration simulation engine, tracking and predicting over 20 physiological parameters through in-depth research and development.
+                    Designed and implemented a hydration simulation engine
+                    that tracks and predicts over 20 physiological parameters through
+                    in-depth research and development.
                 </Li>
 
                 <Li>
-                    Developed core features including drink logging, log filtering, settings, and profile management on both frontend and backend.
+                    Developed core features including drink logging, log filtering,
+                    settings, and profile management on both frontend and backend
+                    using TypeScript, React.js, React Native, Zustand and Node.js.
                 </Li>
 
                 <Li>
-                    Integrated Google Sign-In and implemented push notifications for reminders and updates.
+                    Integrated Google Sign-In and implemented push notifications for reminders and updates in Java and Kotlin.
                 </Li>
             </Ul>
         </P>
