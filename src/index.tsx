@@ -216,6 +216,16 @@ function OrderItem({ projectId }: { projectId: D.ProjectId }) {
         <div className={s.orderItem} onClick={open}>
             <div>{D.projects[projectId].title}</div>
         </div>
+        {!isOpen &&
+            <div className={s.blankCardTransition}>
+                <div>
+                    <div
+                        className={s.cardTransitionBackground + ' ' + s.itemAnimation}
+                        style={animStyle(fullBackgroundId)}
+                    />
+                </div>
+            </div>
+        }
         <dialog className={s.dialog} ref={dialogRef}>
             <Dialog
                 it={it}
@@ -228,7 +238,7 @@ function OrderItem({ projectId }: { projectId: D.ProjectId }) {
 }
 
 function btoa2(str: string) {
-    return btoa(str).replace('+', '-').replace('\/', '_').replace('=', '');
+    return btoa(str).replaceAll('+', '-').replaceAll('\/', '_').replaceAll('=', '');
 }
 
 
