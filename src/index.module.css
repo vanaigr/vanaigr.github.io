@@ -5,6 +5,13 @@
   font-style: normal;
 }
 
+.unbutton {
+    background: none;
+    border: none;
+    text-align: left;
+    font-size: unset;
+}
+
 :root {
     overflow-y: scroll;
 }
@@ -124,7 +131,7 @@
                 cursor: pointer;
                 font-size: 0.9rem;
                 line-height: 1.25rem;
-                --gap: 0.4rem;
+                --gap: 0.7rem;
                 gap: var(--gap);
                 & > .orderItem {
                     margin: 0rem -2rem calc(var(--gap) * -1) -2rem;
@@ -182,61 +189,63 @@
 }
 
 .card {
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-    position: relative;
-
-    & > .content {
+    & > * {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        cursor: pointer;
+        position: relative;
+
         & > .content {
             display: flex;
-            flex-direction: column;
-            border-radius: 1rem;
+            justify-content: center;
+            & > .content {
+                display: flex;
+                flex-direction: column;
+                border-radius: 1rem;
 
-            padding: 2rem 1rem 1rem 1rem;
-            border: 0.3rem solid transparent;
-            transform: translateY(0px);
-            background: transparent;
-            --dur: 0.3s;
-            transition: transform var(--dur),
-                border-color var(--dur),
-                background var(--dur);
+                padding: 2rem 1rem 1rem 1rem;
+                border: 0.3rem solid transparent;
+                transform: translateY(0px);
+                background: transparent;
+                --dur: 0.3s;
+                transition: transform var(--dur),
+                    border-color var(--dur),
+                    background var(--dur);
 
-            & > * {
-                width: 16rem;
-            }
+                & > * {
+                    width: 16rem;
+                }
 
-            & > .preview {
-                aspect-ratio: 16 / 9;
-                border-radius: 0.4rem;
-                box-shadow: 0px 0px 0.4rem 0px #00000005;
-            }
-            & > .title {
-                margin-top: 0.6rem;
-                margin-bottom: 0.2rem;
-                font-family: 'Noto Sans';
-                font-size: 1rem;
-                font-weight: 700;
-                line-height: 1.5;
-                color: #121505;
-            }
+                & > .preview {
+                    aspect-ratio: 16 / 9;
+                    border-radius: 0.4rem;
+                    box-shadow: 0px 0px 0.4rem 0px #00000005;
+                }
+                & > .title {
+                    margin-top: 0.6rem;
+                    margin-bottom: 0.2rem;
+                    font-family: 'Noto Sans';
+                    font-size: 1rem;
+                    font-weight: 700;
+                    line-height: 1.5;
+                    color: #121505;
+                }
 
-            & > .desc {
-                font-family: 'Noto Sans';
-                font-size: 0.9rem;
-                font-weight: 600;
-                line-height: 1.5;
-                color: var(--muted);
-                height: calc(0.9rem * 1.5 * 2);
-                overflow: hidden;
+                & > .desc {
+                    font-family: 'Noto Sans';
+                    font-size: 0.9rem;
+                    font-weight: 600;
+                    line-height: 1.5;
+                    color: var(--muted);
+                    height: calc(0.9rem * 1.5 * 2);
+                    overflow: hidden;
+                }
             }
         }
     }
 
     &:hover {
-        & > .content > .content {
+        & > * > .content > .content {
             border: 0.3rem solid var(--primary-a80);
             transform: translateY(-0.2rem);
             background: var(--primary-a10);
@@ -343,7 +352,7 @@ from {
     align-items: center;
     & > .content {
         position: relative;
-        width: 60rem;
+        width: max(60rem, 66%);
         max-width: calc(100% - 2rem);
 
         flex-grow: 1;
@@ -355,6 +364,7 @@ from {
         flex-direction: column;
 
         & > .longDesc {
+            flex-grow: 1;
             margin: 2rem 2rem;
             font-family: 'Noto Sans';
             display: flex;
@@ -443,6 +453,7 @@ from {
 @media (max-width: 50rem) {
     .header {
         flex-direction: column;
+        --gap: 1.5rem;
     }
     .headerBord {
         display: flex;
@@ -467,25 +478,28 @@ from {
     }
 
     .dialogContainer {
+        & > .closeButton {
+            display: none;
+        }
         & > .content {
             width: unset;
-            max-width: unset;
+            max-width: 100%;
             border-radius: 0px;
             margin: 0px;
             & > .video {
-                margin: 1rem;
-                margin-bottom: 0px;
+                margin: 0px 1rem;
             }
-            & > .closeButton {
-                display: none;
+            & > .longDesc {
+                flex-grow: 1;
+                margin: 1rem;
             }
             & > .inlineCloseButton {
-                padding: 1rem 1rem 0rem 1rem;
+                padding: 1rem 1rem 1rem 1rem;
                 display: flex;
                 justify-content: flex-end;
                 & > .closeIcon {
-                    margin: -1rem;
-                    padding: 1rem;
+                    margin: -2rem;
+                    padding: 2rem;
                     & > * {
                         color: black;
                     }
@@ -502,11 +516,14 @@ from {
 
     .order {
         & > * {
+            gap: 1.7rem;
             & > .title {
+                text-align: center;
                 font-size: 1.2rem;
             }
             & > .orderList {
                 & > .list {
+                    --gap: 1rem !important;
                     font-size: 1rem;
                 }
             }
@@ -537,7 +554,7 @@ from {
         margin-left: calc((1rem + 8px) * -1);
         margin-right: calc((2rem + 8px) * -1);
 
-        padding-left: calc(1rem + 8px);
-        padding-right: calc(2rem + 8px);
+        /*padding-left: calc(1rem + 8px);
+        padding-right: calc(2rem + 8px);*/
     }
 }

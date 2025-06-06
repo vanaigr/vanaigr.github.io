@@ -215,9 +215,13 @@ function OrderItem({ projectId }: { projectId: D.ProjectId }) {
     }
 
     return <>
-        <div className={s.orderItem} onClick={open}>
+        <button
+            type='button'
+            className={s.unbutton + ' ' + s.orderItem}
+            onClick={open}
+        >
             <div>{D.projects[projectId].title}</div>
-        </div>
+        </button>
         {!isOpen &&
             <div className={s.blankCardTransition}>
                 <div>
@@ -304,24 +308,27 @@ function Card({ projectId }: { projectId: D.ProjectId }) {
     }
 
     return <>
-        <div
-            className={s.card}
+        <button
+            type='button'
+            className={s.unbutton + ' ' + s.card}
             onClick={open}
         >
-            {!isOpen &&
-                <div
-                    className={s.cardTransitionBackground + ' ' + s.itemAnimation}
-                    style={animStyle(fullBackgroundId)}
-                />
-            }
-            <div className={s.content}>
+            <div>
                 <div className={s.content}>
-                    <img className={s.preview} src={it.preview}/>
-                    <div className={s.title}>{it.title}</div>
-                    <div className={s.desc}>{it.desc}</div>
+                    {!isOpen &&
+                        <div
+                            className={s.cardTransitionBackground + ' ' + s.itemAnimation}
+                            style={animStyle(fullBackgroundId)}
+                        />
+                    }
+                    <div className={s.content}>
+                        <img className={s.preview} src={it.preview}/>
+                        <div className={s.title}>{it.title}</div>
+                        <div className={s.desc}>{it.desc}</div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </button>
         {/*
             This would've been inside the card.
             But onClick bubbles and the dialog reopens itself 🤡
@@ -352,9 +359,9 @@ function Dialog({ close, isOpen, it, backgroundId }: DialogProps) {
             className={s.backdrop}
         />
         <div className={s.closeButton}>
-            <div className={s.closeIcon}>
+            <button type='button' className={s.unbutton + ' ' + s.closeIcon}>
                 <CloseIcon/>
-            </div>
+            </button>
         </div>
         {isOpen &&
             <div
@@ -365,11 +372,15 @@ function Dialog({ close, isOpen, it, backgroundId }: DialogProps) {
                 }
                 style={animStyle(backgroundId)}
             >
-                <div className={s.inlineCloseButton}>
-                    <div className={s.closeIcon} onClick={close}>
+                <button
+                    type='button'
+                    className={s.unbutton + ' ' + s.inlineCloseButton}
+                    onClick={close}
+                >
+                    <div className={s.closeIcon}>
                         <CloseIcon/>
                     </div>
-                </div>
+                </button>
                 <div
                     className={s.video}
                     style={{ ...(it.videoAspectRatio ? { aspectRatio: it.videoAspectRatio } : {}) }}

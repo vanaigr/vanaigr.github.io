@@ -1,6 +1,6 @@
 .p {
     font-family: 'Noto sans';
-    margin: 0.5rem 0.5rem;
+    margin: 0.5rem 0px;
 }
 
 .ul {
@@ -23,4 +23,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: flex-end;
+    & > * {
+        max-width: 100%;
+    }
 }
