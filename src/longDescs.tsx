@@ -342,6 +342,29 @@ export function Airline() {
     </div>
 }
 
+export function Easyword() {
+    return <div className={s.desc}>
+        <P>
+            Neovim plugin that lets you jump to any word on the screen in just a few keystrokes.
+            Unlike similar plugins such as <a href='https://github.com/justinmk/vim-sneak'>vim-sneak</a>
+            and <a href='https://github.com/ggandor/leap.nvim'>leap.nvim</a>, it preserves last label positions,
+            allowing to recover quickly from mistyped keys. It also supports customizable key-to-character mappings,
+            useful for jumping in files in different languages or alphabets.
+        </P>
+        <div className={s.links}>
+            <LinkList
+                links={[
+                    {
+                        to: 'https://github.com/vanaigr/easyword.nvim',
+                        brand: faGithub,
+                        text: 'github.com/vanaigr/easyword.nvim',
+                    },
+                ]}
+            />
+        </div>
+    </div>
+}
+
 type A = { children: R.ReactNode }
 
 function P({ children }: A) {

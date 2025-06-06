@@ -93,6 +93,8 @@ export const projects = {
         preview: easywordPreview,
         title: 'Easyword',
         desc: 'Neovim plugin for navigating to any visible word with minimal keystrokes',
+        videoUrl: 'https://www.youtube.com/embed/qB3O8z20qlk?si=n9hhGYStLuPvmmrw',
+        longDesc: longDescs.Easyword,
     },
     uniboard: {
         date: '2020-11',
