@@ -300,7 +300,10 @@ function Dialog({ close, isOpen, it, backgroundId }: DialogProps) {
                 }
                 style={animStyle(backgroundId)}
             >
-                <div className={s.video}>
+                <div
+                    className={s.video}
+                    style={{ ...(it.videoAspectRatio ? { aspectRatio: it.videoAspectRatio } : {}) }}
+                >
                     <iframe
                         src={it.videoUrl}
                         title="YouTube video player"

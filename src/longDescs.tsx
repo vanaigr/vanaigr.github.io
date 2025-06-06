@@ -365,6 +365,28 @@ export function Easyword() {
     </div>
 }
 
+export function Uniboard() {
+    return <div className={s.desc}>
+        <P>
+            Android app (Java & Kotlin) for building fully customizable keyboards.
+        </P>
+        <P>
+            Highlights:
+            <Ul>
+                <Li>
+                    Includes a Unicode character menu for viewing and typing any unicode character.
+                </Li>
+                <Li>
+                    Supports custom layouts with user-defined keys, appearance settings, and nested key popups.
+                </Li>
+                <Li>
+                    Optimized to switch between keyboard layouts in a single frame, outperforming popular keyboards which (still! 2020 project and more powerful phones) take multiple frames.
+                </Li>
+            </Ul>
+        </P>
+    </div>
+}
+
 type A = { children: R.ReactNode }
 
 function P({ children }: A) {

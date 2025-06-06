@@ -101,6 +101,10 @@ export const projects = {
         preview: uniboardPreview,
         title: 'Uniboard',
         desc: 'Feature-rich, fully customizable Android keyboard',
+        videoUrl: 'https://www.youtube.com/embed/8VFX-hQFilQ?si=RU9fC6GbnlbMtnLM',
+        videoVertical: true,
+        videoAspectRatio: '9 / 16',
+        longDesc: longDescs.Uniboard,
     },
 } as const satisfies Record<string, Project>
 
@@ -137,6 +141,7 @@ export type Project = {
     videoUrl?: string
     longDesc?: () => ReactNode
     videoVertical?: boolean
+    videoAspectRatio?: string
 }
 
 export type ProjectId = keyof typeof projects
