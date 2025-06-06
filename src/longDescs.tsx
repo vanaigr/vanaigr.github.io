@@ -387,6 +387,45 @@ export function Uniboard() {
     </div>
 }
 
+export function ReactChallenge() {
+    return <div className={s.desc}>
+        <P>
+            Web app for managing production orders.
+            Allows users to manage equipment and maintenance records.
+        </P>
+        <P>
+            Highlights:
+            <Ul>
+                <Li>
+                    Implemented frontend and backend of the application using
+                    Next.js, Tailwind CSS, React.js, TypeScript, TanStack table, Zod and Zustand.
+                </Li>
+                <Li>
+                    Designed database schema using Prisma.
+                </Li>
+                <Li>
+                    Implemented unit, integration and API endpoints tests using
+                    Jasmine and Playwright, as well as linting using Biome.
+                </Li>
+                <Li>
+                    Wrote Dockerfile to run the application in the container.
+                </Li>
+            </Ul>
+            <div className={s.links}>
+                <LinkList
+                    links={[
+                        {
+                            to: 'https://github.com/vanaigr/production-order-scheduler',
+                            brand: faGithub,
+                            text: 'github.com/vanaigr/production-order-scheduler',
+                        },
+                    ]}
+                />
+            </div>
+        </P>
+    </div>
+}
+
 type A = { children: R.ReactNode }
 
 function P({ children }: A) {

@@ -11,6 +11,7 @@ import golPreview from '@/previews/gol.png'
 import airlineTicketingPreview from '@/previews/airline.png'
 import uniboardPreview from '@/previews/uniboard.png'
 import easywordPreview from '@/previews/easyword.png'
+import reactChallengePreview from '@/previews/reactChallenge.png'
 
 import * as longDescs from './longDescs.tsx'
 
@@ -19,9 +20,17 @@ export const projects = {
         date: '2025-03',
         preview: timelinePreview,
         title: 'Job Scheduling',
-        desc: 'Web application for optimizing and managing production line schedules',
+        desc: 'Web app for optimizing and managing production line schedules',
         videoUrl: 'https://www.youtube.com/embed/VtPjKyAMf8U?si=ECXoQreR2DpN0P5q',
         longDesc: longDescs.Timeline,
+    },
+    reactChallenge: {
+        date: '2025-01',
+        preview: reactChallengePreview,
+        title: 'Production Order Scheduler',
+        desc: 'web app to manage and schedule Production Orders',
+        videoUrl: 'https://www.youtube.com/embed/qSDv3FNq_8g?si=GjsMjs8e1FvTBOSD',
+        longDesc: longDescs.ReactChallenge,
     },
     dripApp: {
         date: '2025-01',
@@ -151,6 +160,7 @@ export const categories: Category[] = [
         title: 'Web',
         projects: [
             'timeline',
+            'reactChallenge',
             'dripApp',
             'minishoot',
             'rainwatcher',
