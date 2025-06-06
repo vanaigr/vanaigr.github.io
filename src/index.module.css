@@ -49,6 +49,7 @@
     }
     & > .headerCent {
         display: flex;
+        justify-content: center;
         gap: var(--gap);
 
         & > * {
@@ -188,50 +189,54 @@
 
     & > .content {
         display: flex;
-        flex-direction: column;
-        border-radius: 1rem;
+        justify-content: center;
+        & > .content {
+            display: flex;
+            flex-direction: column;
+            border-radius: 1rem;
 
-        padding: 2rem 1rem 1rem 1rem;
-        border: 0.3rem solid transparent;
-        transform: translateY(0px);
-        background: transparent;
-        --dur: 0.3s;
-        transition: transform var(--dur),
-            border-color var(--dur),
-            background var(--dur);
+            padding: 2rem 1rem 1rem 1rem;
+            border: 0.3rem solid transparent;
+            transform: translateY(0px);
+            background: transparent;
+            --dur: 0.3s;
+            transition: transform var(--dur),
+                border-color var(--dur),
+                background var(--dur);
 
-        & > * {
-            width: 16rem;
-        }
+            & > * {
+                width: 16rem;
+            }
 
-        & > .preview {
-            aspect-ratio: 16 / 9;
-            border-radius: 0.4rem;
-            box-shadow: 0px 0px 0.4rem 0px #00000005;
-        }
-        & > .title {
-            margin-top: 0.6rem;
-            margin-bottom: 0.2rem;
-            font-family: 'Noto Sans';
-            font-size: 1rem;
-            font-weight: 700;
-            line-height: 1.5;
-            color: #121505;
-        }
+            & > .preview {
+                aspect-ratio: 16 / 9;
+                border-radius: 0.4rem;
+                box-shadow: 0px 0px 0.4rem 0px #00000005;
+            }
+            & > .title {
+                margin-top: 0.6rem;
+                margin-bottom: 0.2rem;
+                font-family: 'Noto Sans';
+                font-size: 1rem;
+                font-weight: 700;
+                line-height: 1.5;
+                color: #121505;
+            }
 
-        & > .desc {
-            font-family: 'Noto Sans';
-            font-size: 0.9rem;
-            font-weight: 600;
-            line-height: 1.5;
-            color: var(--muted);
-            height: calc(0.9rem * 1.5 * 2);
-            overflow: hidden;
+            & > .desc {
+                font-family: 'Noto Sans';
+                font-size: 0.9rem;
+                font-weight: 600;
+                line-height: 1.5;
+                color: var(--muted);
+                height: calc(0.9rem * 1.5 * 2);
+                overflow: hidden;
+            }
         }
     }
 
     &:hover {
-        & > .content {
+        & > .content > .content {
             border: 0.3rem solid var(--primary-a80);
             transform: translateY(-0.2rem);
             background: var(--primary-a10);
@@ -327,6 +332,7 @@ from {
         max-height: none;
         padding: 0px;
         overflow-y: auto;
+        overscroll-behavior: none;
     }
 }
 .dialogContainer {
@@ -348,7 +354,6 @@ from {
         display: flex;
         flex-direction: column;
 
-
         & > .longDesc {
             margin: 2rem 2rem;
             font-family: 'Noto Sans';
@@ -361,6 +366,10 @@ from {
                 width: 100%;
                 height: 100%;
             }
+        }
+        & > .inlineCloseButton {
+            display: none;
+            top: 1rem;
         }
 
         &.vertical {
@@ -383,15 +392,17 @@ from {
         right: 0;
         top: 0;
         padding: 1rem 3rem;
-        & > * {
-            top: 1rem;
+        & > .closeIcon {
             position: fixed;
-            & > * {
-                color: white;
-                width: 2rem;
-                opacity: 0.8;
-            }
         }
+    }
+}
+
+.closeIcon {
+    & > * {
+        color: white;
+        width: 2rem;
+        opacity: 0.8;
     }
 }
 
@@ -418,4 +429,115 @@ from {
 
 .headerLink {
     text-decoration: none;
+}
+
+@media (max-width: 75rem) {
+    .category > .content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .dialogContainer > .content {
+        width: 40rem;
+    }
+}
+
+@media (max-width: 50rem) {
+    .header {
+        flex-direction: column;
+    }
+    .headerBord {
+        display: flex;
+        justify-content: center;
+    }
+
+    .body {
+        flex-direction: column;
+        align-items: center;
+        gap: 5rem;
+    }
+
+     .appSpacer, .headerSpacer {
+        display: none;
+    }
+
+    .order {
+        display: flex;
+        justify-content: center;
+        min-width: unset;
+        width: unset;
+    }
+
+    .dialogContainer {
+        & > .content {
+            width: unset;
+            max-width: unset;
+            border-radius: 0px;
+            margin: 0px;
+            & > .video {
+                margin: 1rem;
+                margin-bottom: 0px;
+            }
+            & > .closeButton {
+                display: none;
+            }
+            & > .inlineCloseButton {
+                padding: 1rem 1rem 0rem 1rem;
+                display: flex;
+                justify-content: flex-end;
+                & > .closeIcon {
+                    margin: -1rem;
+                    padding: 1rem;
+                    & > * {
+                        color: black;
+                    }
+                }
+            }
+            &.vertical {
+                flex-direction: column;
+            }
+            &.vertical > .video {
+                height: unset;
+            }
+        }
+    }
+
+    .order {
+        & > * {
+            & > .title {
+                font-size: 1.2rem;
+            }
+            & > .orderList {
+                & > .list {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}
+
+.contactList > * {
+    --gap: 1.5rem !important;
+}
+
+@media (max-width: 40rem) {
+    .body {
+        align-items: stretch;
+    }
+    .categories {
+        align-items: stretch;
+    }
+    .category {
+        gap: 0.5rem;
+        & > .content {
+            grid-template-columns: 1fr;
+        }
+    }
+    .card > .content {
+        /*padding-top: 0.5rem;
+        padding-bottom: 0.5rem;*/
+        margin-left: calc((1rem + 8px) * -1);
+        margin-right: calc((2rem + 8px) * -1);
+
+        padding-left: calc(1rem + 8px);
+        padding-right: calc(2rem + 8px);
+    }
 }

@@ -113,7 +113,9 @@ function Wrapper({ children }: { children: R.ReactNode }) {
 
     return <div className={s.app}>
         <div className={s.header}>
-            <div className={s.headerBord}>Artem Andrievskii</div>
+            <div className={s.headerBord}>
+                <span>Artem Andrievskii</span>
+            </div>
             <div className={s.headerCent}>
                 <a
                     className={s.headerLink}
@@ -140,7 +142,7 @@ function Wrapper({ children }: { children: R.ReactNode }) {
                     <div>Contact</div>
                 </a>
             </div>
-            <div className={s.headerBord}/>
+            <div className={s.headerBord + ' ' + s.headerSpacer}/>
         </div>
         {children}
     </div>
@@ -313,9 +315,11 @@ function Card({ projectId }: { projectId: D.ProjectId }) {
                 />
             }
             <div className={s.content}>
-                <img className={s.preview} src={it.preview}/>
-                <div className={s.title}>{it.title}</div>
-                <div className={s.desc}>{it.desc}</div>
+                <div className={s.content}>
+                    <img className={s.preview} src={it.preview}/>
+                    <div className={s.title}>{it.title}</div>
+                    <div className={s.desc}>{it.desc}</div>
+                </div>
             </div>
         </div>
         {/*
@@ -348,10 +352,8 @@ function Dialog({ close, isOpen, it, backgroundId }: DialogProps) {
             className={s.backdrop}
         />
         <div className={s.closeButton}>
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path fill="currentColor" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
-                </svg>
+            <div className={s.closeIcon}>
+                <CloseIcon/>
             </div>
         </div>
         {isOpen &&
@@ -363,6 +365,11 @@ function Dialog({ close, isOpen, it, backgroundId }: DialogProps) {
                 }
                 style={animStyle(backgroundId)}
             >
+                <div className={s.inlineCloseButton}>
+                    <div className={s.closeIcon} onClick={close}>
+                        <CloseIcon/>
+                    </div>
+                </div>
                 <div
                     className={s.video}
                     style={{ ...(it.videoAspectRatio ? { aspectRatio: it.videoAspectRatio } : {}) }}
@@ -380,7 +387,12 @@ function Dialog({ close, isOpen, it, backgroundId }: DialogProps) {
             </div>
         }
     </div>
+}
 
+function CloseIcon() {
+    return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+    </svg>
 }
 
 function Contact() {
@@ -388,7 +400,7 @@ function Contact() {
         className={s.contactBody + ' ' + s.screenAnimation}
         style={animStyle('screen-contact')}
     >
-        <div>
+        <div className={s.contactList}>
             <LinkList
                 links={[
                     {
