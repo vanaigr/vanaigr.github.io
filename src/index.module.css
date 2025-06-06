@@ -76,6 +76,16 @@
     }
 }
 
+.footer {
+    font-family: 'DejaVu Sans';
+    line-height: 1;
+    font-size: 0.9rem;
+    color: var(--muted);
+    display: flex;
+    padding: 2rem 1rem 1rem 1rem;
+    justify-content: center;
+}
+
 .body {
     background: var(--bg);
     flex: 1 1 0;

@@ -110,6 +110,15 @@ function updDirection(newP: Page, location: LocationStore) {
 function Wrapper({ children }: { children: R.ReactNode }) {
     const location = useLocation()
     const loc = location(it => it.cur)
+    const gen = new Date(GENERATED_AT).toLocaleString(undefined, {
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric',
+        hour: 'numeric',
+        minute: '2-digit',
+        hour12: false,
+        timeZone: 'UTC',
+    }) + ' UTC'
 
     return <div className={s.app}>
         <div className={s.header}>
@@ -145,6 +154,9 @@ function Wrapper({ children }: { children: R.ReactNode }) {
             <div className={s.headerBord + ' ' + s.headerSpacer}/>
         </div>
         {children}
+        <div className={s.footer}>
+            <div>Generated {gen}</div>
+        </div>
     </div>
 }
 

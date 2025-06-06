@@ -8,6 +8,9 @@ export default defineConfig(() => {
     return {
         root: root,
         publicDir: path.join(root, 'public'),
+        define: {
+            GENERATED_AT: JSON.stringify(new Date().toISOString()),
+        },
         resolve: {
             alias: {
                 '@': root,
