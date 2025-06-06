@@ -1,0 +1,29 @@
+.p {
+    font-family: 'Noto sans';
+    margin: 0.5rem 0px;
+}
+
+.ul {
+    margin: 0.2rem 0rem;
+}
+
+.li {
+    line-height: 1.5;
+}
+
+.desc {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.links {
+    margin-top: 3rem;
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    & > * {
+        max-width: 100%;
+    }
+}
