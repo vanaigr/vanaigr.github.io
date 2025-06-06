@@ -296,7 +296,8 @@ function animate(arg: any) {
 function Card({ projectId }: { projectId: D.ProjectId }) {
     const dialogRef = R.useRef<HTMLDialogElement>(null)
     const it = D.projects[projectId]
-    const [hover, setHover] = R.useState(false)
+    const [mouseOver, setMouseOver] = R.useState(false)
+    const [hackHover, setHackHover] = R.useState(false)
 
     const backgroundId = btoa2(R.useId())
     const fullBackgroundId = 'item-' + backgroundId
@@ -325,13 +326,45 @@ function Card({ projectId }: { projectId: D.ProjectId }) {
         })
     }
 
+    /*document.addEventListener('animationstart', (e) => {
+        if (e.animationName === s['hover-trigger']) {
+            console.log(e.target)
+            console.log('CSS :hover matched!');
+        }
+    });
+    document.addEventListener('animationcancel', (e) => {
+        if (e.animationName === s['hover-trigger']) {
+            console.log(e.target)
+            console.log('CSS :hover mismatched!');
+        }
+    });*/
+    console.log(hackHover)
+    const hover = mouseOver || hackHover
+
+    const reactHello = R.useRef<{ el: HTMLElement, listener: () => void }>(undefined)
+
     return <>
         <button
             type='button'
             className={s.unbutton + ' ' + s.card}
             onClick={open}
-            onMouseOver={() => setHover(true)}
-            onMouseOut={() => setHover(false)}
+            onMouseOver={() => setMouseOver(true)}
+            onMouseOut={() => setMouseOver(false)}
+
+            onAnimationStart={() => setHackHover(true)}
+            ref={it => {
+                const prev = reactHello.current
+                if(prev) {
+                    prev.el.removeEventListener('animationcancel', prev.listener)
+                    reactHello.current = undefined
+                }
+
+                if(it) {
+                    const listener = () => setHackHover(false)
+                    it.addEventListener('animationcancel', listener)
+                    reactHello.current = { el: it, listener }
+                }
+            }}
         >
             <div>
                 <div className={s.content}>

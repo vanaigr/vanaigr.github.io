@@ -269,14 +269,18 @@
             border: 0.3rem solid var(--primary-a80);
             transform: translateY(-0.2rem);
             background: var(--primary-a10);
-            /*& > .previewCont > .previewGif {
-                opacity: 1;
-            }*/
-            & > .previewCont {
-                background-image: url('/previews-gif/timeline.gif');
-            }
+        }
+        &::before {
+            content: '';
+            animation: hover-trigger 0.001s;
+            animation-iteration-count: infinite;
         }
     }
+}
+
+@keyframes hover-trigger {
+  from {}
+  to {}
 }
 
 @keyframes slide-to-right {
@@ -575,7 +579,7 @@ from {
             grid-template-columns: 1fr;
         }
     }
-    .card > .content {
+    .card > * > .content {
         /*padding-top: 0.5rem;
         padding-bottom: 0.5rem;*/
         margin-left: calc((1rem + 8px) * -1);
