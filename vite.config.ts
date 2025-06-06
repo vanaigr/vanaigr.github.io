@@ -8,6 +8,10 @@ export default defineConfig(() => {
     return {
         root: root,
         publicDir: path.join(root, 'public'),
+        build: {
+            outDir: path.join(orig, 'build'),
+            emptyOutDir: true,
+        },
         define: {
             GENERATED_AT: JSON.stringify(new Date().toISOString()),
         },
