@@ -594,3 +594,9 @@ from {
         }
     }
 }
+
+.preloadImage {
+    position: absolute;
+    width: 0px;
+    height: 0px;
+}

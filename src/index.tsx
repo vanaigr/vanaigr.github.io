@@ -367,6 +367,7 @@ function Card({ projectId }: { projectId: D.ProjectId }) {
             }}
         >
             <div>
+                <img className={s.preloadImage} src={it.gifUrl}/>
                 <div className={s.content}>
                     {!isOpen &&
                         <div
