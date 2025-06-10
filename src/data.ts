@@ -12,6 +12,7 @@ import airlineTicketingPreview from '@/previews/airline.png'
 import uniboardPreview from '@/previews/uniboard.png'
 import easywordPreview from '@/previews/easyword.png'
 import reactChallengePreview from '@/previews/reactChallenge.png'
+import pulsePreview from '@/previews/pulse.png'
 
 import timelineGif from '@/previews-gif/timeline.gif'
 import dripAppGif from '@/previews-gif/dripApp.gif'
@@ -25,10 +26,20 @@ import airlineTicketingGif from '@/previews-gif/airlineTicketing.gif'
 import uniboardGif from '@/previews-gif/uniboard.gif'
 import easywordGif from '@/previews-gif/easyword.gif'
 import reactChallengeGif from '@/previews-gif/reactChallenge.gif'
+import pulseGif from '@/previews-gif/pulse.gif'
 
 import * as longDescs from './longDescs.tsx'
 
 export const projects = {
+    pulse: {
+        date: '2025-05',
+        preview: pulsePreview,
+        title: 'OEE Pulse',
+        desc: 'Web app for monitoring production',
+        gifUrl: pulseGif,
+        videoUrl: 'https://www.youtube.com/embed/MfnVXY3dZsw?si=53ZCJEmQRO-UTmn3',
+        longDesc: longDescs.Pulse,
+    },
     timeline: {
         date: '2025-03',
         preview: timelinePreview,
@@ -188,6 +199,7 @@ export const categories: Category[] = [
     {
         title: 'Web',
         projects: [
+            'pulse',
             'timeline',
             'reactChallenge',
             'dripApp',

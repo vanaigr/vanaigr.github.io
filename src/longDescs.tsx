@@ -437,6 +437,40 @@ export function ReactChallenge() {
     </div>
 }
 
+export function Pulse() {
+    return <div className={s.desc}>
+        <P>
+            Web application for visualizing real-time output from multiple production
+            lines, with configure alerts for various production states.
+        </P>
+
+        <P>
+            Highlights:
+            <Ul>
+                <Li>
+                Designed and implemented a custom React.js chart component to display dynamic production data.
+                </Li>
+                <Li>
+                    Migrated and modernized the backend from C# to Next.js,
+                    including implementation of production metrics aggregation across
+                    multiple criteria with customizable filters.
+                </Li>
+            </Ul>
+        </P>
+            <div className={s.links}>
+                <LinkList
+                    links={[
+                        {
+                            to: 'https://oeeintellisuite.com/products/pulse/',
+                            icon: 'globe',
+                            text: 'Product website',
+                        },
+                    ]}
+                />
+            </div>
+    </div>
+}
+
 type A = { children: R.ReactNode }
 
 function P({ children }: A) {
