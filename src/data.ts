@@ -53,7 +53,7 @@ export const projects = {
         date: '2025-01',
         preview: reactChallengePreview,
         title: 'Production Order Scheduler',
-        desc: 'web app to manage and schedule Production Orders',
+        desc: 'Web app to manage and schedule Production Orders',
         gifUrl: reactChallengeGif,
         videoUrl: 'https://www.youtube.com/embed/qSDv3FNq_8g?si=GjsMjs8e1FvTBOSD',
         longDesc: longDescs.ReactChallenge,
