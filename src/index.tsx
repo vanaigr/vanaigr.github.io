@@ -23,25 +23,39 @@ const root = RD.createRoot(document.getElementById('root')!)
 root.render(<Router/>)
 
 const order = ['index', 'contact'] as const
-type Page = (typeof order)[number]
+type Page = { type: 'contact' } | { type: 'index', project: D.ProjectId | undefined }
 
 type Location = {
     prev: Page
     cur: Page
 }
 
-function getPage(pathname: string): Page {
-    const p = pathname
+function getPage(url: URL): Page {
+    const p = url.pathname
     if(p === '/contact') {
-        return 'contact'
+        return { type: 'contact' }
     }
-    else {
-        return 'index'
+
+    const pb = '/projects/'
+    if(p.startsWith(pb)) {
+        const project = p.substring(pb.length)
+        if(project in D.projects) {
+            return { type: 'index', project: project as keyof typeof D.projects }
+        }
     }
+
+    return { type: 'index', project: undefined }
 }
-function getPathname(page: Page) {
-    if(page === 'index') return '/'
-    else return '/contact'
+function getPathname(page: Page): string {
+    if(page.type === 'index') {
+        if(page.project == null) return '/'
+        return '/projects/' + encodeURIComponent(page.project)
+    }
+    else if(page.type === 'contact') {
+        return '/contact'
+    }
+
+    return page satisfies never
 }
 
 type LocationStore = Z.UseBoundStore<Z.StoreApi<Location>>
@@ -52,14 +66,14 @@ function useLocation() {
 
 function Router() {
     const store = R.useState(() => {
-        const loc = getPage(window.location.pathname)
+        const loc = getPage(new URL(window.location.href))
         return Z.create<Location>(() => {
             return { prev: loc, cur: loc, transition: undefined }
         })
     })[0]
     R.useEffect(() => {
         const listener = () => {
-            const loc = getPage(window.location.pathname)
+            const loc = getPage(new URL(window.location.href))
             updDirection(loc, store)
         }
         window.addEventListener('popstate', listener)
@@ -74,7 +88,7 @@ function Router() {
 function RouterInner() {
     const location = useLocation()
     const loc = location(it => it.cur)
-    if(loc === 'index') {
+    if(loc.type === 'index') {
         return <Wrapper><App/></Wrapper>
     }
     else {
@@ -85,8 +99,8 @@ function RouterInner() {
 function updDirection(newP: Page, location: LocationStore) {
     const p = location.getState().cur
 
-    const newI = order.indexOf(newP)
-    const curI = order.indexOf(p)
+    const newI = order.indexOf(newP.type)
+    const curI = order.indexOf(p.type)
     if(curI !== newI) {
         const transition = newI < curI ? 'left' : 'right'
 
@@ -110,7 +124,9 @@ function updDirection(newP: Page, location: LocationStore) {
 function Wrapper({ children }: { children: R.ReactNode }) {
     const location = useLocation()
     const loc = location(it => it.cur)
-    const gen = new Date(GENERATED_AT).toLocaleString(undefined, {
+    // @ts-ignore
+    const generatedAt = GENERATED_AT
+    const gen = new Date(generatedAt).toLocaleString(undefined, {
         day: 'numeric',
         month: 'short',
         year: 'numeric',
@@ -129,22 +145,24 @@ function Wrapper({ children }: { children: R.ReactNode }) {
                 <a
                     className={s.headerLink}
                     href='/'
-                    style={loc === 'index' ? { textDecoration: 'underline' } : {}}
+                    style={loc.type === 'index' ? { textDecoration: 'underline' } : {}}
                     onClick={it => {
                         it.preventDefault()
-                        updDirection('index', location)
-                        history.pushState({}, '', getPathname('index'))
+                        const np: Page = { type: 'index', project: undefined }
+                        updDirection(np, location)
+                        history.pushState({}, '', getPathname(np))
                     }}
                 >
                     <div>Programming</div>
                 </a>
                 <a
                     className={s.headerLink}
-                    style={loc === 'contact' ? { textDecoration: 'underline' } : {}}
+                    style={loc.type === 'contact' ? { textDecoration: 'underline' } : {}}
                     onClick={it => {
                         it.preventDefault()
-                        updDirection('contact', location)
-                        history.pushState({}, '', getPathname('contact'))
+                        const np: Page = { type: 'contact' }
+                        updDirection(np, location)
+                        history.pushState({}, '', getPathname(np))
                     }}
                     href='/contact'
                 >
@@ -302,14 +320,22 @@ function Card({ projectId }: { projectId: D.ProjectId }) {
     const backgroundId = btoa2(R.useId())
     const fullBackgroundId = 'item-' + backgroundId
 
-    const [isOpen, setIsOpen] = R.useState(false)
+    const location = useLocation()
+    const curLoc = location(it => it.cur)
+    const isOpen = curLoc.type === 'index' && curLoc.project === projectId
+
     const open = () => {
         const d = dialogRef.current
         if(!d) return
         animate({
             update: () => {
                 d.showModal()
-                RDD.flushSync(() => setIsOpen(true))
+                RDD.flushSync(() => {
+                    const np: Page = { type: 'index', project: projectId }
+                    const loc = location.getState()
+                    location.setState({ prev: loc.cur, cur: np }, true)
+                    history.pushState({}, '', getPathname(np))
+                })
             },
             types: ['item'],
         })
@@ -320,7 +346,12 @@ function Card({ projectId }: { projectId: D.ProjectId }) {
         animate({
             update: () => {
                 d.close()
-                RDD.flushSync(() => setIsOpen(false))
+                RDD.flushSync(() => {
+                    const np: Page = { type: 'index', project: undefined }
+                    const loc = location.getState()
+                    location.setState({ prev: loc.cur, cur: np }, true)
+                    history.pushState({}, '', getPathname(np))
+                })
             },
             types: ['item'],
         })
@@ -338,7 +369,6 @@ function Card({ projectId }: { projectId: D.ProjectId }) {
             console.log('CSS :hover mismatched!');
         }
     });*/
-    console.log(hackHover)
     const hover = mouseOver || hackHover
 
     const reactHello = R.useRef<{ el: HTMLElement, listener: () => void }>(undefined)
@@ -381,7 +411,9 @@ function Card({ projectId }: { projectId: D.ProjectId }) {
                             className={s.preview + (hover ? ' ' + s.previewHover : '')}
                             style={{
                                 ...(
+                                    // @ts-ignore
                                     hover && it.gifFit != null
+                                        // @ts-ignore
                                         ? { objectFit: it.gifFit }
                                         : {}
                                 )
@@ -398,7 +430,16 @@ function Card({ projectId }: { projectId: D.ProjectId }) {
             This would've been inside the card.
             But onClick bubbles and the dialog reopens itself 🤡
         */}
-        <dialog className={s.dialog} ref={dialogRef}>
+        <dialog
+            className={s.dialog}
+            ref={it => {
+                dialogRef.current = it
+                if(it && it.open !== isOpen) {
+                    if(isOpen) it.showModal()
+                    else it.close()
+                }
+            }}
+        >
             <Dialog
                 it={it}
                 backgroundId={fullBackgroundId}
