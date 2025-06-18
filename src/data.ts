@@ -79,7 +79,7 @@ export const projects = {
         longDesc: longDescs.GroupTimetable,
     },
     rainwatcher: {
-        date: '2023-04',
+        date: '2025-04',
         preview: rainwatcherPreview,
         title: 'Rain World: The Watcher DLC Map',
         gifUrl: rainwatcherGif,
