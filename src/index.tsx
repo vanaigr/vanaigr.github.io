@@ -397,7 +397,6 @@ function Card({ projectId }: { projectId: D.ProjectId }) {
             }}
         >
             <div>
-                <img className={s.preloadImage} src={it.gifUrl}/>
                 <div className={s.content}>
                     {!isOpen &&
                         <div
@@ -406,20 +405,27 @@ function Card({ projectId }: { projectId: D.ProjectId }) {
                         />
                     }
                     <div className={s.content}>
-                        <img
-                            key={'' + hover}
-                            className={s.preview + (hover ? ' ' + s.previewHover : '')}
-                            style={{
-                                ...(
-                                    // @ts-ignore
-                                    hover && it.gifFit != null
-                                        // @ts-ignore
+                        <div className={s.preview}>
+                            <img
+                                className={s.gif}
+                                src={it.gifUrl}
+                                style={{
+                                    ...(it.gifFit != null
                                         ? { objectFit: it.gifFit }
                                         : {}
-                                )
-                            }}
-                            src={hover ? it.gifUrl ?? it.preview : it.preview}
-                        />
+                                    ),
+                                    display: hover ? 'block' : 'none',
+                                }}
+                            />
+                            <img
+                                key={'' + hover}
+                                className={s.image}
+                                src={hover ? it.gifUrl ?? it.preview : it.preview}
+                                style={{
+                                    display: !hover ? 'block' : 'none',
+                                }}
+                            />
+                        </div>
                         <div className={s.title}>{it.title}</div>
                         <div className={s.desc}>{it.desc}</div>
                     </div>

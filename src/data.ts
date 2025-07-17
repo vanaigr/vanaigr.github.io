@@ -30,7 +30,7 @@ import pulseGif from '@/previews-gif/pulse.gif'
 
 import * as longDescs from './longDescs.tsx'
 
-export const projects = {
+const projectsRaw = {
     pulse: {
         date: '2025-05',
         preview: pulsePreview,
@@ -155,6 +155,8 @@ export const projects = {
     },
 } as const satisfies Record<string, Project>
 
+export const projects: { [K in keyof typeof projectsRaw]: Project } = projectsRaw
+
 const projectIds = Object.keys(projects) as ProjectId[]
 
 const order = projectIds.sort((a, b) => {
@@ -186,7 +188,7 @@ export type Project = {
     desc: string
     date: string
     gifUrl?: string
-    gifFit?: string
+    gifFit?: 'contain'
     videoUrl: string
     longDesc: () => ReactNode
     videoVertical?: boolean
