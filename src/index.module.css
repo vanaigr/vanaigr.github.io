@@ -29,8 +29,6 @@ body {
 
     /* I hope CSS will learn how to concatenate strings until 2035 */
     --primary: #3cb553;
-    --primary-a80: #3cb55380;
-    --primary-a05:#3cb55310;
     --primary-darker: #0d641e;
 
     /*
@@ -266,9 +264,7 @@ body {
 
     &:hover {
         & > * > .content > .content {
-            border: 0.3rem solid var(--primary-a80);
             transform: translateY(-0.2rem);
-            background: var(--primary-a10);
         }
         &::before {
             content: '';
