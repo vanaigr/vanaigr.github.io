@@ -238,6 +238,8 @@ body {
                     border-radius: 0.4rem;
                     box-shadow: 0px 0px 0.4rem 0px #00000005;
                     & > * {
+                        /* Chrome doesn't respect aspect-ratio above for some reason */
+                        aspect-ratio: 16 / 9;
                         grid-row: 1;
                         grid-column: 1;
                         border-radius: 0.4rem;
