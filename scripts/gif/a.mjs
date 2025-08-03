@@ -3,7 +3,7 @@ import p from 'node:path'
 import cp from 'node:child_process'
 
 const startSkip = 0
-const maxDur = 20
+const maxDur = 40
 
 const outDur = 5
 const outFps = 10

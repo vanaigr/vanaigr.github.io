@@ -13,6 +13,7 @@ import uniboardPreview from '@/previews/uniboard.png'
 import easywordPreview from '@/previews/easyword.png'
 import reactChallengePreview from '@/previews/reactChallenge.png'
 import pulsePreview from '@/previews/pulse.png'
+import substackDownloaderPreview from '@/previews/substackDownloader.png'
 
 import timelineGif from '@/previews-gif/timeline.gif'
 import dripAppGif from '@/previews-gif/dripApp.gif'
@@ -27,10 +28,20 @@ import uniboardGif from '@/previews-gif/uniboard.gif'
 import easywordGif from '@/previews-gif/easyword.gif'
 import reactChallengeGif from '@/previews-gif/reactChallenge.gif'
 import pulseGif from '@/previews-gif/pulse.gif'
+import substackDownloaderGif from '@/previews-gif/substackDownloader.gif'
 
 import * as longDescs from './longDescs.tsx'
 
 const projectsRaw = {
+    substackDownloader: {
+        date: '2025-07',
+        preview: substackDownloaderPreview,
+        title: 'Substack Downloader',
+        desc: 'Download Substack articles with attached media',
+        gifUrl: substackDownloaderGif,
+        videoUrl: 'https://www.youtube.com/embed/_gFJEgVfFqI?si=EFvcO6r8OQPpIuXy',
+        longDesc: longDescs.Substackdl,
+    },
     pulse: {
         date: '2025-05',
         preview: pulsePreview,
@@ -224,6 +235,7 @@ export const categories: Category[] = [
         projects: [
             'easyword',
             'uniboard',
+            'substackDownloader',
         ],
     },
 ] as const

@@ -457,17 +457,40 @@ export function Pulse() {
                 </Li>
             </Ul>
         </P>
-            <div className={s.links}>
-                <LinkList
-                    links={[
-                        {
-                            to: 'https://oeeintellisuite.com/products/pulse/',
-                            icon: 'globe',
-                            text: 'Product website',
-                        },
-                    ]}
-                />
-            </div>
+        <div className={s.links}>
+            <LinkList
+                links={[
+                    {
+                        to: 'https://oeeintellisuite.com/products/pulse/',
+                        icon: 'globe',
+                        text: 'Product website',
+                    },
+                ]}
+            />
+        </div>
+    </div>
+}
+
+export function Substackdl() {
+    return <div className={s.desc}>
+        <P>
+            Node.js + TypeScript scripts for downloading Substack articles,
+            attached images, podcasts and videos, and converting them to markdown.
+        </P>
+        <P>
+            Not broken and slow, like the substack website.
+        </P>
+        <div className={s.links}>
+            <LinkList
+                links={[
+                    {
+                        to: 'https://github.com/vanaigr/substack-download',
+                        brand: faGithub,
+                        text: 'github.com/vanaigr/substack-download',
+                    },
+                ]}
+            />
+        </div>
     </div>
 }
 
