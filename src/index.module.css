@@ -294,27 +294,27 @@ body {
 
 @keyframes slide-to-right {
 to {
-    transform: translateX(1rem);
+    transform: translateX(0.3rem);
     opacity: 0;
 }
 }
 @keyframes slide-to-left {
 to {
-    transform: translateX(-1rem);
+    transform: translateX(-0.3rem);
     opacity: 0;
 }
 }
 
 @keyframes slide-from-right {
 from {
-    transform: translateX(1rem);
+    transform: translateX(0.3rem);
     opacity: 0;
 }
 }
 
 @keyframes slide-from-left {
 from {
-    transform: translateX(-1rem);
+    transform: translateX(-0.3rem);
     opacity: 0;
 }
 }
@@ -344,12 +344,12 @@ from {
         &::view-transition-old(screen-index),
         &::view-transition-old(screen-contact)
         {
-            animation: 450ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-right;
+            animation: 200ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-right;
         }
         &::view-transition-new(screen-index),
         &::view-transition-new(screen-contact)
         {
-            animation: 450ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-left;
+            animation: 200ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-left;
         }
     }
 
@@ -357,12 +357,12 @@ from {
         &::view-transition-old(screen-index),
         &::view-transition-old(screen-contact)
         {
-            animation: 450ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
+            animation: 200ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
         }
         &::view-transition-new(screen-index),
         &::view-transition-new(screen-contact)
         {
-            animation: 450ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
+            animation: 200ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
         }
     }
 }
