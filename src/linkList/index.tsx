@@ -1,4 +1,5 @@
-import type { ReactNode } from 'react'
+import R from 'react'
+import RD from 'react-dom'
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core'
 import { faCopy } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -24,6 +25,8 @@ export default function C({ links }: { links: Link[] }) {
 }
 
 function Item({ it }: { it: Link }) {
+    const [copied, setCopied] = R.useState<boolean | undefined>(undefined)
+
     const { to, brand, icon, text } = it
     return <div className={s.externalItem}>
         <External to={to}>
@@ -41,18 +44,36 @@ function Item({ it }: { it: Link }) {
                 <div>{text}</div>
             </div>
         </External>
-        <div className={s.copy}>
+        <button
+            type='button'
+            className={
+                s.copy
+                    + (copied === true ? ` ${s.copySuccess}` : '')
+                    + (copied === false ? ` ${s.copyFail}` : '')
+            }
+            onClick={async() => {
+                RD.flushSync(() => setCopied(undefined))
+                // This async...
+                try {
+                    await navigator.clipboard.writeText(to)
+                    setCopied(true)
+                }
+                catch(err) {
+                    setCopied(false)
+                }
+            }}
+        >
             <div>
                 <FontAwesomeIcon
                     className={s.icon}
                     icon={faCopy}
                 />
             </div>
-        </div>
+        </button>
     </div>
 }
 
-function External({ to, children }: { to: string, children: ReactNode }) {
+function External({ to, children }: { to: string, children: R.ReactNode }) {
     return <a className={s.external} href={to} target='_blank'>
         {children}
     </a>
