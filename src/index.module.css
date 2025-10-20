@@ -369,6 +369,7 @@ from {
 
 .dialog[open] {
     background: none;
+    border: 0px solid transparent;
 
     &::backdrop {
         background: #000000a0;
@@ -430,11 +431,6 @@ from {
         }
     }
 
-    & > .backdrop {
-        cursor: pointer;
-        position: fixed;
-        inset: 0;
-    }
     & > .closeButton {
         pointer-events: none;
         position: absolute;

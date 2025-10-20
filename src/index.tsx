@@ -468,7 +468,7 @@ function Dialog({ close, isOpen, it, backgroundId }: DialogProps) {
     >
         <div
             onClick={close}
-            className={s.backdrop}
+            style={{ position: 'absolute', inset: '0px', cursor: 'pointer' }}
         />
         <div className={s.closeButton}>
             <button type='button' className={s.unbutton + ' ' + s.closeIcon}>
