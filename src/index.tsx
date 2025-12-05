@@ -294,21 +294,34 @@ function Category({ category }: { category: D.Category }) {
     </div>
 }
 
-function animate(arg: any) {
-    if(!document.startViewTransition) {
-        const updateCallbackDone = Promise.resolve(
-            typeof arg === 'function' ? arg() : arg.update()
-        ).then(() => undefined);
+const viewTransitionSupported = (() => {
+    // Firefox has the function but it doesn't support the argument.
+    // I don't know how to check for that other than running a transition.
+    try {
+        document.startViewTransition({
+            update: () => { throw {} },
+            types: ['someName']
+        } as any)
+    }
+    catch(err) {
+        console.warn('View transitions are not supported:', err)
+        return false
+    }
+    return true
+})()
 
-        return {
-            ready: Promise.reject(Error('View transitions unsupported')),
-            domUpdated: updateCallbackDone,
-            updateCallbackDone,
-            finished: updateCallbackDone,
-        };
+type ViewTransitionProps = {
+    update: () => void | Promise<unknown>
+    types: string[]
+}// | (() => void)
+
+function animate(arg: ViewTransitionProps) {
+    if(!viewTransitionSupported) {
+        ;(async() => arg.update())()
+        return
     }
 
-    return document.startViewTransition(arg);
+    document.startViewTransition(arg as any/*old types*/);
 }
 
 function Card({ projectId }: { projectId: D.ProjectId }) {
