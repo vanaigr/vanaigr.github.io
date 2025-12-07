@@ -451,9 +451,10 @@ export function Pulse() {
                 Designed and implemented a custom React.js chart component to display dynamic production data.
                 </Li>
                 <Li>
-                    Migrated and modernized the backend from C# to Next.js,
-                    including implementation of production metrics aggregation across
-                    multiple criteria with customizable filters.
+                    Designed and implemented the dashboard filters.
+                </Li>
+                <Li>
+                    Migrated and modernized the backend from C# to Next.js.
                 </Li>
             </Ul>
         </P>

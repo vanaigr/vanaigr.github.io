@@ -48,7 +48,7 @@ const projectsRaw = {
         title: 'OEE Pulse',
         desc: 'Web app for monitoring production',
         gifUrl: pulseGif,
-        videoUrl: 'https://www.youtube.com/embed/MfnVXY3dZsw?si=53ZCJEmQRO-UTmn3',
+        videoUrl: 'https://www.youtube.com/embed/wa7SVmTnaLs?si=WMTZfnyMEKZQsYSJ',
         longDesc: longDescs.Pulse,
     },
     timeline: {
