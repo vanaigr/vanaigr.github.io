@@ -11,20 +11,23 @@
 }*/
 
 :root {
-    overflow-y: scroll;
     --bg:#fafafa;
+    overflow: hidden;
 }
 
 body {
+    margin: 0px;
     background: var(--bg);
 }
 
 .app {
+    overflow-y: scroll;
+
     flex: 1 1 0;
     display: flex;
     flex-direction: column;
     color: black;
-    --side-width: 12rem;
+    --side-width: 14rem;
     --muted: #707070;
 
     /* I hope CSS will learn how to concatenate strings until 2035 */
@@ -150,8 +153,8 @@ body {
                     line-height: 1.25rem;
                     font-family: 'Roboto Condensed';
 
-                    margin: 0rem -2rem calc(var(--gap) * -1) -2rem;
-                    padding: 0rem 2rem var(--gap) 2rem;
+                    margin: 0rem -0.5rem calc(var(--gap) * -1) -2rem;
+                    padding: 0rem 0.5rem var(--gap) 2rem;
                     & > * {
                         transform: translateX(0px);
                         color: black;
@@ -380,8 +383,8 @@ from {
         max-width: none;
         max-height: none;
         padding: 0px;
-        overflow-y: auto;
-        overscroll-behavior: none;
+        overflow-y: scroll;
+        overflow-x: auto;
     }
 }
 .dialogContainer {
