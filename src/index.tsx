@@ -265,10 +265,10 @@ function OrderItem({ projectId }: { projectId: D.ProjectId }) {
             <div>{D.projects[projectId].title}</div>
         </button>
         {!isOpen &&
-            <div className={s.blankCardTransition}>
-                <div>
+            <div className='fixed inset-0 flex justify-center items-center pointer-events-none'>
+                <div className='relative w-80 h-120'>
                     <div
-                        className={s.cardTransitionBackground + ' ' + s.itemAnimation}
+                        className={'absolute inset-0 rounded-2xl ' + s.itemAnimation}
                         style={animStyle(fullBackgroundId)}
                     />
                 </div>
@@ -396,7 +396,7 @@ function Card({ projectId }: { projectId: D.ProjectId }) {
     return <>
         <button
             type='button'
-            className={s.unbutton + ' ' + s.card}
+            className={'text-left ' + s.card}
             onClick={open}
             onMouseOver={() => setMouseOver(true)}
             onMouseOut={() => setMouseOver(false)}
@@ -420,7 +420,7 @@ function Card({ projectId }: { projectId: D.ProjectId }) {
                 <div className={s.content}>
                     {!isOpen &&
                         <div
-                            className={s.cardTransitionBackground + ' ' + s.itemAnimation}
+                            className={'absolute inset-0 rounded-2xl ' + s.itemAnimation}
                             style={animStyle(fullBackgroundId)}
                         />
                     }
@@ -491,7 +491,7 @@ function Dialog({ close, isOpen, it, backgroundId }: DialogProps) {
             style={{ position: 'absolute', inset: '0px', cursor: 'pointer' }}
         />
         <div className={s.closeButton}>
-            <button type='button' className={s.unbutton + ' ' + s.closeIcon}>
+            <button type='button' className={'text-left ' + s.closeIcon}>
                 <CloseIcon/>
             </button>
         </div>
@@ -506,7 +506,7 @@ function Dialog({ close, isOpen, it, backgroundId }: DialogProps) {
             >
                 <button
                     type='button'
-                    className={s.unbutton + ' ' + s.inlineCloseButton}
+                    className={'text-left ' + s.inlineCloseButton}
                     onClick={close}
                 >
                     <div className={s.closeIcon}>
