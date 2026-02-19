@@ -6,7 +6,7 @@ import * as Z from 'zustand'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 
-import '@/index.css'
+import '@/global.css'
 import s from './index.module.css'
 import * as D from './data'
 import LinkList from './linkList'

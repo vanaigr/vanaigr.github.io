@@ -1,5 +1,7 @@
 import { defineConfig } from 'vite'
 import path from 'node:path'
+import react from '@vitejs/plugin-react'
+import tailwind from '@tailwindcss/vite'
 
 const orig = import.meta.dirname
 const root = path.join(orig, 'src')
@@ -19,6 +21,10 @@ export default defineConfig(() => {
             alias: {
                 '@': root,
             }
-        }
+        },
+        plugins: [
+            react(),
+            tailwind(),
+        ],
     }
 })
