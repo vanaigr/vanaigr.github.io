@@ -484,7 +484,7 @@ type DialogProps = {
 }
 function Dialog({ close, isOpen, it, backgroundId }: DialogProps) {
     return <div
-        className={s.dialogContainer}
+        className={s.dialogContainer + ' w-full min-h-full flex flex-col items-center'}
     >
         <div
             onClick={close}
