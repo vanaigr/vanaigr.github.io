@@ -144,7 +144,7 @@ function Wrapper({ children }: { children: R.ReactNode }) {
             '--side-width': '14rem',
         } as any}
     >
-        <div className='font:[Noto_Sans] leading-none text-[1.1rem] flex p-4 [--gap:--spacing(8)] gap-(--gap) mb-8 max-sm:flex-col max-sm:[--gap:--spacing(6)]'>
+        <div className='font-[Noto_Sans] leading-none text-[1.1rem] flex p-4 [--gap:--spacing(8)] gap-(--gap) mb-8 max-sm:flex-col max-sm:[--gap:--spacing(6)]'>
             <div className='flex-1 flex max-sm:justify-center'>
                 <span>Artem Andrievskii</span>
             </div>
@@ -179,7 +179,7 @@ function Wrapper({ children }: { children: R.ReactNode }) {
             <div className='flex-1 max-sm:hidden'/>
         </div>
         {children}
-        <div className='flex p-4 pt-8 justify-center flex-wrap gap-4 font:[Noto_Sans] leading-none text-muted'>
+        <div className='flex p-4 pt-8 justify-center flex-wrap gap-4 font-[Noto_Sans] leading-none text-muted'>
             <div>Generated {gen}</div>
             <div>
                 Source: <a
@@ -396,7 +396,7 @@ function Card({ projectId }: { projectId: D.ProjectId }) {
     return <>
         <button
             type='button'
-            className={'text-left ' + s.card}
+            className='text-left group hover:before:content-[""] hover:before:[animation:hover-trigger_0.001s_infinite]'
             onClick={open}
             onMouseOver={() => setMouseOver(true)}
             onMouseOut={() => setMouseOver(false)}
@@ -416,18 +416,18 @@ function Card({ projectId }: { projectId: D.ProjectId }) {
                 }
             }}
         >
-            <div>
-                <div className={s.content}>
+            <div className='flex flex-col cursor-pointer relative'>
+                <div className='flex justify-center max-sm:mx-[calc((1rem+8px)*-1)]'>
                     {!isOpen &&
                         <div
                             className={'absolute inset-0 rounded-2xl ' + s.itemAnimation}
                             style={animStyle(fullBackgroundId)}
                         />
                     }
-                    <div className={s.content}>
-                        <div className={s.preview}>
+                    <div className='flex flex-col rounded-2xl pt-8 px-4 pb-4 border-[0.3rem] border-transparent translate-y-0 bg-transparent [--dur:0.3s] [transition:transform_var(--dur),border-color_var(--dur),background_var(--dur)] group-hover:-translate-y-[0.2rem]'>
+                        <div className='grid aspect-[16/9] rounded-[0.4rem] shadow-[0px_0px_0.4rem_0px_#00000005] w-64 max-sm:w-[calc(100vw-6rem)]'>
                             <img
-                                className={s.gif}
+                                className='aspect-[16/9] row-start-1 col-start-1 rounded-[0.4rem] w-full h-full'
                                 src={it.gifUrl}
                                 style={{
                                     ...(it.gifFit != null
@@ -439,15 +439,15 @@ function Card({ projectId }: { projectId: D.ProjectId }) {
                             />
                             <img
                                 key={'' + hover}
-                                className={s.image}
+                                className='aspect-[16/9] row-start-1 col-start-1 rounded-[0.4rem] w-full h-full object-cover'
                                 src={hover ? it.gifUrl ?? it.preview : it.preview}
                                 style={{
                                     display: !hover ? 'block' : 'none',
                                 }}
                             />
                         </div>
-                        <div className={s.title}>{it.title}</div>
-                        <div className={s.desc}>{it.desc}</div>
+                        <div className='mt-[0.6rem] mb-[0.2rem] font-[Noto_Sans] text-base font-bold leading-[1.5] text-[#121505] w-64 max-sm:w-[calc(100vw-6rem)]'>{it.title}</div>
+                        <div className='font-[Noto_Sans] text-[0.9rem] font-semibold leading-[1.5] text-muted h-[calc(0.9rem*1.5*2)] overflow-hidden w-64 max-sm:w-[calc(100vw-6rem)]'>{it.desc}</div>
                     </div>
                 </div>
             </div>
