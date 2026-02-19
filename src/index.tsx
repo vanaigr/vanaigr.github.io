@@ -136,14 +136,21 @@ function Wrapper({ children }: { children: R.ReactNode }) {
         timeZone: 'UTC',
     }) + ' UTC'
 
-    return <div className={s.app}>
-        <div className={s.header}>
-            <div className={s.headerBord}>
+    const headerLink = 'cursor-pointer -my-4 py-4 mx-[calc(var(--gap)*-0.5)] px-[calc(var(--gap)*0.5)] my-header-link'
+
+    return <div
+        className='overflow-y-scroll flex flex-1 basis-0 flex-col text-black '
+        style={{
+            '--side-width': '14rem',
+        } as any}
+    >
+        <div className='font:[Noto_Sans] leading-none text-[1.1rem] flex p-4 [--gap:--spacing(8)] gap-(--gap) mb-8 max-sm:flex-col max-sm:[--gap:--spacing(6)]'>
+            <div className='flex-1 flex max-sm:justify-center'>
                 <span>Artem Andrievskii</span>
             </div>
-            <div className={s.headerCent}>
+            <div className='flex justify-center gap-(--gap)'>
                 <a
-                    className={s.headerLink}
+                    className={headerLink}
                     href='/'
                     style={loc.type === 'index' ? { textDecoration: 'underline' } : {}}
                     onClick={it => {
@@ -156,7 +163,7 @@ function Wrapper({ children }: { children: R.ReactNode }) {
                     <div>Programming</div>
                 </a>
                 <a
-                    className={s.headerLink}
+                    className={headerLink}
                     style={loc.type === 'contact' ? { textDecoration: 'underline' } : {}}
                     onClick={it => {
                         it.preventDefault()
@@ -169,13 +176,16 @@ function Wrapper({ children }: { children: R.ReactNode }) {
                     <div>Contact</div>
                 </a>
             </div>
-            <div className={s.headerBord + ' ' + s.headerSpacer}/>
+            <div className='flex-1 max-sm:hidden'/>
         </div>
         {children}
-        <div className={s.footer}>
+        <div className='flex p-4 pt-8 justify-center flex-wrap gap-4 font:[Noto_Sans] leading-none text-muted'>
             <div>Generated {gen}</div>
             <div>
-                Source: <a href='https://github.com/vanaigr/vanaigr.github.io'>
+                Source: <a
+                    className='text-muted'
+                    href='https://github.com/vanaigr/vanaigr.github.io'
+                >
                     github.com/vanaigr/vanaigr.github.io
                 </a>
             </div>
@@ -185,30 +195,27 @@ function Wrapper({ children }: { children: R.ReactNode }) {
 
 function App() {
     return <div
-        className={s.body + ' ' + s.screenAnimation}
+        className='flex flex-1 basis-0 max-xl:flex-col max-xl:items-center max-xl:gap-20 max-sm:items-stretch'
         style={animStyle('screen-index')}
     >
-        <div className={s.appSpacer}/>
-        <div className={s.categories}>
+        <div className='max-xl:hidden basis-(--side-width)'/>
+        <div className='grow-1 flex flex-col gap-16 items-center px-4 max-sm:items-stretch'>
             {D.categories.map((it, i) => {
                 return <Category key={i} category={it}/>
             })}
         </div>
-        <div className={s.order}>
+        <div className='flex flex-col xl:min-w-(--side-width) xl:w-(--side-width) font-[Roboto_Condensed] px-2 pb-8'>
             <OrderMenu/>
         </div>
     </div>
 }
 
 function OrderMenu() {
-    return <div>
-        <div className={s.title}>In chronological order</div>
+    return <div className='sticky top-8 flex flex-col gap-6'>
+        <div className='max-xl:text-center'>In chronological order</div>
         {D.projectsByYear.map((it, i) => {
-            return <div key={i} className={s.orderList}>
-                {/*<div className={s.title}>
-                    {it.year}
-                </div>*/}
-                <div className={s.list}>
+            return <div key={i} className='flex flex-col'>
+                <div className='flex flex-col cursor-pointer [--gap:0.7rem] gap-(--gap)'>
                     {it.projects.map((it, i) => {
                         return <OrderItem key={i} projectId={it}/>
                     })}
@@ -252,7 +259,7 @@ function OrderItem({ projectId }: { projectId: D.ProjectId }) {
     return <>
         <button
             type='button'
-            className={s.unbutton + ' ' + s.orderItem}
+            className='font-[Roboto_Condensed] -mr-2 pr-2 -ml-8 pl-8 mb-[calc(var(--gap)*-1)] pb-(--gap) my-order-link text-left'
             onClick={open}
         >
             <div>{D.projects[projectId].title}</div>
@@ -284,9 +291,9 @@ function btoa2(str: string) {
 
 
 function Category({ category }: { category: D.Category }) {
-    return <div className={s.category}>
-        <div className={s.title}>{category.title}</div>
-        <div className={s.content}>
+    return <div className='flex flex-col gap-4 sm:gap-2'>
+        <div className='font-Noto_Sans text-2xl pb-4 border-b border-b-gray-500'>{category.title}</div>
+        <div className='grid grid-cols-[repeat(3,1fr)] max-xl:grid-cols-[repeat(2,1fr)] gap-x-2 gap-y-4 max-sm:grid-cols-[1fr]'>
             {category.projects.map((it, i) => {
                 return <Card key={i} projectId={it}/>
             })}

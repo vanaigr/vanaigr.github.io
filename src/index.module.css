@@ -5,188 +5,6 @@
     font-size: unset;
 }
 
-/*@font-face {
-  font-family: 'DejaVu Sans';
-  src: url('./DejaVuSans.ttf');
-}*/
-
-:root {
-    --bg:#fafafa;
-    overflow: hidden;
-}
-
-body {
-    margin: 0px;
-    background: var(--bg);
-}
-
-.app {
-    overflow-y: scroll;
-
-    flex: 1 1 0;
-    display: flex;
-    flex-direction: column;
-    color: black;
-    --side-width: 14rem;
-    --muted: #707070;
-
-    /* I hope CSS will learn how to concatenate strings until 2035 */
-    --primary: #3cb553;
-    --primary-darker: #0d641e;
-
-    /*
-        100% chrome bug. Nothing overflows, but we will make a scrollbar
-        that scrolls and shows absolutely nothing. And then ADDING padding
-        removes the scrollbar...
-    */
-    padding-right: 1rem;
-    padding-left: 1rem;
-}
-
-.header {
-    font-family: 'Noto Sans';
-    line-height: 1;
-    font-size: 1.1rem;
-    display: flex;
-    padding: 1rem 1rem;
-    --gap: 2rem;
-    gap: var(--gap);
-    margin-bottom: 2rem;
-
-    & > .headerBord {
-        flex: 1 0 0;
-    }
-    & > .headerCent {
-        display: flex;
-        justify-content: center;
-        gap: var(--gap);
-
-        & > * {
-            margin: -1rem calc(var(--gap) * -0.5);
-            padding: 1rem calc(var(--gap) * 0.5);
-                cursor: pointer;
-            & > * {
-                transform: translateY(0px);
-                color: black;
-                transition: transform 0.1s, color 0.1s;
-            }
-            &:hover > * {
-                transform: translateY(-0.2rem);
-                color: var(--primary-darker);
-            }
-        }
-    }
-}
-
-.footer {
-    font-family: 'Noto Sans';
-    line-height: 1;
-    font-size: 0.9rem;
-    color: var(--muted);
-    display: flex;
-    padding: 2rem 1rem 1rem 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-    & > * > a {
-        color: var(--muted);
-    }
-}
-
-.body {
-    background: var(--bg);
-    flex: 1 1 0;
-    display: flex;
-    flex-direction: row;
-}
-
-.appSpacer {
-    flex-shrink: 1;
-    flex-basis: var(--side-width);
-}
-
-.categories {
-    box-sizing: border-box;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
-    align-items: center;
-    padding: 0px 1rem;
-}
-
-.order {
-    min-width: var(--side-width);
-    width: var(--side-width);
-    box-sizing: border-box;
-    font-family: 'Roboto Condensed';
-    padding: 0rem 0.5rem 2rem 0.5rem;
-
-    & > * {
-        position: sticky;
-        top: 2rem;
-        display: flex;
-        gap: 1.3rem;
-        flex-direction: column;
-
-        & > .title {
-            font-size: 1.1rem;
-        }
-        & > .orderList {
-            display: flex;
-            flex-direction: column;
-            & > .title {
-                color: var(--muted);
-                font-size: 0.9rem;
-                text-align: right;
-                line-height: 1;
-            }
-            & > .list {
-                display: flex;
-                flex-direction: column;
-                cursor: pointer;
-                --gap: 0.7rem;
-                gap: var(--gap);
-
-                & > .orderItem {
-                    font-size: 0.9rem;
-                    line-height: 1.25rem;
-                    font-family: 'Roboto Condensed';
-
-                    margin: 0rem -0.5rem calc(var(--gap) * -1) -2rem;
-                    padding: 0rem 0.5rem var(--gap) 2rem;
-                    & > * {
-                        transform: translateX(0px);
-                        color: black;
-                        transition: transform 0.1s, color 0.1s;
-                    }
-                    &:hover > * {
-                        transform: translateX(0.2rem);
-                        color: var(--primary-darker);
-                    }
-                }
-            }
-        }
-    }
-}
-
-.category {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    & > .title {
-        font-family: 'Noto Sans';
-        font-size: 1.5rem;
-        padding-bottom: 1rem;
-        border-bottom: 1px solid gray;
-    }
-    & > .content {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1rem 0.5rem;
-    }
-}
-
 .cardTransitionBackground {
     position: absolute;
     inset: 0;
@@ -479,9 +297,6 @@ from {
 }
 
 @media (max-width: 75rem) {
-    .category > .content {
-        grid-template-columns: repeat(2, 1fr);
-    }
     .dialogContainer > .content {
         width: 40rem;
     }
@@ -492,26 +307,11 @@ from {
         flex-direction: column;
         --gap: 1.5rem;
     }
-    .headerBord {
-        display: flex;
-        justify-content: center;
-    }
 
     .body {
         flex-direction: column;
         align-items: center;
         gap: 5rem;
-    }
-
-     .appSpacer, .headerSpacer {
-        display: none;
-    }
-
-    .order {
-        display: flex;
-        justify-content: center;
-        min-width: unset;
-        width: unset;
     }
 
     .dialogContainer {
@@ -550,24 +350,6 @@ from {
             }
         }
     }
-
-    .order {
-        & > * {
-            gap: 1.7rem;
-            & > .title {
-                text-align: center;
-                font-size: 1.2rem;
-            }
-            & > .orderList {
-                & > .list {
-                    --gap: 1rem !important;
-                    & > .orderItem {
-                        font-size: 1rem;
-                    }
-                }
-            }
-        }
-    }
 }
 
 .contactList > * {
@@ -575,17 +357,8 @@ from {
 }
 
 @media (max-width: 40rem) {
-    .body {
-        align-items: stretch;
-    }
     .categories {
         align-items: stretch;
-    }
-    .category {
-        gap: 0.5rem;
-        & > .content {
-            grid-template-columns: 1fr;
-        }
     }
     .card > * > .content {
         /*padding-top: 0.5rem;
