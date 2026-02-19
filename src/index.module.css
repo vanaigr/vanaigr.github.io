@@ -79,9 +79,6 @@ from {
 }
 
 .dialog[open] {
-    background: none;
-    border: 0px solid transparent;
-
     &::backdrop {
         background: #000000a0;
     }

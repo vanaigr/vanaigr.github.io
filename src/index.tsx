@@ -274,7 +274,7 @@ function OrderItem({ projectId }: { projectId: D.ProjectId }) {
                 </div>
             </div>
         }
-        <dialog className={s.dialog} ref={dialogRef}>
+        <dialog className={s.dialog + ' open:[background:none] open:border-0'} ref={dialogRef}>
             <Dialog
                 it={it}
                 backgroundId={fullBackgroundId}
@@ -457,7 +457,7 @@ function Card({ projectId }: { projectId: D.ProjectId }) {
             But onClick bubbles and the dialog reopens itself 🤡
         */}
         <dialog
-            className={s.dialog}
+            className={s.dialog + ' open:[background:none] open:border-0'}
             ref={it => {
                 dialogRef.current = it
                 if(it && it.open !== isOpen) {
