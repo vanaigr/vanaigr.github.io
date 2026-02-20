@@ -42,9 +42,6 @@
     }
 }
 
-.contactList > * {
-    --gap: 1.5rem !important;
-}
 
 .preloadImage {
     position: absolute;
