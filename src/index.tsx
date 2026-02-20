@@ -500,7 +500,7 @@ function Dialog({ close, isOpen, it, backgroundId }: DialogProps) {
                 className={
                     s.content
                         + ' relative w-[max(60rem,66%)] max-[75rem]:w-[40rem] max-w-[calc(100%-2rem)] max-[50rem]:w-[unset] max-[50rem]:max-w-full max-[50rem]:rounded-none max-[50rem]:m-0 grow my-4 rounded-[1rem] overflow-hidden bg-white flex flex-col'
-                        + ' ' + (it.videoVertical ? s.vertical + ' flex-row' : '')
+                        + ' ' + (it.videoVertical ? s.vertical + ' flex-row max-[50rem]:flex-col' : '')
                         + ' ' + s.itemAnimation
                 }
                 style={animStyle(backgroundId)}

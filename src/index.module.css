@@ -35,7 +35,6 @@
             & > .inlineCloseButton {
             }
             &.vertical {
-                flex-direction: column;
             }
             &.vertical > .video {
                 height: unset;
