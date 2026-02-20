@@ -34,6 +34,7 @@ export function Minceraft() {
 
         <div className={`mt-12 grow flex justify-start items-end ${s.links}`}>
             <LinkList
+                className='max-w-full'
                 links={[
                     {
                         to: 'https://www.github.com/vanaigr/MinceraftClone',
@@ -82,6 +83,7 @@ export function Timeline() {
         </P>
         <div className={`mt-12 grow flex justify-start items-end ${s.links}`}>
             <LinkList
+                className='max-w-full'
                 links={[
                     {
                         to: 'https://www.oeeintellisuite.com',
@@ -129,6 +131,7 @@ export function DripApp() {
 
         <div className={`mt-12 grow flex justify-start items-end ${s.links}`}>
             <LinkList
+                className='max-w-full'
                 links={[
                     {
                         to: 'https://dripco.us',
@@ -175,6 +178,7 @@ export function Minishoot() {
         </P>
         <div className={`mt-12 grow flex justify-start items-end ${s.links}`}>
             <LinkList
+                className='max-w-full'
                 links={[
                     {
                         to: 'https://minishoot-map.github.io',
@@ -214,6 +218,7 @@ export function Rainwatcher() {
         </P>
         <div className={`mt-12 grow flex justify-start items-end ${s.links}`}>
             <LinkList
+                className='max-w-full'
                 links={[
                     {
                         to: 'https://rainwatchermap.github.io',
@@ -253,6 +258,7 @@ export function GroupTimetable() {
         </P>
         <div className={`mt-12 grow flex justify-start items-end ${s.links}`}>
             <LinkList
+                className='max-w-full'
                 links={[
                     {
                         to: 'https://grouptimetable.github.io',
@@ -282,6 +288,7 @@ export function Lumafly() {
         </P>
         <div className={`mt-12 grow flex justify-start items-end ${s.links}`}>
             <LinkList
+                className='max-w-full'
                 links={[
                     {
                         to: 'https://github.com/vanaigr/LumaflyKnight',
@@ -318,6 +325,7 @@ export function Life() {
         </P>
         <div className={`mt-12 grow flex justify-start items-end ${s.links}`}>
             <LinkList
+                className='max-w-full'
                 links={[
                     {
                         to: 'https://github.com/vanaigr/gameOfLife',
@@ -341,6 +349,7 @@ export function Airline() {
         </P>
         <div className={`mt-12 grow flex justify-start items-end ${s.links}`}>
             <LinkList
+                className='max-w-full'
                 links={[
                     {
                         to: 'https://github.com/vanaigr/FlightReservation',
@@ -364,6 +373,7 @@ export function Easyword() {
         </P>
         <div className={`mt-12 grow flex justify-start items-end ${s.links}`}>
             <LinkList
+                className='max-w-full'
                 links={[
                     {
                         to: 'https://github.com/vanaigr/easyword.nvim',
@@ -424,6 +434,7 @@ export function ReactChallenge() {
             </Ul>
             <div className={`mt-12 grow flex justify-start items-end ${s.links}`}>
                 <LinkList
+                className='max-w-full'
                     links={[
                         {
                             to: 'https://github.com/vanaigr/production-order-scheduler',
@@ -460,6 +471,7 @@ export function Pulse() {
         </P>
         <div className={`mt-12 grow flex justify-start items-end ${s.links}`}>
             <LinkList
+                className='max-w-full'
                 links={[
                     {
                         to: 'https://oeeintellisuite.com/products/pulse/',
@@ -483,6 +495,7 @@ export function Substackdl() {
         </P>
         <div className={`mt-12 grow flex justify-start items-end ${s.links}`}>
             <LinkList
+                className='max-w-full'
                 links={[
                     {
                         to: 'https://github.com/vanaigr/substack-download',
