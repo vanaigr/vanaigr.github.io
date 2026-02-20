@@ -17,11 +17,6 @@
 
 .contactBody {
     & > * {
-        display: flex;
-        flex-direction: column;
-        max-width: 50rem;
-        gap: 1rem;
-
         & > .title {
             font-family: 'Lato';
             font-size: 1.5rem;
