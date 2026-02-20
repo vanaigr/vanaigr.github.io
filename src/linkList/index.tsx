@@ -45,7 +45,7 @@ function Item({ it }: { it: Link }) {
         <button
             type='button'
             className={
-                    'group/copy [background:none] [border:none] p-0 m-0 cursor-pointer flex text-(--primary-darker) [animation-duration:0.4s] [animation-timing-function:cubic-bezier(0.18,0.89,0.32,1.28)]'
+                    'group/copy [background:none] [border:none] p-0 m-0 cursor-pointer flex text-primary-darker [animation-duration:0.4s] [animation-timing-function:cubic-bezier(0.18,0.89,0.32,1.28)]'
                     + (copied === true ? ` [--anim-color:green] [animation-name:scaleAndColor]` : '')
                     + (copied === false ? ` [--anim-color:red] [animation-name:scaleAndColor]` : '')
             }
@@ -61,7 +61,7 @@ function Item({ it }: { it: Link }) {
                 }
             }}
         >
-            <div className='flex-1 px-2 flex items-center justify-center text-(--muted) opacity-50 transition-[transform,color,opacity] duration-100 group-hover/copy:text-inherit group-hover/copy:opacity-100'>
+            <div className='flex-1 px-2 flex items-center justify-center text-muted opacity-50 transition-[transform,color,opacity] duration-100 group-hover/copy:text-inherit group-hover/copy:opacity-100'>
                 <FontAwesomeIcon
                     className={'h-4'}
                     icon={faCopy}

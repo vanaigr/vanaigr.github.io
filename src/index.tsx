@@ -292,7 +292,11 @@ function btoa2(str: string) {
 
 function Category({ category }: { category: D.Category }) {
     return <div className='flex flex-col gap-4 sm:gap-2'>
-        <div className='font-Noto_Sans text-2xl pb-4 border-b border-b-gray-500'>{category.title}</div>
+        <div
+            className='font-Noto_Sans text-md uppercase text-gray-800'
+        >
+            {category.title}
+        </div>
         <div className='grid grid-cols-[repeat(3,1fr)] max-xl:grid-cols-[repeat(2,1fr)] gap-x-2 gap-y-4 max-sm:grid-cols-[1fr]'>
             {category.projects.map((it, i) => {
                 return <Card key={i} projectId={it}/>
@@ -541,7 +545,7 @@ function CloseIcon() {
 
 function Contact() {
     return <div
-        className={'grow bg-(--bg) flex justify-center min-w-max my-screen-animation'}
+        className={'grow flex justify-center min-w-max my-screen-animation'}
         style={animStyle('screen-contact')}
     >
         <div className={'flex flex-col max-w-[50rem] gap-4 [&>*]:[--gap:1.5rem!]'}>

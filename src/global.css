@@ -19,11 +19,6 @@ bc flex-basis is 0%, not 0. And they are different because css.
     flex-direction: column;
     overflow: hidden;
     background: var(--color-bg);
-
-    --primary: #3cb553;
-    --primary-darker: #0d641e;
-    --muted: #707070;
-    --bg:#fafafa;
 }
 
 body {
@@ -46,7 +41,7 @@ body {
     }
     &:hover > * {
         transform: translateY(-0.2rem);
-        color: var(--primary-darker);
+        color: var(--color-primary-darker);
     }
 }
 
@@ -58,7 +53,7 @@ body {
     }
     &:hover > * {
         transform: translateX(0.2rem);
-        color: var(--primary-darker);
+        color: var(--color-primary-darker);
     }
 }
 
@@ -70,7 +65,7 @@ body {
     }
     &:hover > * {
         transform: translateX(0.2rem);
-        color: var(--primary-darker);
+        color: var(--color-primary-darker);
     }
 }
 
