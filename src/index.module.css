@@ -13,11 +13,6 @@
 }
 
 .closeIcon {
-    & > * {
-        color: white;
-        width: 2rem;
-        opacity: 0.8;
-    }
 }
 
 .contactBody {
