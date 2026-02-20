@@ -9,9 +9,6 @@
     }
 
     & > .closeButton {
-        & > .closeIcon {
-            position: fixed;
-        }
     }
 }
 
