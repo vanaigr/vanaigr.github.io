@@ -502,7 +502,7 @@ function P({ children }: A) {
 }
 
 function Li({ children }: A) {
-    return <li className={s.li}>{children}</li>
+    return <li className='leading-6'>{children}</li>
 }
 
 function Ul({ children }: A) {
