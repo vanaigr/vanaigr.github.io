@@ -33,11 +33,6 @@
             & > .longDesc {
             }
             & > .inlineCloseButton {
-                & > .closeIcon {
-                    & > * {
-                        color: black;
-                    }
-                }
             }
             &.vertical {
                 flex-direction: column;
