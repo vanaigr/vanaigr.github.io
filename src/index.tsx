@@ -542,7 +542,7 @@ function CloseIcon() {
 
 function Contact() {
     return <div
-        className={s.contactBody + ' ' + s.screenAnimation}
+        className={s.contactBody + ' grow bg-(--bg) flex justify-center min-w-max ' + s.screenAnimation}
         style={animStyle('screen-contact')}
     >
         <div className={s.contactList}>

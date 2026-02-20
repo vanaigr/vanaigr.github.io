@@ -16,12 +16,6 @@
 }
 
 .contactBody {
-    flex-grow: 1;
-    background: var(--bg);
-    display: flex;
-    justify-content: center;
-    min-width: max-content;
-
     & > * {
         display: flex;
         flex-direction: column;
