@@ -1,10 +1,5 @@
 
 .externalItem {
-    & > .copy.copySuccess {
-        --anim-color: green;
-        animation-name: scaleAndColor;
-    }
-
     & > .copy.copyFail {
         --anim-color: red;
         animation-name: scaleAndColor;

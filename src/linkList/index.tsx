@@ -49,7 +49,7 @@ function Item({ it }: { it: Link }) {
             className={
                 s.copy
                     + ' group/copy [background:none] [border:none] p-0 m-0 cursor-pointer flex text-(--primary-darker) [animation-duration:0.4s] [animation-timing-function:cubic-bezier(0.18,0.89,0.32,1.28)]'
-                    + (copied === true ? ` ${s.copySuccess}` : '')
+                    + (copied === true ? ` ${s.copySuccess} [--anim-color:green] [animation-name:scaleAndColor]` : '')
                     + (copied === false ? ` ${s.copyFail}` : '')
             }
             onClick={async() => {
