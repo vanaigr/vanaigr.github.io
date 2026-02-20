@@ -6,10 +6,6 @@
         & > .inlineCloseButton {
         }
 
-        &.vertical > .video {
-            aspect-ratio: 9 / 18;
-            height: calc(100vh - 2rem);
-        }
     }
 
     & > .closeButton {
