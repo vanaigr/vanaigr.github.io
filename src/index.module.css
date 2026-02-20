@@ -37,7 +37,6 @@
             &.vertical {
             }
             &.vertical > .video {
-                height: unset;
             }
         }
     }
