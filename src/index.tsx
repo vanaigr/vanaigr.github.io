@@ -510,7 +510,7 @@ function Dialog({ close, isOpen, it, backgroundId }: DialogProps) {
                     className={'text-left hidden top-4 max-[50rem]:p-4 max-[50rem]:flex max-[50rem]:justify-end ' + s.inlineCloseButton}
                     onClick={close}
                 >
-                    <div className={s.closeIcon}>
+                    <div className={s.closeIcon + ' max-[50rem]:-m-8 max-[50rem]:p-8'}>
                         <CloseIcon/>
                     </div>
                 </button>

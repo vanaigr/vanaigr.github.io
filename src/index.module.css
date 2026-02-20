@@ -34,8 +34,6 @@
             }
             & > .inlineCloseButton {
                 & > .closeIcon {
-                    margin: -2rem;
-                    padding: 2rem;
                     & > * {
                         color: black;
                     }
