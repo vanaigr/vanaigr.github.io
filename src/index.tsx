@@ -143,7 +143,7 @@ function Wrapper({ children }: { children: R.ReactNode }) {
             '--side-width': '14rem',
         } as any}
     >
-        <div className='font-[Noto_Sans] leading-none text-[1.1rem] flex p-4 [--gap:--spacing(8)] gap-(--gap) mb-8 max-sm:flex-col max-sm:[--gap:--spacing(6)]'>
+        <div className='font-[Noto_Sans] leading-none flex p-4 [--gap:--spacing(8)] gap-(--gap) mb-8 max-sm:flex-col max-sm:[--gap:--spacing(6)]'>
             <div className='flex-1 flex max-sm:justify-center'>
                 <span>Artem Andrievskii</span>
             </div>
@@ -293,7 +293,7 @@ function btoa2(str: string) {
 function Category({ category }: { category: D.Category }) {
     return <div className='flex flex-col gap-4 sm:gap-2'>
         <div
-            className='font-Noto_Sans text-md px-4'
+            className='px-4'
         >
             {category.title}
         </div>
@@ -421,14 +421,14 @@ function Card({ projectId }: { projectId: D.ProjectId }) {
             }}
         >
             <div className='flex flex-col cursor-pointer relative'>
-                <div className='flex justify-center max-sm:mx-[calc((1rem+8px)*-1)]'>
+                <div className='flex justify-center max-sm:mx-[calc((1rem)*-1)]'>
                     {!isOpen &&
                         <div
                             className={'absolute inset-0 rounded-2xl my-item-animation'}
                             style={animStyle(fullBackgroundId)}
                         />
                     }
-                    <div className='flex flex-col rounded-2xl pt-8 px-4 pb-4 border-[0.3rem] border-transparent transform-[translateY(0)] bg-transparent [--dur:0.3s] [transition:transform_1s,border-color_1s,background_1s] group-hover:transform-[translateY(-0.2rem)]'>
+                    <div className='flex flex-col rounded-2xl p-4 border-[0.3rem] border-transparent transform-[translateY(0)] bg-transparent [--dur:0.3s] [transition:transform_1s,border-color_1s,background_1s] group-hover:transform-[translateY(-0.2rem)]'>
                         <div className='grid aspect-[16/9] rounded-[0.4rem] shadow-[0px_0px_0.4rem_0px_#00000005] w-64 max-sm:w-[calc(100vw-6rem)]'>
                             <img
                                 className='aspect-[16/9] row-start-1 col-start-1 rounded-[0.4rem] w-full h-full'
