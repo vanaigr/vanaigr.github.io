@@ -27,9 +27,6 @@
 
 @media (max-width: 50rem) {
     .dialogContainer {
-        & > .closeButton {
-            display: none;
-        }
         & > .content {
             width: unset;
             max-width: 100%;
