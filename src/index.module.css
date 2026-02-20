@@ -26,11 +26,6 @@
 }
 
 @media (max-width: 50rem) {
-    .header {
-        flex-direction: column;
-        --gap: 1.5rem;
-    }
-
     .body {
         flex-direction: column;
         align-items: center;
