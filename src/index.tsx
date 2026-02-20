@@ -136,7 +136,7 @@ function Wrapper({ children }: { children: R.ReactNode }) {
         timeZone: 'UTC',
     }) + ' UTC'
 
-    const headerLink = 'cursor-pointer -my-4 py-4 mx-[calc(var(--gap)*-0.5)] px-[calc(var(--gap)*0.5)] my-header-link'
+    const headerLink = 'cursor-pointer -my-4 py-4 mx-[calc(var(--gap)*-0.5)] px-[calc(var(--gap)*0.5)] my-header-link no-underline'
 
     return <div
         className='overflow-y-scroll flex flex-1 basis-0 flex-col text-black '
