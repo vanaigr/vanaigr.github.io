@@ -50,6 +50,18 @@ body {
     }
 }
 
+.my-list-link {
+    & > * {
+        transform: translateX(0px);
+        color: black;
+        transition: transform 0.1s, color 0.1s;
+    }
+    &:hover > * {
+        transform: translateX(0.2rem);
+        color: var(--primary-darker);
+    }
+}
+
 .my-order-link {
     & > * {
         transform: translateX(0px);

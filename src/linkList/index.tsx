@@ -74,7 +74,7 @@ function Item({ it }: { it: Link }) {
 }
 
 function External({ to, children }: { to: string, children: R.ReactNode }) {
-    return <a className={s.external + ' py-[calc(var(--gap)*0.5)] px-(--paddingHorizontal) ml-[calc(var(--paddingHorizontal)*-1)] pl-(--paddingHorizontal) flex flex-row flex-[1_1_0] text-inherit items-center gap-2 leading-none break-all'} href={to} target='_blank'>
+    return <a className={s.external + ' py-[calc(var(--gap)*0.5)] px-(--paddingHorizontal) ml-[calc(var(--paddingHorizontal)*-1)] pl-(--paddingHorizontal) flex flex-row flex-[1_1_0] text-inherit items-center gap-2 leading-none break-all my-list-link'} href={to} target='_blank'>
         {children}
     </a>
 }

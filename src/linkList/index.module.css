@@ -1,18 +1,5 @@
 
 .externalItem {
-    & > .external {
-        /*text-decoration: none;*/
-
-& > * {
-            transform: translateX(0px);
-            color: black;
-            transition: transform 0.1s, color 0.1s;
-        }
-        &:hover > * {
-            transform: translateX(0.2rem);
-            color: var(--primary-darker);
-        }
-    }
     & > .copy {
         background: none;
         border: none;
