@@ -33,13 +33,13 @@ function Item({ it }: { it: Link }) {
             <div className='flex gap-2'>
                 {brand &&
                     <FontAwesomeIcon
-                        className={s.icon}
+                        className={s.icon + ' h-[1.1rem] w-[1.1rem]'}
                         icon={brand}
                     />
                 }
                 {icon && (() => {
                     const Component = iconMap(icon)
-                    return <Component className={s.icon}/>
+                    return <Component className={s.icon + ' h-[1.1rem] w-[1.1rem]'}/>
                 })()}
                 <div>{text}</div>
             </div>

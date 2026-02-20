@@ -3,14 +3,7 @@
     & > .external {
         /*text-decoration: none;*/
 
-        & > * {
-            & > .icon {
-                height: 1.1rem;
-                width: 1.1rem;
-            }
-        }
-
-        & > * {
+& > * {
             transform: translateX(0px);
             color: black;
             transition: transform 0.1s, color 0.1s;
