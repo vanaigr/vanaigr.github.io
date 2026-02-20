@@ -42,13 +42,6 @@
     }
 }
 
-
-.preloadImage {
-    position: absolute;
-    width: 0px;
-    height: 0px;
-}
-
 .dialog[open] {
     &::backdrop {
         background: #000000a0;
