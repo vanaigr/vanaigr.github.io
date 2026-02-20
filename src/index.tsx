@@ -519,6 +519,7 @@ function Dialog({ close, isOpen, it, backgroundId }: DialogProps) {
                     style={{ ...(it.videoAspectRatio ? { aspectRatio: it.videoAspectRatio } : {}) }}
                 >
                     <iframe
+                        className='w-full h-full'
                         src={it.videoUrl}
                         title="YouTube video player"
                         frameBorder="0"
