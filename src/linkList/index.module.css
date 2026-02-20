@@ -1,19 +1,7 @@
 
 .externalItem {
     & > .external {
-        padding: calc(var(--gap) * 0.5) var(--paddingHorizontal);
-        margin-left: calc(var(--paddingHorizontal) * -1);
-        padding-left: var(--paddingHorizontal);
-
-        display: flex;
-        flex-direction: row;
-        flex: 1 1 0;
-        color: inherit;
-        align-items: center;
         /*text-decoration: none;*/
-        gap: 0.5rem;
-        line-height: 1;
-        word-break: break-all;
 
         & > * {
             display: flex;
