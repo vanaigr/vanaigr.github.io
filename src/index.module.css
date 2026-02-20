@@ -25,12 +25,6 @@
 .headerLink {
 }
 
-@media (max-width: 75rem) {
-    .dialogContainer > .content {
-        width: 40rem;
-    }
-}
-
 @media (max-width: 50rem) {
     .header {
         flex-direction: column;
