@@ -498,7 +498,7 @@ export function Substackdl() {
 type A = { children: R.ReactNode }
 
 function P({ children }: A) {
-    return <div className={s.p}>{children}</div>
+    return <div className="font-['Noto_sans'] my-2 mx-0">{children}</div>
 }
 
 function Li({ children }: A) {
