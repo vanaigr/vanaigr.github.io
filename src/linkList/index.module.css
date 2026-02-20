@@ -1,10 +1,7 @@
 .linkList {
-    display: flex;
-    flex-direction: column;
     --gap: 1rem;
     gap: var(--gap);
     padding: 0px calc(var(--gap) * 0.5);
-    font-family: Lato;
 }
 
 .externalItem {
