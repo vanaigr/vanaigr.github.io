@@ -2,17 +2,6 @@
 .externalItem {
     & > .copy {
         & > * {
-            flex: 1 1 0;
-            padding-left: 0.5rem;
-            padding-right: 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            color: var(--muted);
-            opacity: 0.5;
-            transition: transform 0.1s, color 0.1s, opacity 0.1s;
-
             & > .icon {
                 height: 1rem;
             }

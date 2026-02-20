@@ -64,7 +64,7 @@ function Item({ it }: { it: Link }) {
                 }
             }}
         >
-            <div>
+            <div className='flex-1 px-2 flex items-center justify-center text-(--muted) opacity-50 transition-[transform,color,opacity] duration-100'>
                 <FontAwesomeIcon
                     className={s.icon}
                     icon={faCopy}
