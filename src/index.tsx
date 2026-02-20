@@ -183,6 +183,7 @@ function Wrapper({ children }: { children: R.ReactNode }) {
             <div>
                 Source: <a
                     className='text-muted'
+                    target='_blank'
                     href='https://github.com/vanaigr/vanaigr.github.io'
                 >
                     github.com/vanaigr/vanaigr.github.io
