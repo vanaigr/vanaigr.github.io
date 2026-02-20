@@ -1,18 +1,6 @@
 
 .externalItem {
     & > .copy {
-        background: none;
-        border: none;
-        padding: 0px;
-        margin: 0px;
-
-        cursor: pointer;
-        display: flex;
-
-        color: var(--primary-darker);
-        animation-duration: 0.4s;
-        animation-timing-function: cubic-bezier(0.18, 0.89, 0.32, 1.28);
-
         & > * {
             flex: 1 1 0;
             padding-left: 0.5rem;
