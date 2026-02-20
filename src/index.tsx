@@ -545,7 +545,7 @@ function Contact() {
         className={s.contactBody + ' grow bg-(--bg) flex justify-center min-w-max ' + s.screenAnimation}
         style={animStyle('screen-contact')}
     >
-        <div className={s.contactList + ' flex flex-col max-w-[50rem] gap-4 [&>*]:[--gap:1.5rem]'}>
+        <div className={s.contactList + ' flex flex-col max-w-[50rem] gap-4 [&>*]:[--gap:1.5rem!]'}>
             <LinkList
                 links={[
                     {
