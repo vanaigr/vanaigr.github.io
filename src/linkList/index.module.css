@@ -1,8 +1,3 @@
-.linkList {
-    --gap: 1rem;
-    gap: var(--gap);
-    padding: 0px calc(var(--gap) * 0.5);
-}
 
 .externalItem {
     --paddingHorizontal: 0.5rem;

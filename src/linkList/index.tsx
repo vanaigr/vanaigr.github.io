@@ -17,7 +17,7 @@ export type Link = {
 }
 
 export default function C({ links }: { links: Link[] }) {
-    return <div className={s.linkList + ' flex flex-col font-[Lato]'}>
+    return <div className={s.linkList + ' flex flex-col font-[Lato] [--gap:1rem] gap-(--gap) px-[calc(var(--gap)*0.5)]'}>
         {links.map((it, i) => {
             return <Item key={i} it={it}/>
         })}
