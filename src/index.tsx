@@ -293,7 +293,7 @@ function btoa2(str: string) {
 function Category({ category }: { category: D.Category }) {
     return <div className='flex flex-col gap-4 sm:gap-2'>
         <div
-            className='font-Noto_Sans text-md uppercase text-gray-800'
+            className='font-Noto_Sans text-md px-4'
         >
             {category.title}
         </div>
