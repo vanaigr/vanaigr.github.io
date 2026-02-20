@@ -506,5 +506,5 @@ function Li({ children }: A) {
 }
 
 function Ul({ children }: A) {
-    return <ul className={s.ul}>{children}</ul>
+    return <ul className='my-[0.2rem] mx-0'>{children}</ul>
 }
