@@ -1,12 +1,6 @@
 
 .externalItem {
     & > .copy {
-        & > * {
-            & > .icon {
-                height: 1rem;
-            }
-        }
-
         &:hover > * {
             color: inherit;
             opacity: 1;
