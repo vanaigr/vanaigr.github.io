@@ -33,9 +33,6 @@
             & > .longDesc {
             }
             & > .inlineCloseButton {
-                padding: 1rem 1rem 1rem 1rem;
-                display: flex;
-                justify-content: flex-end;
                 & > .closeIcon {
                     margin: -2rem;
                     padding: 2rem;
