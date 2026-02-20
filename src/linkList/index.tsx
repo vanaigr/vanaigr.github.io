@@ -5,8 +5,6 @@ import { faCopy } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Globe, Mail } from 'lucide-react'
 
-import s from './index.module.css'
-
 export type IconName = 'globe' | 'mail'
 
 export type Link = {
@@ -17,7 +15,7 @@ export type Link = {
 }
 
 export default function C({ links, className }: { links: Link[], className?: string }) {
-    return <div className={s.linkList + ' flex flex-col font-[Lato] [--gap:1rem] gap-(--gap) px-[calc(var(--gap)*0.5)] ' + (className ?? '')}>
+    return <div className={'flex flex-col font-[Lato] [--gap:1rem] gap-(--gap) px-[calc(var(--gap)*0.5)] ' + (className ?? '')}>
         {links.map((it, i) => {
             return <Item key={i} it={it}/>
         })}
@@ -33,13 +31,13 @@ function Item({ it }: { it: Link }) {
             <div className='flex gap-2'>
                 {brand &&
                     <FontAwesomeIcon
-                        className={s.icon + ' h-[1.1rem] w-[1.1rem]'}
+                        className={'h-[1.1rem] w-[1.1rem]'}
                         icon={brand}
                     />
                 }
                 {icon && (() => {
                     const Component = iconMap(icon)
-                    return <Component className={s.icon + ' h-[1.1rem] w-[1.1rem]'}/>
+                    return <Component className={'h-[1.1rem] w-[1.1rem]'}/>
                 })()}
                 <div>{text}</div>
             </div>
@@ -47,10 +45,9 @@ function Item({ it }: { it: Link }) {
         <button
             type='button'
             className={
-                s.copy
-                    + ' group/copy [background:none] [border:none] p-0 m-0 cursor-pointer flex text-(--primary-darker) [animation-duration:0.4s] [animation-timing-function:cubic-bezier(0.18,0.89,0.32,1.28)]'
-                    + (copied === true ? ` ${s.copySuccess} [--anim-color:green] [animation-name:scaleAndColor]` : '')
-                    + (copied === false ? ` ${s.copyFail} [--anim-color:red] [animation-name:scaleAndColor]` : '')
+                    'group/copy [background:none] [border:none] p-0 m-0 cursor-pointer flex text-(--primary-darker) [animation-duration:0.4s] [animation-timing-function:cubic-bezier(0.18,0.89,0.32,1.28)]'
+                    + (copied === true ? ` [--anim-color:green] [animation-name:scaleAndColor]` : '')
+                    + (copied === false ? ` [--anim-color:red] [animation-name:scaleAndColor]` : '')
             }
             onClick={async() => {
                 RD.flushSync(() => setCopied(undefined))
@@ -66,7 +63,7 @@ function Item({ it }: { it: Link }) {
         >
             <div className='flex-1 px-2 flex items-center justify-center text-(--muted) opacity-50 transition-[transform,color,opacity] duration-100 group-hover/copy:text-inherit group-hover/copy:opacity-100'>
                 <FontAwesomeIcon
-                    className={s.icon + ' h-4'}
+                    className={'h-4'}
                     icon={faCopy}
                 />
             </div>
@@ -75,7 +72,7 @@ function Item({ it }: { it: Link }) {
 }
 
 function External({ to, children }: { to: string, children: R.ReactNode }) {
-    return <a className={s.external + ' py-[calc(var(--gap)*0.5)] px-(--paddingHorizontal) ml-[calc(var(--paddingHorizontal)*-1)] pl-(--paddingHorizontal) flex flex-row flex-[1_1_0] text-inherit items-center gap-2 leading-none break-all my-list-link'} href={to} target='_blank'>
+    return <a className={'py-[calc(var(--gap)*0.5)] px-(--paddingHorizontal) ml-[calc(var(--paddingHorizontal)*-1)] pl-(--paddingHorizontal) flex flex-row flex-[1_1_0] text-inherit items-center gap-2 leading-none break-all my-list-link'} href={to} target='_blank'>
         {children}
     </a>
 }

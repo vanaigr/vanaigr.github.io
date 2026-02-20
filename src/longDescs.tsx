@@ -1,5 +1,4 @@
 import R from 'react'
-import s from './longDescs.module.css'
 import LinkList from './linkList'
 import { faGithub, faApple } from '@fortawesome/free-brands-svg-icons'
 
@@ -32,7 +31,7 @@ export function Minceraft() {
             </Ul>
         </P>
 
-        <div className={`mt-12 grow flex justify-start items-end ${s.links}`}>
+        <div className={`mt-12 grow flex justify-start items-end`}>
             <LinkList
                 className='max-w-full'
                 links={[
@@ -81,7 +80,7 @@ export function Timeline() {
                 </Li>
             </Ul>
         </P>
-        <div className={`mt-12 grow flex justify-start items-end ${s.links}`}>
+        <div className={`mt-12 grow flex justify-start items-end`}>
             <LinkList
                 className='max-w-full'
                 links={[
@@ -129,7 +128,7 @@ export function DripApp() {
             The app is built with with Expo and React Native, and has a Node.js backend.
         </P>
 
-        <div className={`mt-12 grow flex justify-start items-end ${s.links}`}>
+        <div className={`mt-12 grow flex justify-start items-end`}>
             <LinkList
                 className='max-w-full'
                 links={[
@@ -176,7 +175,7 @@ export function Minishoot() {
                 </Li>
             </Ul>
         </P>
-        <div className={`mt-12 grow flex justify-start items-end ${s.links}`}>
+        <div className={`mt-12 grow flex justify-start items-end`}>
             <LinkList
                 className='max-w-full'
                 links={[
@@ -216,7 +215,7 @@ export function Rainwatcher() {
                 </Li>
             </Ul>
         </P>
-        <div className={`mt-12 grow flex justify-start items-end ${s.links}`}>
+        <div className={`mt-12 grow flex justify-start items-end`}>
             <LinkList
                 className='max-w-full'
                 links={[
@@ -256,7 +255,7 @@ export function GroupTimetable() {
                 </Li>
             </Ul>
         </P>
-        <div className={`mt-12 grow flex justify-start items-end ${s.links}`}>
+        <div className={`mt-12 grow flex justify-start items-end`}>
             <LinkList
                 className='max-w-full'
                 links={[
@@ -286,7 +285,7 @@ export function Lumafly() {
             The mod comes with a simple map website that helps players locate
             remaining Lumaflies.
         </P>
-        <div className={`mt-12 grow flex justify-start items-end ${s.links}`}>
+        <div className={`mt-12 grow flex justify-start items-end`}>
             <LinkList
                 className='max-w-full'
                 links={[
@@ -323,7 +322,7 @@ export function Life() {
                 </Li>
             </Ul>
         </P>
-        <div className={`mt-12 grow flex justify-start items-end ${s.links}`}>
+        <div className={`mt-12 grow flex justify-start items-end`}>
             <LinkList
                 className='max-w-full'
                 links={[
@@ -347,7 +346,7 @@ export function Airline() {
             Operators can view flights, search passangers and track attendance.
             The app is built with C# and Windows Forms, uses Windows Communication Foundation (WCF) for communication and SQL Server.
         </P>
-        <div className={`mt-12 grow flex justify-start items-end ${s.links}`}>
+        <div className={`mt-12 grow flex justify-start items-end`}>
             <LinkList
                 className='max-w-full'
                 links={[
@@ -371,7 +370,7 @@ export function Easyword() {
             allowing to recover quickly from mistyped keys. It also supports customizable key-to-character mappings,
             useful for jumping in files in different languages or alphabets.
         </P>
-        <div className={`mt-12 grow flex justify-start items-end ${s.links}`}>
+        <div className={`mt-12 grow flex justify-start items-end`}>
             <LinkList
                 className='max-w-full'
                 links={[
@@ -432,7 +431,7 @@ export function ReactChallenge() {
                     Wrote Dockerfile to run the application in the container.
                 </Li>
             </Ul>
-            <div className={`mt-12 grow flex justify-start items-end ${s.links}`}>
+            <div className={`mt-12 grow flex justify-start items-end`}>
                 <LinkList
                 className='max-w-full'
                     links={[
@@ -469,7 +468,7 @@ export function Pulse() {
                 </Li>
             </Ul>
         </P>
-        <div className={`mt-12 grow flex justify-start items-end ${s.links}`}>
+        <div className={`mt-12 grow flex justify-start items-end`}>
             <LinkList
                 className='max-w-full'
                 links={[
@@ -493,7 +492,7 @@ export function Substackdl() {
         <P>
             Not broken and slow, like the substack website.
         </P>
-        <div className={`mt-12 grow flex justify-start items-end ${s.links}`}>
+        <div className={`mt-12 grow flex justify-start items-end`}>
             <LinkList
                 className='max-w-full'
                 links={[

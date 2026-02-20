@@ -125,7 +125,7 @@ from {
     :root {
         view-transition-name: none;
     }
-    .itemAnimation {
+    .my-item-animation {
         view-transition-class: item;
         view-transition-name: var(--viewTransitionName);
     }
@@ -135,7 +135,7 @@ from {
     :root {
         view-transition-name: none;
     }
-    .screenAnimation {
+    .my-screen-animation {
         view-transition-class: screen;
         view-transition-name: var(--viewTransitionName);
     }

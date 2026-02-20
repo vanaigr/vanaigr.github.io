@@ -7,7 +7,6 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 
 import '@/global.css'
-import s from './index.module.css'
 import * as D from './data'
 import LinkList from './linkList'
 
@@ -195,7 +194,7 @@ function Wrapper({ children }: { children: R.ReactNode }) {
 
 function App() {
     return <div
-        className='flex flex-1 basis-0 max-xl:flex-col max-xl:items-center max-xl:gap-20 max-sm:items-stretch'
+        className='flex flex-1 basis-0 max-xl:flex-col max-xl:items-center max-xl:gap-20 max-sm:items-stretch my-screen-animation'
         style={animStyle('screen-index')}
     >
         <div className='max-xl:hidden basis-(--side-width)'/>
@@ -268,13 +267,13 @@ function OrderItem({ projectId }: { projectId: D.ProjectId }) {
             <div className='fixed inset-0 flex justify-center items-center pointer-events-none'>
                 <div className='relative w-80 h-120'>
                     <div
-                        className={'absolute inset-0 rounded-2xl ' + s.itemAnimation}
+                        className={'absolute inset-0 rounded-2xl my-item-animation'}
                         style={animStyle(fullBackgroundId)}
                     />
                 </div>
             </div>
         }
-        <dialog className={s.dialog + ' open:[background:none] open:border-0 [&[open]::backdrop]:bg-[#000000a0] [&[open]:modal]:w-full [&[open]:modal]:h-full [&[open]:modal]:max-w-none [&[open]:modal]:max-h-none [&[open]:modal]:p-0 [&[open]:modal]:overflow-y-scroll [&[open]:modal]:overflow-x-auto'} ref={dialogRef}>
+        <dialog className={'open:[background:none] open:border-0 [&[open]::backdrop]:bg-[#000000a0] [&[open]:modal]:w-full [&[open]:modal]:h-full [&[open]:modal]:max-w-none [&[open]:modal]:max-h-none [&[open]:modal]:p-0 [&[open]:modal]:overflow-y-scroll [&[open]:modal]:overflow-x-auto'} ref={dialogRef}>
             <Dialog
                 it={it}
                 backgroundId={fullBackgroundId}
@@ -420,11 +419,11 @@ function Card({ projectId }: { projectId: D.ProjectId }) {
                 <div className='flex justify-center max-sm:mx-[calc((1rem+8px)*-1)]'>
                     {!isOpen &&
                         <div
-                            className={'absolute inset-0 rounded-2xl ' + s.itemAnimation}
+                            className={'absolute inset-0 rounded-2xl my-item-animation'}
                             style={animStyle(fullBackgroundId)}
                         />
                     }
-                    <div className='flex flex-col rounded-2xl pt-8 px-4 pb-4 border-[0.3rem] border-transparent translate-y-0 bg-transparent [--dur:0.3s] [transition:transform_var(--dur),border-color_var(--dur),background_var(--dur)] group-hover:-translate-y-[0.2rem]'>
+                    <div className='flex flex-col rounded-2xl pt-8 px-4 pb-4 border-[0.3rem] border-transparent transform-[translateY(0)] bg-transparent [--dur:0.3s] [transition:transform_1s,border-color_1s,background_1s] group-hover:transform-[translateY(-0.2rem)]'>
                         <div className='grid aspect-[16/9] rounded-[0.4rem] shadow-[0px_0px_0.4rem_0px_#00000005] w-64 max-sm:w-[calc(100vw-6rem)]'>
                             <img
                                 className='aspect-[16/9] row-start-1 col-start-1 rounded-[0.4rem] w-full h-full'
@@ -457,7 +456,7 @@ function Card({ projectId }: { projectId: D.ProjectId }) {
             But onClick bubbles and the dialog reopens itself 🤡
         */}
         <dialog
-            className={s.dialog + ' open:[background:none] open:border-0 [&[open]::backdrop]:bg-[#000000a0] [&[open]:modal]:w-full [&[open]:modal]:h-full [&[open]:modal]:max-w-none [&[open]:modal]:max-h-none [&[open]:modal]:p-0 [&[open]:modal]:overflow-y-scroll [&[open]:modal]:overflow-x-auto'}
+            className={'open:[background:none] open:border-0 [&[open]::backdrop]:bg-[#000000a0] [&[open]:modal]:w-full [&[open]:modal]:h-full [&[open]:modal]:max-w-none [&[open]:modal]:max-h-none [&[open]:modal]:p-0 [&[open]:modal]:overflow-y-scroll [&[open]:modal]:overflow-x-auto'}
             ref={it => {
                 dialogRef.current = it
                 if(it && it.open !== isOpen) {
@@ -484,38 +483,37 @@ type DialogProps = {
 }
 function Dialog({ close, isOpen, it, backgroundId }: DialogProps) {
     return <div
-        className={s.dialogContainer + ' w-full min-h-full flex flex-col items-center'}
+        className={'w-full min-h-full flex flex-col items-center'}
     >
         <div
             onClick={close}
             style={{ position: 'absolute', inset: '0px', cursor: 'pointer' }}
         />
-        <div className={s.closeButton + ' pointer-events-none absolute right-0 top-0 py-4 px-12 max-[50rem]:hidden'}>
-            <button type='button' className={'text-left fixed ' + s.closeIcon}>
+        <div className={'pointer-events-none absolute right-0 top-0 py-4 px-12 max-[50rem]:hidden'}>
+            <button type='button' className='text-left fixed' onClick={close}>
                 <CloseIcon/>
             </button>
         </div>
         {isOpen &&
             <div
                 className={
-                    s.content
-                        + ' relative w-[max(60rem,66%)] max-[75rem]:w-[40rem] max-w-[calc(100%-2rem)] max-[50rem]:w-[unset] max-[50rem]:max-w-full max-[50rem]:rounded-none max-[50rem]:m-0 grow my-4 rounded-[1rem] overflow-hidden bg-white flex flex-col'
-                        + ' ' + (it.videoVertical ? s.vertical + ' flex-row max-[50rem]:flex-col' : '')
-                        + ' ' + s.itemAnimation
+                        'relative w-[max(60rem,66%)] max-[75rem]:w-[40rem] max-w-[calc(100%-2rem)] max-[50rem]:w-[unset] max-[50rem]:max-w-full max-[50rem]:rounded-none max-[50rem]:m-0 grow my-4 rounded-[1rem] overflow-hidden bg-white flex flex-col'
+                        + ' ' + (it.videoVertical ? 'flex-row max-[50rem]:flex-col' : '')
+                        + ' my-item-animation'
                 }
                 style={animStyle(backgroundId)}
             >
                 <button
                     type='button'
-                    className={'text-left hidden top-4 max-[50rem]:p-4 max-[50rem]:flex max-[50rem]:justify-end ' + s.inlineCloseButton}
+                    className={'text-left hidden top-4 max-[50rem]:p-4 max-[50rem]:flex max-[50rem]:justify-end'}
                     onClick={close}
                 >
-                    <div className={s.closeIcon + ' max-[50rem]:-m-8 max-[50rem]:p-8 max-[50rem]:[&>*]:text-black'}>
+                    <div className={'max-[50rem]:-m-8 max-[50rem]:p-8 max-[50rem]:[&>*]:text-black'}>
                         <CloseIcon/>
                     </div>
                 </button>
                 <div
-                    className={s.video + ' max-[50rem]:my-0 max-[50rem]:mx-4' + (it.videoVertical ? ' aspect-[9/18] h-[calc(100vh-2rem)] max-[50rem]:h-[unset]' : ' aspect-video')}
+                    className={'max-[50rem]:my-0 max-[50rem]:mx-4' + (it.videoVertical ? ' aspect-[9/18] h-[calc(100vh-2rem)] max-[50rem]:h-[unset]' : ' aspect-video')}
                     style={{ ...(it.videoAspectRatio ? { aspectRatio: it.videoAspectRatio } : {}) }}
                 >
                     <iframe
@@ -528,7 +526,7 @@ function Dialog({ close, isOpen, it, backgroundId }: DialogProps) {
                         allowFullScreen
                     />
                 </div>
-                <div className={s.longDesc + ' grow m-8 max-[50rem]:grow max-[50rem]:m-4 font-[Noto_Sans] flex flex-col'}>{it.longDesc && <it.longDesc/>}</div>
+                <div className={'grow m-8 max-[50rem]:grow max-[50rem]:m-4 font-[Noto_Sans] flex flex-col'}>{it.longDesc && <it.longDesc/>}</div>
             </div>
         }
     </div>
@@ -542,10 +540,10 @@ function CloseIcon() {
 
 function Contact() {
     return <div
-        className={s.contactBody + ' grow bg-(--bg) flex justify-center min-w-max ' + s.screenAnimation}
+        className={'grow bg-(--bg) flex justify-center min-w-max my-screen-animation'}
         style={animStyle('screen-contact')}
     >
-        <div className={s.contactList + ' flex flex-col max-w-[50rem] gap-4 [&>*]:[--gap:1.5rem!]'}>
+        <div className={'flex flex-col max-w-[50rem] gap-4 [&>*]:[--gap:1.5rem!]'}>
             <LinkList
                 links={[
                     {
