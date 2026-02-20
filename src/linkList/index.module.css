@@ -1,12 +1,5 @@
 
 .externalItem {
-    & > .copy {
-        &:hover > * {
-            color: inherit;
-            opacity: 1;
-        }
-    }
-
     & > .copy.copySuccess {
         --anim-color: green;
         animation-name: scaleAndColor;

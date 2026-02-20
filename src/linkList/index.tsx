@@ -48,7 +48,7 @@ function Item({ it }: { it: Link }) {
             type='button'
             className={
                 s.copy
-                    + ' [background:none] [border:none] p-0 m-0 cursor-pointer flex text-(--primary-darker) [animation-duration:0.4s] [animation-timing-function:cubic-bezier(0.18,0.89,0.32,1.28)]'
+                    + ' group/copy [background:none] [border:none] p-0 m-0 cursor-pointer flex text-(--primary-darker) [animation-duration:0.4s] [animation-timing-function:cubic-bezier(0.18,0.89,0.32,1.28)]'
                     + (copied === true ? ` ${s.copySuccess}` : '')
                     + (copied === false ? ` ${s.copyFail}` : '')
             }
@@ -64,7 +64,7 @@ function Item({ it }: { it: Link }) {
                 }
             }}
         >
-            <div className='flex-1 px-2 flex items-center justify-center text-(--muted) opacity-50 transition-[transform,color,opacity] duration-100'>
+            <div className='flex-1 px-2 flex items-center justify-center text-(--muted) opacity-50 transition-[transform,color,opacity] duration-100 group-hover/copy:text-inherit group-hover/copy:opacity-100'>
                 <FontAwesomeIcon
                     className={s.icon + ' h-4'}
                     icon={faCopy}
