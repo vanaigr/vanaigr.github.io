@@ -1,17 +1,5 @@
 .dialogContainer {
     & > .content {
-        position: relative;
-        width: max(60rem, 66%);
-        max-width: calc(100% - 2rem);
-
-        flex-grow: 1;
-        margin: 1rem 0rem;
-        border-radius: 1rem;
-        overflow: hidden;
-        background: white;
-        display: flex;
-        flex-direction: column;
-
         & > .longDesc {
             flex-grow: 1;
             margin: 2rem 2rem;

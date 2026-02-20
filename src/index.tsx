@@ -499,6 +499,7 @@ function Dialog({ close, isOpen, it, backgroundId }: DialogProps) {
             <div
                 className={
                     s.content
+                        + ' relative w-[max(60rem,66%)] max-w-[calc(100%-2rem)] grow my-4 rounded-[1rem] overflow-hidden bg-white flex flex-col'
                         + ' ' + (it.videoVertical ? s.vertical : '')
                         + ' ' + s.itemAnimation
                 }
