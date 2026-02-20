@@ -182,7 +182,7 @@ function Wrapper({ children }: { children: R.ReactNode }) {
             <div>Generated {gen}</div>
             <div>
                 Source: <a
-                    className='text-muted'
+                    className='text-muted underline'
                     target='_blank'
                     href='https://github.com/vanaigr/vanaigr.github.io'
                 >
