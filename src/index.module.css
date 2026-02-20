@@ -1,12 +1,6 @@
 .dialogContainer {
     & > .content {
-        & > .longDesc {
-            flex-grow: 1;
-            margin: 2rem 2rem;
-            font-family: 'Noto Sans';
-            display: flex;
-            flex-direction: column;
-        }
+
         & > .video {
             aspect-ratio: 16 / 9;
             & > * {

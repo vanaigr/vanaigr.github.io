@@ -527,7 +527,7 @@ function Dialog({ close, isOpen, it, backgroundId }: DialogProps) {
                         allowFullScreen
                     />
                 </div>
-                <div className={s.longDesc}>{it.longDesc && <it.longDesc/>}</div>
+                <div className={s.longDesc + ' grow m-8 font-[Noto_Sans] flex flex-col'}>{it.longDesc && <it.longDesc/>}</div>
             </div>
         }
     </div>
