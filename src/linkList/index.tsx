@@ -28,7 +28,7 @@ function Item({ it }: { it: Link }) {
     const [copied, setCopied] = R.useState<boolean | undefined>(undefined)
 
     const { to, brand, icon, text } = it
-    return <div className={s.externalItem}>
+    return <div className={s.externalItem + ' [--paddingHorizontal:0.5rem] my-[calc(var(--gap)*-0.5)] mx-[calc(var(--paddingHorizontal)*-1)] flex flex-row'}>
         <External to={to}>
             <div>
                 {brand &&

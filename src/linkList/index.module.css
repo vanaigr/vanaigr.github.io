@@ -1,11 +1,5 @@
 
 .externalItem {
-    --paddingHorizontal: 0.5rem;
-    margin: calc(var(--gap) * -0.5) calc(var(--paddingHorizontal) * -1);
-
-    display: flex;
-    flex-direction: row;
-
     & > .external {
         padding: calc(var(--gap) * 0.5) var(--paddingHorizontal);
         margin-left: calc(var(--paddingHorizontal) * -1);
