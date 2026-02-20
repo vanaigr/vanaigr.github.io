@@ -30,7 +30,7 @@ function Item({ it }: { it: Link }) {
     const { to, brand, icon, text } = it
     return <div className={s.externalItem + ' [--paddingHorizontal:0.5rem] my-[calc(var(--gap)*-0.5)] mx-[calc(var(--paddingHorizontal)*-1)] flex flex-row'}>
         <External to={to}>
-            <div>
+            <div className='flex gap-2'>
                 {brand &&
                     <FontAwesomeIcon
                         className={s.icon}
