@@ -1,11 +1,4 @@
 
-.externalItem {
-    & > .copy.copyFail {
-        --anim-color: red;
-        animation-name: scaleAndColor;
-    }
-}
-
 @keyframes scaleAndColor {
 0% {
     transform: scale(1);

@@ -28,7 +28,7 @@ function Item({ it }: { it: Link }) {
     const [copied, setCopied] = R.useState<boolean | undefined>(undefined)
 
     const { to, brand, icon, text } = it
-    return <div className={s.externalItem + ' [--paddingHorizontal:0.5rem] my-[calc(var(--gap)*-0.5)] mx-[calc(var(--paddingHorizontal)*-1)] flex flex-row'}>
+    return <div className={'[--paddingHorizontal:0.5rem] my-[calc(var(--gap)*-0.5)] mx-[calc(var(--paddingHorizontal)*-1)] flex flex-row'}>
         <External to={to}>
             <div className='flex gap-2'>
                 {brand &&
@@ -50,7 +50,7 @@ function Item({ it }: { it: Link }) {
                 s.copy
                     + ' group/copy [background:none] [border:none] p-0 m-0 cursor-pointer flex text-(--primary-darker) [animation-duration:0.4s] [animation-timing-function:cubic-bezier(0.18,0.89,0.32,1.28)]'
                     + (copied === true ? ` ${s.copySuccess} [--anim-color:green] [animation-name:scaleAndColor]` : '')
-                    + (copied === false ? ` ${s.copyFail}` : '')
+                    + (copied === false ? ` ${s.copyFail} [--anim-color:red] [animation-name:scaleAndColor]` : '')
             }
             onClick={async() => {
                 RD.flushSync(() => setCopied(undefined))
