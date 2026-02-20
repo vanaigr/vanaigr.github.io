@@ -32,7 +32,7 @@ export function Minceraft() {
             </Ul>
         </P>
 
-        <div className={s.links}>
+        <div className={`mt-12 grow flex justify-start items-end ${s.links}`}>
             <LinkList
                 links={[
                     {
@@ -80,7 +80,7 @@ export function Timeline() {
                 </Li>
             </Ul>
         </P>
-        <div className={s.links}>
+        <div className={`mt-12 grow flex justify-start items-end ${s.links}`}>
             <LinkList
                 links={[
                     {
@@ -127,7 +127,7 @@ export function DripApp() {
             The app is built with with Expo and React Native, and has a Node.js backend.
         </P>
 
-        <div className={s.links}>
+        <div className={`mt-12 grow flex justify-start items-end ${s.links}`}>
             <LinkList
                 links={[
                     {
@@ -173,7 +173,7 @@ export function Minishoot() {
                 </Li>
             </Ul>
         </P>
-        <div className={s.links}>
+        <div className={`mt-12 grow flex justify-start items-end ${s.links}`}>
             <LinkList
                 links={[
                     {
@@ -212,7 +212,7 @@ export function Rainwatcher() {
                 </Li>
             </Ul>
         </P>
-        <div className={s.links}>
+        <div className={`mt-12 grow flex justify-start items-end ${s.links}`}>
             <LinkList
                 links={[
                     {
@@ -251,7 +251,7 @@ export function GroupTimetable() {
                 </Li>
             </Ul>
         </P>
-        <div className={s.links}>
+        <div className={`mt-12 grow flex justify-start items-end ${s.links}`}>
             <LinkList
                 links={[
                     {
@@ -280,7 +280,7 @@ export function Lumafly() {
             The mod comes with a simple map website that helps players locate
             remaining Lumaflies.
         </P>
-        <div className={s.links}>
+        <div className={`mt-12 grow flex justify-start items-end ${s.links}`}>
             <LinkList
                 links={[
                     {
@@ -316,7 +316,7 @@ export function Life() {
                 </Li>
             </Ul>
         </P>
-        <div className={s.links}>
+        <div className={`mt-12 grow flex justify-start items-end ${s.links}`}>
             <LinkList
                 links={[
                     {
@@ -339,7 +339,7 @@ export function Airline() {
             Operators can view flights, search passangers and track attendance.
             The app is built with C# and Windows Forms, uses Windows Communication Foundation (WCF) for communication and SQL Server.
         </P>
-        <div className={s.links}>
+        <div className={`mt-12 grow flex justify-start items-end ${s.links}`}>
             <LinkList
                 links={[
                     {
@@ -362,7 +362,7 @@ export function Easyword() {
             allowing to recover quickly from mistyped keys. It also supports customizable key-to-character mappings,
             useful for jumping in files in different languages or alphabets.
         </P>
-        <div className={s.links}>
+        <div className={`mt-12 grow flex justify-start items-end ${s.links}`}>
             <LinkList
                 links={[
                     {
@@ -422,7 +422,7 @@ export function ReactChallenge() {
                     Wrote Dockerfile to run the application in the container.
                 </Li>
             </Ul>
-            <div className={s.links}>
+            <div className={`mt-12 grow flex justify-start items-end ${s.links}`}>
                 <LinkList
                     links={[
                         {
@@ -458,7 +458,7 @@ export function Pulse() {
                 </Li>
             </Ul>
         </P>
-        <div className={s.links}>
+        <div className={`mt-12 grow flex justify-start items-end ${s.links}`}>
             <LinkList
                 links={[
                     {
@@ -481,7 +481,7 @@ export function Substackdl() {
         <P>
             Not broken and slow, like the substack website.
         </P>
-        <div className={s.links}>
+        <div className={`mt-12 grow flex justify-start items-end ${s.links}`}>
             <LinkList
                 links={[
                     {
