@@ -204,7 +204,7 @@ function App() {
                 return <Category key={i} category={it}/>
             })}
         </div>
-        <div className='flex flex-col xl:min-w-(--side-width) xl:w-(--side-width) font-[Roboto_Condensed] px-2 pb-8'>
+        <div className='flex flex-col xl:min-w-(--side-width) xl:w-(--side-width) max-xl:items-center font-[Roboto_Condensed] px-2 pb-8'>
             <OrderMenu/>
         </div>
     </div>
