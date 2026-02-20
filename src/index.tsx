@@ -490,7 +490,7 @@ function Dialog({ close, isOpen, it, backgroundId }: DialogProps) {
             onClick={close}
             style={{ position: 'absolute', inset: '0px', cursor: 'pointer' }}
         />
-        <div className={s.closeButton}>
+        <div className={s.closeButton + ' pointer-events-none absolute right-0 top-0 py-4 px-12'}>
             <button type='button' className={'text-left ' + s.closeIcon}>
                 <CloseIcon/>
             </button>

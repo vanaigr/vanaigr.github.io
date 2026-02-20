@@ -13,11 +13,6 @@
     }
 
     & > .closeButton {
-        pointer-events: none;
-        position: absolute;
-        right: 0;
-        top: 0;
-        padding: 1rem 3rem;
         & > .closeIcon {
             position: fixed;
         }
