@@ -43,9 +43,6 @@
 }
 
 .dialog[open] {
-    &::backdrop {
-        background: #000000a0;
-    }
     &:modal {
         width: 100%;
         height: 100%;
