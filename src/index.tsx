@@ -274,7 +274,7 @@ function OrderItem({ projectId }: { projectId: D.ProjectId }) {
                 </div>
             </div>
         }
-        <dialog className={s.dialog + ' open:[background:none] open:border-0 [&[open]::backdrop]:bg-[#000000a0]'} ref={dialogRef}>
+        <dialog className={s.dialog + ' open:[background:none] open:border-0 [&[open]::backdrop]:bg-[#000000a0] [&[open]:modal]:w-full [&[open]:modal]:h-full [&[open]:modal]:max-w-none [&[open]:modal]:max-h-none [&[open]:modal]:p-0 [&[open]:modal]:overflow-y-scroll [&[open]:modal]:overflow-x-auto'} ref={dialogRef}>
             <Dialog
                 it={it}
                 backgroundId={fullBackgroundId}
@@ -457,7 +457,7 @@ function Card({ projectId }: { projectId: D.ProjectId }) {
             But onClick bubbles and the dialog reopens itself 🤡
         */}
         <dialog
-            className={s.dialog + ' open:[background:none] open:border-0 [&[open]::backdrop]:bg-[#000000a0]'}
+            className={s.dialog + ' open:[background:none] open:border-0 [&[open]::backdrop]:bg-[#000000a0] [&[open]:modal]:w-full [&[open]:modal]:h-full [&[open]:modal]:max-w-none [&[open]:modal]:max-h-none [&[open]:modal]:p-0 [&[open]:modal]:overflow-y-scroll [&[open]:modal]:overflow-x-auto'}
             ref={it => {
                 dialogRef.current = it
                 if(it && it.open !== isOpen) {
