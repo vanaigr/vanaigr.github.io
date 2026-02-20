@@ -8,8 +8,6 @@
             }
         }
         & > .inlineCloseButton {
-            display: none;
-            top: 1rem;
         }
 
         &.vertical {

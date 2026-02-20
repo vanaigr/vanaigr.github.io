@@ -507,7 +507,7 @@ function Dialog({ close, isOpen, it, backgroundId }: DialogProps) {
             >
                 <button
                     type='button'
-                    className={'text-left ' + s.inlineCloseButton}
+                    className={'text-left hidden top-4 ' + s.inlineCloseButton}
                     onClick={close}
                 >
                     <div className={s.closeIcon}>
