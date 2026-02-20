@@ -4,7 +4,7 @@ import LinkList from './linkList'
 import { faGithub, faApple } from '@fortawesome/free-brands-svg-icons'
 
 export function Minceraft() {
-    return <div className={s.desc}>
+    return <div className='grow flex flex-col'>
         <P>
             MinceraftClone is a Minecraft-inspired C++, OpenGL & CMake game that uses ray tracing
             {' for'} rendering.
@@ -47,7 +47,7 @@ export function Minceraft() {
 }
 
 export function Timeline() {
-    return <div className={s.desc}>
+    return <div className='grow flex flex-col'>
         <P>
             A job scheduling system that enables users to manage and optimize
             job assignments across multiple production devices.
@@ -95,7 +95,7 @@ export function Timeline() {
 }
 
 export function DripApp() {
-    return <div className={s.desc}>
+    return <div className='grow flex flex-col'>
         <P>
             A mobile app for tracking hydration levels and receiving personalized
             insights. Enables users to log drinks and view their forecasted hydration
@@ -147,7 +147,7 @@ export function DripApp() {
 }
 
 export function Minishoot() {
-    return <div className={s.desc}>
+    return <div className='grow flex flex-col'>
         <P>
             The most comprehensive map of{' '}
             <a href='https://store.steampowered.com/app/1634860/Minishoot_Adventures/'>
@@ -193,7 +193,7 @@ export function Minishoot() {
 }
 
 export function Rainwatcher() {
-    return <div className={s.desc}>
+    return <div className='grow flex flex-col'>
         <P>
             First interactive map of{' '}
             <a href='https://store.steampowered.com/app/2857120/Rain_World_The_Watcher/'>
@@ -232,7 +232,7 @@ export function Rainwatcher() {
 }
 
 export function GroupTimetable() {
-    return <div className={s.desc}>
+    return <div className='grow flex flex-col'>
         <P>
             A scheduling website for students at my former university.
             Allows users to upload the university’s shared schedule PDF,
@@ -271,7 +271,7 @@ export function GroupTimetable() {
 }
 
 export function Lumafly() {
-    return <div className={s.desc}>
+    return <div className='grow flex flex-col'>
         <P>
             <a href='https://store.steampowered.com/app/367520/Hollow_Knight/'>
                 Hollow Knight
@@ -300,7 +300,7 @@ export function Lumafly() {
 }
 
 export function Life() {
-    return <div className={s.desc}>
+    return <div className='grow flex flex-col'>
         <P>
             High-performance implementation of Conway's Game of Life, built with C++, OpenGL, and CMake. Can simulate ~2.5 billion cells per second on a single core.
         </P>
@@ -331,7 +331,7 @@ export function Life() {
 }
 
 export function Airline() {
-    return <div className={s.desc}>
+    return <div className='grow flex flex-col'>
         <P>
             Client-server flight reservation application.
             Users can search flights, pick seats, choose extras, book tickets, view
@@ -354,7 +354,7 @@ export function Airline() {
 }
 
 export function Easyword() {
-    return <div className={s.desc}>
+    return <div className='grow flex flex-col'>
         <P>
             Neovim plugin that lets you jump to any word on the screen in just a few keystrokes.
             Unlike similar plugins such as <a href='https://github.com/justinmk/vim-sneak'>vim-sneak</a>
@@ -377,7 +377,7 @@ export function Easyword() {
 }
 
 export function Uniboard() {
-    return <div className={s.desc}>
+    return <div className='grow flex flex-col'>
         <P>
             Android app (Java & Kotlin) for building fully customizable keyboards.
         </P>
@@ -399,7 +399,7 @@ export function Uniboard() {
 }
 
 export function ReactChallenge() {
-    return <div className={s.desc}>
+    return <div className='grow flex flex-col'>
         <P>
             Web app for managing production orders.
             Allows users to manage equipment and maintenance records.
@@ -438,7 +438,7 @@ export function ReactChallenge() {
 }
 
 export function Pulse() {
-    return <div className={s.desc}>
+    return <div className='grow flex flex-col'>
         <P>
             Web application for visualizing real-time output from multiple production
             lines, with configure alerts for various production states.
@@ -473,7 +473,7 @@ export function Pulse() {
 }
 
 export function Substackdl() {
-    return <div className={s.desc}>
+    return <div className='grow flex flex-col'>
         <P>
             Node.js + TypeScript scripts for downloading Substack articles,
             attached images, podcasts and videos, and converting them to markdown.
