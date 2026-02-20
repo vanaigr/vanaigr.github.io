@@ -31,8 +31,6 @@
             & > .video {
             }
             & > .longDesc {
-                flex-grow: 1;
-                margin: 1rem;
             }
             & > .inlineCloseButton {
                 padding: 1rem 1rem 1rem 1rem;
