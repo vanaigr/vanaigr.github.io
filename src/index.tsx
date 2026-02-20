@@ -515,7 +515,7 @@ function Dialog({ close, isOpen, it, backgroundId }: DialogProps) {
                     </div>
                 </button>
                 <div
-                    className={s.video + (it.videoVertical ? ' aspect-[9/18] h-[calc(100vh-2rem)]' : ' aspect-video')}
+                    className={s.video + ' max-[50rem]:my-0 max-[50rem]:mx-4' + (it.videoVertical ? ' aspect-[9/18] h-[calc(100vh-2rem)]' : ' aspect-video')}
                     style={{ ...(it.videoAspectRatio ? { aspectRatio: it.videoAspectRatio } : {}) }}
                 >
                     <iframe

@@ -29,7 +29,6 @@
     .dialogContainer {
         & > .content {
             & > .video {
-                margin: 0px 1rem;
             }
             & > .longDesc {
                 flex-grow: 1;
